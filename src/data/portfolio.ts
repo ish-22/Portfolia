@@ -15,11 +15,9 @@ export const profile = {
     "Full-Stack Software Developer building scalable, secure, and user-focused digital solutions.",
   bio: "I specialize in modern web applications, business management systems, responsive user interfaces, and complete software solutions across frontend, backend, and database technologies.",
   about: [
-    "I am a dedicated and results-driven Full-Stack Software Developer with a strong passion for building scalable, secure, and user-focused digital solutions. I specialize in developing modern web applications, business management systems, and responsive user interfaces using advanced frontend and backend technologies.",
-    "My expertise includes full-stack development with Next.js, React.js, TypeScript, JavaScript, Node.js, Express.js, PHP, and Laravel, along with database technologies such as MySQL, MongoDB, and SQLite. I have experience designing and developing complete software solutions including Employee Management Systems, POS and Inventory Management Platforms, School Management Systems, Support Ticketing Systems, Booking Platforms, and custom business websites.",
-    "I am passionate about creating high-performance applications with clean architecture, optimized APIs, responsive UI/UX, and secure authentication systems. I enjoy working with modern development tools and frameworks including Tailwind CSS, REST APIs, GitHub, Figma, and cloud deployment platforms such as Vercel.",
-    "My development approach focuses on writing maintainable, scalable, and efficient code while delivering seamless user experiences across desktop and mobile platforms. I continuously explore emerging technologies and best practices in software engineering to improve performance, usability, and system reliability.",
-    "Beyond technical skills, I am a highly motivated and analytical problem solver who thrives in collaborative environments. I value teamwork, adaptability, leadership, and continuous learning, and I am always eager to contribute to innovative projects that create real-world impact through technology."
+    "Dedicated Full-Stack Developer focused on building scalable, secure, and user-centric digital solutions using modern web technologies.",
+    "With expertise in Next.js, React, Node.js, and PHP/Laravel, I have developed complex platforms such as POS, EMS, and School Management systems.",
+    "I am a motivated problem solver who values clean architecture and continuous learning, striving to deliver high-performance applications with real-world impact."
   ],
   location: "Sri Lanka",
   email: "ishanchinthaka2002@gmail.com",
