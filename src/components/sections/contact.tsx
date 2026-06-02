@@ -38,7 +38,10 @@ export function Contact() {
         body: JSON.stringify(data),
       });
 
-      const result = await response.json();
+      const result = await response.json() as {
+        errors?: Array<{ message: string }>;
+        error?: string;
+      };
 
       if (response.ok) {
         setStatus("success");
@@ -46,7 +49,7 @@ export function Contact() {
       } else {
         // If results has errors array, take the first message
         if (result.errors && Array.isArray(result.errors)) {
-          setErrorMessage(result.errors.map((err: any) => err.message).join(", "));
+          setErrorMessage(result.errors.map((err) => err.message).join(", "));
         } else if (result.error) {
           setErrorMessage(result.error);
         } else {
@@ -54,7 +57,7 @@ export function Contact() {
         }
         setStatus("error");
       }
-    } catch (error) {
+    } catch {
       setErrorMessage("Failed to send message. Please check your connection.");
       setStatus("error");
     }
