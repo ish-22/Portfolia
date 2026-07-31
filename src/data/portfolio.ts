@@ -36,17 +36,17 @@ export const skills = [
   {
     title: "Frontend",
     icon: Layers3,
-    items: ["React", "TypeScript", "JavaScript", "HTML", "CSS", "Tailwind CSS"]
+    items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "HTML", "CSS"]
   },
   {
     title: "Backend & Database",
     icon: Code2,
-    items: ["PHP", "MySQL", "MongoDB", "Business systems", "Inventory workflows"]
+    items: ["PHP", "Laravel", "MySQL", "MongoDB", "NoSQL", "Node.js", "REST APIs"]
   },
   {
     title: "Mobile & Tools",
     icon: Sparkles,
-    items: ["Java", "Kotlin", "Figma", "GitHub", "Problem solving"]
+    items: ["Java", "Kotlin", "Git", "GitHub", "Figma", "Vercel"]
   }
 ];
 
