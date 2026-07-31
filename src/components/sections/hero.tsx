@@ -48,7 +48,7 @@ export function Hero() {
         <div className="relative mx-auto w-full max-w-md animate-fade-up [animation-delay:160ms]">
           <div className="glass-panel overflow-hidden rounded-[2rem] p-3">
             <Image
-              src="/portfolio-hero.png"
+              src="/portfolio-hero.jpeg"
               alt="Abstract developer portfolio workspace"
               width={1024}
               height={1024}
