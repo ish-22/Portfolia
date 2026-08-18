@@ -10,14 +10,14 @@ import {
 
 export const profile = {
   name: "Ishan Chinthaka",
-  role: "Software Developer",
+  role: "Software Engineer",
   headline:
-    "Full-Stack Software Developer building scalable, secure, and user-focused digital solutions.",
-  bio: "I specialize in modern web applications, business management systems, responsive user interfaces, and complete software solutions across frontend, backend, and database technologies.",
+    "Software Engineer building business-critical systems, full-stack solutions, and automated workflows.",
+  bio: "I build maintainable software solutions across web applications, business management systems, cloud environments, and databases.",
   about: [
-    "Dedicated Full-Stack Developer focused on building scalable, secure, and user-centric digital solutions using modern web technologies.",
-    "With expertise in Next.js, React, Node.js, and PHP/Laravel, I have developed complex platforms such as POS, EMS, and School Management systems.",
-    "I am a motivated problem solver who values clean architecture and continuous learning, striving to deliver high-performance applications with real-world impact."
+    "I am a Software Engineer with professional experience developing and handling business-critical software systems, including an AI-powered recruitment platform, Salesforce automation, HR attendance logs, and POS solutions.",
+    "My technical core spans full-stack development using TypeScript, React, Next.js, Node.js, PHP, Laravel, Java, Spring Boot, Python, MySQL, PostgreSQL, and MongoDB. I am also experienced with cloud environments like AWS, Azure, Docker, and CI/CD.",
+    "As a Cardiff Metropolitan University BSc (Hons) Software Engineering graduate (Second Class Upper Division), I focus on building clean architectures, solving business problems, and collaborating across high-performance software projects."
   ],
   location: "Sri Lanka",
   email: "ishanchinthaka2002@gmail.com",
@@ -52,76 +52,91 @@ export const skills = [
 
 export const projects = [
   {
-    title: "Employee Management System",
+    title: "AI-Powered Study Assistant",
     description:
-      "A business management platform for organizing employee records, roles, attendance details, and internal administration workflows.",
-    tags: ["React", "PHP", "MySQL"],
+      "A production-grade educational platform featuring automated flashcards, a relational quiz master tracking system, and AI-driven document chunking for RAG pipelines.",
+    tags: ["Next.js", "TypeScript", "PostgreSQL", "Zod", "Tailwind CSS"],
     link: "#",
-    repo: "#"
+    image: "/projects/study_assistant.png",
+    repo: {
+      frontend: "https://github.com/ish-22/AI-Powered-Intelligent-Study-Assistant-System",
+      backend: "https://github.com/ish-22/AI-Powered-Intelligent-Study-Assistant-System--api-v2"
+    }
   },
   {
-    title: "POS System with GRN and Inventory Management",
+    title: "AI & ML Model Training",
     description:
-      "A point-of-sale solution with goods received notes, stock tracking, sales handling, and inventory management features.",
-    tags: ["PHP", "MySQL", "JavaScript"],
+      "An AI/ML repository featuring data training pipelines, Jupyter notebook analysis, and an operational test/train scoring model exported as serialized pickle files.",
+    tags: ["Python", "Jupyter Notebook", "Scikit-Learn", "Machine Learning"],
     link: "#",
-    repo: "#"
+    image: "/projects/ai_ml_model.png",
+    repo: "https://github.com/ish-22/AI-and-ML-Project"
   },
   {
-    title: "School Management System",
+    title: "SmartBus Transit Tracker",
     description:
-      "A structured school administration system designed to manage student information, academic records, and operational workflows.",
-    tags: ["React", "TypeScript", "MySQL"],
+      "A real-time transit solution featuring GPS live bus tracking with interactive maps, seat reservation, Stripe payment integration, and QR code ticket generation.",
+    tags: ["Next.js", "Express.js", "Socket.io", "React", "MongoDB", "Stripe"],
     link: "#",
-    repo: "#"
+    image: "/projects/smart_bus.png",
+    repo: {
+      frontend: "https://github.com/ish-22/smartbus_frontend",
+      backend: "https://github.com/ish-22/smartbus_backend"
+    }
   },
   {
-    title: "Support Ticketing System",
+    title: "FixNow Service Platform",
     description:
-      "A ticket management platform for creating, assigning, tracking, and resolving support requests with clear workflow states.",
-    tags: ["PHP", "MySQL", "JavaScript"],
+      "A web-based service marketplace connecting local customers with vendors. Supports online booking, request statuses, rating feedback, and secure account panels.",
+    tags: ["PHP", "MySQL", "JavaScript", "HTML", "CSS"],
     link: "#",
-    repo: "#"
+    image: "/projects/fix_now.png",
+    repo: "https://github.com/ish-22/FIXNOW-FINAL_PROJECT"
   },
   {
-    title: "FixNow Service Request Management System",
+    title: "Ocean View Resort Portal",
     description:
-      "A service request management system for handling customer issues, technician assignments, request status updates, and service history.",
-    tags: ["React", "TypeScript", "MongoDB"],
+      "A premium, luxury-vintage themed resort management system featuring a cinematic guest inquiry system and a high-fidelity administrative suite.",
+    tags: ["Spring Boot", "React", "Vite", "MySQL", "Tailwind CSS"],
     link: "#",
-    repo: "#"
+    image: "/projects/ocean_view.png",
+    repo: "https://github.com/ish-22/Ocean-View_resort"
   },
   {
-    title: "Pahana Edu Bookshop System",
+    title: "Pahana Bookshop System",
     description:
-      "A bookshop management application focused on customer records, billing, item management, and efficient daily store operations.",
-    tags: ["Java", "MySQL", "Business system"],
+      "An inventory management, online book order, and daily billing application focused on robust client workflows and books item stock control.",
+    tags: ["Java", "MySQL", "Swing", "JDBC", "OOP"],
     link: "#",
-    repo: "#"
+    image: "/projects/pahana_bookshop.png",
+    repo: "https://github.com/ish-22/pahana_bookshop"
   },
   {
-    title: "FitZone Fitness Center Website",
+    title: "Pharmacy Inventory Control",
     description:
-      "A modern fitness center website with responsive layouts, service sections, membership-focused content, and a clean user experience.",
-    tags: ["HTML", "CSS", "JavaScript"],
+      "A secure inventory management system designed for pharmacies, dealing with supplier directories, admin workflows, and stock tracking logs.",
+    tags: ["PHP", "MySQL", "JavaScript", "Business system"],
     link: "#",
-    repo: "#"
+    image: "/projects/pharmacy_inventory.png",
+    repo: "https://github.com/ish-22/Pharmacy_inventory_Management"
   },
   {
-    title: "LuxeVista Resort Mobile App",
+    title: "Cycle Rental & Tracking App",
     description:
-      "A resort mobile app concept for browsing accommodation, services, and guest-focused features through a clean mobile interface.",
-    tags: ["Kotlin", "Java", "Mobile"],
+      "An Android mobile booking application utilizing SQLite local storage schema to log and track cycle rent items for customers.",
+    tags: ["Android", "Kotlin", "SQLite", "Mobile"],
     link: "#",
-    repo: "#"
+    image: "/projects/cycle_app.png",
+    repo: "https://github.com/ish-22/Cycle_Aapp"
   },
   {
-    title: "Country Cafe Website",
+    title: "FitZone Gym Portal",
     description:
-      "A responsive cafe website designed to present menu items, brand identity, location details, and customer-friendly content.",
-    tags: ["HTML", "CSS", "Figma"],
+      "A modern fitness website featuring gym program details, scheduling, user roles, and class bookings with responsive layouts.",
+    tags: ["HTML", "CSS", "JavaScript", "Vercel"],
     link: "#",
-    repo: "#"
+    image: "/projects/fitzone.png",
+    repo: "https://github.com/ish-22/Fitzone_Fitness_Center"
   }
 ];
 
