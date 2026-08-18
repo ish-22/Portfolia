@@ -23,7 +23,7 @@ export const profile = {
   email: "ishanchinthaka2002@gmail.com",
   github: "https://github.com/ish-22",
   linkedin: "https://www.linkedin.com/in/ishan-chinthaka-1a6b5a2b1",
-  resume: "/Ishan%20Chinthaka_cv%20(1).pdf"
+  resume: "/Ishan%20Chinthaka.pdf"
 };
 
 export const stats = [
