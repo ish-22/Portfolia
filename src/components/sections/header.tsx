@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { profile } from "@/data/portfolio";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 
@@ -14,15 +15,23 @@ export function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-black/5 bg-mist/80 backdrop-blur-xl dark:border-white/10 dark:bg-[#0d1117]/80">
       <nav className="container-page flex h-16 items-center justify-between gap-4">
-        <Link href="/" className="flex items-center gap-3 font-semibold text-ink dark:text-white">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-ink text-sm text-white dark:bg-white dark:text-ink">
-            {profile.name
-              .split(" ")
-              .map((part) => part[0])
-              .join("")
-              .slice(0, 2)}
-          </span>
-          <span className="hidden sm:inline">{profile.name}</span>
+        <Link href="/" className="flex items-center gap-3 font-semibold text-ink dark:text-white group">
+          <div className="relative flex h-10 w-10 overflow-hidden rounded-xl border border-black/5 bg-slate-50 dark:border-white/10 shadow-soft transition-transform duration-300 group-hover:scale-105">
+            <Image
+              src="/logo.png"
+              alt="Ishan Chinthaka Logo"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="flex flex-col">
+            <span className="text-sm font-bold leading-none tracking-tight text-ink sm:text-base dark:text-white">
+              {profile.name}
+            </span>
+            <span className="hidden sm:inline-block text-[9px] font-semibold tracking-wider uppercase text-slate-500 dark:text-teal-400/80 mt-1">
+              {profile.role}
+            </span>
+          </div>
         </Link>
 
         <div className="hidden items-center gap-7 md:flex">
