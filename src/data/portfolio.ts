@@ -34,19 +34,24 @@ export const stats = [
 
 export const skills = [
   {
-    title: "Frontend",
+    title: "Frontend Development",
     icon: Layers3,
-    items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "HTML", "CSS"]
+    items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "HTML5", "CSS3"]
   },
   {
-    title: "Backend & Database",
+    title: "Backend & Databases",
     icon: Code2,
-    items: ["PHP", "Laravel", "MySQL", "MongoDB", "NoSQL", "Node.js", "REST APIs"]
+    items: ["Node.js", "PHP & Laravel", "Java & Spring Boot", "Python", "MySQL", "PostgreSQL", "MongoDB", "SQLite"]
+  },
+  {
+    title: "Cloud & DevOps",
+    icon: Rocket,
+    items: ["AWS", "Microsoft Azure", "Docker", "CI/CD Pipelines", "Git & GitHub", "cPanel Deployment"]
   },
   {
     title: "Mobile & Tools",
     icon: Sparkles,
-    items: ["Java", "Kotlin", "Git", "GitHub", "Figma", "Vercel"]
+    items: ["Android Studio", "Kotlin", "Postman", "Figma", "Canva", "Salesforce Automation"]
   }
 ];
 
