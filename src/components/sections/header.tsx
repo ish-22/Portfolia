@@ -40,7 +40,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           <Link
             href={profile.resume}
-            className="hidden rounded-full bg-ink px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-sea sm:inline-flex dark:bg-white dark:text-ink dark:hover:bg-teal-200"
+            className="inline-flex rounded-full bg-ink px-3 py-1.5 text-xs font-semibold text-white transition hover:-translate-y-0.5 hover:bg-sea sm:px-4 sm:py-2 sm:text-sm dark:bg-white dark:text-ink dark:hover:bg-teal-200"
           >
             Resume
           </Link>
