@@ -7,6 +7,15 @@ import { ArrowUpRight, Github } from "lucide-react";
 import { projects } from "@/data/portfolio";
 import { SectionHeading } from "@/components/ui/section-heading";
 
+interface Project {
+  title: string;
+  description: string;
+  tags: string[];
+  link: string;
+  image?: string;
+  repo: string | { frontend?: string; backend?: string };
+}
+
 type FilterCategory = "All" | "Web Apps" | "Business Systems" | "Mobile";
 
 export function Projects() {
@@ -84,110 +93,108 @@ export function Projects() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {filteredProjects.map((project, index) => (
-            <article
-              key={project.title}
-              className="glass-panel group flex min-h-[420px] flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
-            >
-              {(project as any).image && (
-                <div className="relative mb-6 overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800 aspect-video w-full">
-                  <Image
-                    src={(project as any).image}
-                    alt={project.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-              )}
-              <div className="flex items-start justify-between gap-4">
-                <span className="text-sm font-semibold text-sea dark:text-teal-300">
-                  0{index + 1}
-                </span>
-                <div className="flex items-center gap-2">
-                  {typeof project.repo === "object" && project.repo !== null ? (
-                    (() => {
-                      const repoObj = project.repo as any;
-                      return (
-                        <>
-                          {repoObj.frontend && (
-                            <Link
-                              aria-label={`${project.title} frontend repository`}
-                              href={repoObj.frontend}
-                              title="Frontend Repository"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="relative grid h-9 w-9 place-items-center rounded-full border border-black/10 text-slate-500 transition hover:border-sea hover:text-sea dark:border-white/10 dark:text-slate-300"
-                            >
-                              <Github size={17} />
-                              <span className="absolute -bottom-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-sea text-[8px] font-bold text-white dark:bg-teal-400 dark:text-black">
-                                FE
-                              </span>
-                            </Link>
-                          )}
-                          {repoObj.backend && (
-                            <Link
-                              aria-label={`${project.title} backend repository`}
-                              href={repoObj.backend}
-                              title="Backend Repository"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="relative grid h-9 w-9 place-items-center rounded-full border border-black/10 text-slate-500 transition hover:border-sea hover:text-sea dark:border-white/10 dark:text-slate-300"
-                            >
-                              <Github size={17} />
-                              <span className="absolute -bottom-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-honey text-[8px] font-bold text-ink dark:bg-honey dark:text-black">
-                                BE
-                              </span>
-                            </Link>
-                          )}
-                        </>
-                      );
-                    })()
-                  ) : (
-                    project.repo && project.repo !== "#" && (
+          {filteredProjects.map((p, index) => {
+            const project = p as unknown as Project;
+            return (
+              <article
+                key={project.title}
+                className="glass-panel group flex min-h-[420px] flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
+              >
+                {project.image && (
+                  <div className="relative mb-6 overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800 aspect-video w-full">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                )}
+                <div className="flex items-start justify-between gap-4">
+                  <span className="text-sm font-semibold text-sea dark:text-teal-300">
+                    0{index + 1}
+                  </span>
+                  <div className="flex items-center gap-2">
+                    {typeof project.repo === "object" && project.repo !== null ? (
+                      <>
+                        {project.repo.frontend && (
+                          <Link
+                            aria-label={`${project.title} frontend repository`}
+                            href={project.repo.frontend}
+                            title="Frontend Repository"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="relative grid h-9 w-9 place-items-center rounded-full border border-black/10 text-slate-500 transition hover:border-sea hover:text-sea dark:border-white/10 dark:text-slate-300"
+                          >
+                            <Github size={17} />
+                            <span className="absolute -bottom-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-sea text-[8px] font-bold text-white dark:bg-teal-400 dark:text-black">
+                              FE
+                            </span>
+                          </Link>
+                        )}
+                        {project.repo.backend && (
+                          <Link
+                            aria-label={`${project.title} backend repository`}
+                            href={project.repo.backend}
+                            title="Backend Repository"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="relative grid h-9 w-9 place-items-center rounded-full border border-black/10 text-slate-500 transition hover:border-sea hover:text-sea dark:border-white/10 dark:text-slate-300"
+                          >
+                            <Github size={17} />
+                            <span className="absolute -bottom-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-honey text-[8px] font-bold text-ink dark:bg-honey dark:text-black">
+                              BE
+                            </span>
+                          </Link>
+                        )}
+                      </>
+                    ) : (
+                      project.repo && project.repo !== "#" && (
+                        <Link
+                          aria-label={`${project.title} repository`}
+                          href={project.repo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="grid h-9 w-9 place-items-center rounded-full border border-black/10 text-slate-500 transition hover:border-sea hover:text-sea dark:border-white/10 dark:text-slate-300"
+                        >
+                          <Github size={17} />
+                        </Link>
+                      )
+                    )}
+                    {project.link && project.link !== "#" && (
                       <Link
-                        aria-label={`${project.title} repository`}
-                        href={project.repo}
+                        aria-label={`${project.title} live site`}
+                        href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="grid h-9 w-9 place-items-center rounded-full border border-black/10 text-slate-500 transition hover:border-sea hover:text-sea dark:border-white/10 dark:text-slate-300"
                       >
-                        <Github size={17} />
+                        <ArrowUpRight size={17} />
                       </Link>
-                    )
-                  )}
-                  {project.link && project.link !== "#" && (
-                    <Link
-                      aria-label={`${project.title} live site`}
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="grid h-9 w-9 place-items-center rounded-full border border-black/10 text-slate-500 transition hover:border-sea hover:text-sea dark:border-white/10 dark:text-slate-300"
-                    >
-                      <ArrowUpRight size={17} />
-                    </Link>
-                  )}
+                    )}
+                  </div>
                 </div>
-              </div>
 
-              <h3 className="mt-6 text-2xl font-bold tracking-tight text-ink dark:text-white">
-                {project.title}
-              </h3>
-              <p className="mt-4 flex-1 leading-7 text-slate-600 dark:text-slate-300">
-                {project.description}
-              </p>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full bg-honey/15 px-3 py-1 text-sm font-medium text-slate-800 dark:bg-honey/20 dark:text-honey"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </article>
-          ))}
+                <h3 className="mt-6 text-2xl font-bold tracking-tight text-ink dark:text-white">
+                  {project.title}
+                </h3>
+                <p className="mt-4 flex-1 leading-7 text-slate-600 dark:text-slate-300">
+                  {project.description}
+                </p>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full bg-honey/15 px-3 py-1 text-sm font-medium text-slate-800 dark:bg-honey/20 dark:text-honey"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
