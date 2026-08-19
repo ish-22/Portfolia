@@ -1,5 +1,6 @@
 import { Footer } from "@/components/sections/footer";
 import { Header } from "@/components/sections/header";
+import { ScrollToTop } from "@/components/ui/scroll-to-top";
 
 type SiteLayoutProps = {
   children: React.ReactNode;
@@ -12,6 +13,7 @@ export function SiteLayout({ children, className = "" }: SiteLayoutProps) {
       <Header />
       {children}
       <Footer />
+      <ScrollToTop />
     </main>
   );
 }
