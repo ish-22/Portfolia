@@ -23,6 +23,8 @@ export const profile = {
   email: "ishanchinthaka2002@gmail.com",
   github: "https://github.com/ish-22",
   linkedin: "https://www.linkedin.com/in/ishan-chinthaka-1a6b5a2b1",
+  tiktok: "https://www.tiktok.com/foryou?lang=en-GB",
+  facebook: "https://www.facebook.com/share/1HYwAWdnB7/",
   resume: "/Ishan%20Chinthaka.pdf",
   whatsapp: "+94765274750",
   whatsappFormatted: "+94 76 527 4750"
@@ -128,6 +130,15 @@ export const projects = [
     repo: "https://github.com/ish-22/Pharmacy_inventory_Management"
   },
   {
+    title: "LuxeVista Resort App",
+    description:
+      "A mobile-based resort booking and inquiry Android application utilizing SQLite database schema to monitor and load vacancy reservations.",
+    tags: ["Android", "Java", "SQLite", "Mobile"],
+    link: "#",
+    image: "/projects/luxe_vista.png",
+    repo: "https://github.com/ish-22/LUXE_VISTA"
+  },
+  {
     title: "Cycle Rental & Tracking App",
     description:
       "An Android mobile booking application utilizing SQLite local storage schema to log and track cycle rent items for customers.",
@@ -137,6 +148,15 @@ export const projects = [
     repo: "https://github.com/ish-22/Cycle_Aapp"
   },
   {
+    title: "Fashion Design Platform",
+    description:
+      "A boutique web catalog presenting fashion items, mock scheduling, and customizable customer request collections.",
+    tags: ["PHP", "HTML", "CSS", "Vercel"],
+    link: "https://fashion-design-one-gold.vercel.app",
+    image: "/projects/fashion_design.png",
+    repo: "https://github.com/ish-22/Fashion-Design"
+  },
+  {
     title: "FitZone Gym Portal",
     description:
       "A modern fitness website featuring gym program details, scheduling, user roles, and class bookings with responsive layouts.",
@@ -144,6 +164,24 @@ export const projects = [
     link: "#",
     image: "/projects/fitzone.png",
     repo: "https://github.com/ish-22/Fitzone_Fitness_Center"
+  },
+  {
+    title: "Cafe Point-of-Sale System",
+    description:
+      "A lightweight order entry, cart calculation, and receipt logging system geared for local cafe store points of sale.",
+    tags: ["PHP", "MySQL", "HTML", "CSS", "Business system"],
+    link: "#",
+    image: "/projects/cafe_pos.png",
+    repo: "https://github.com/ish-22/Cafe_System"
+  },
+  {
+    title: "Console Booking Utility",
+    description:
+      "A C++ desktop console database utility tracking record logs, file I/O operations, and user profiles structure.",
+    tags: ["C++", "OOP", "Business system"],
+    link: "#",
+    image: "/projects/console_booking.png",
+    repo: "https://github.com/ish-22/Basic_Management_System"
   }
 ];
 
