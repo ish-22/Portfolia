@@ -17,7 +17,39 @@ export function Contact() {
     setErrorMessage("");
 
     const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
+    const rawData = Object.fromEntries(formData.entries());
+
+    // Basic XSS sanitisation: strip any html-like script/tag elements
+    const sanitize = (val: unknown) => {
+      if (typeof val !== "string") return "";
+      return val.replace(/<[^>]*>/g, "").trim();
+    };
+
+    const data = {
+      name: sanitize(rawData.name),
+      email: sanitize(rawData.email),
+      message: sanitize(rawData.message)
+    };
+
+    // Client-side validations
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.email)) {
+      setErrorMessage("Please enter a valid email address.");
+      setStatus("error");
+      return;
+    }
+
+    if (data.name.length < 2 || data.name.length > 80) {
+      setErrorMessage("Name must be between 2 and 80 characters.");
+      setStatus("error");
+      return;
+    }
+
+    if (data.message.length < 10 || data.message.length > 3000) {
+      setErrorMessage("Message must be between 10 and 3000 characters.");
+      setStatus("error");
+      return;
+    }
 
     // Use the environment variable or a fallback that clearly indicates it's missing
     const formspreeUrl = process.env.NEXT_PUBLIC_FORMSPREE_URL;
@@ -134,6 +166,8 @@ export function Contact() {
                 <input
                   name="name"
                   required
+                  minLength={2}
+                  maxLength={80}
                   className="mt-2 w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-ink outline-none transition focus:border-sea dark:border-white/10 dark:bg-white/10 dark:text-white"
                   placeholder="Your name"
                   type="text"
@@ -155,6 +189,8 @@ export function Contact() {
               <textarea
                 name="message"
                 required
+                minLength={10}
+                maxLength={3000}
                 className="mt-2 min-h-36 w-full resize-y rounded-xl border border-black/10 bg-white px-4 py-3 text-ink outline-none transition focus:border-sea dark:border-white/10 dark:bg-white/10 dark:text-white"
                 placeholder="Tell me about your project..."
               />

@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Sparkles, MessageSquare, Send, X, Loader2, ChevronRight, PhoneCall } from "lucide-react";
+import { Sparkles, Send, X, Loader2, ChevronRight, PhoneCall } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { profile } from "@/data/portfolio";
 
 // Formatted phone numbers
@@ -117,27 +118,47 @@ export function ChatWidget() {
     };
 
     return (
-        <div className="fixed bottom-6 right-20 z-50">
+        <div className="fixed bottom-20 right-6 z-50">
             {/* Floating Action Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-sea to-emerald-600 text-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 ${isOpen ? "rotate-90 bg-ember from-ember to-rose-600" : ""
+                className={`flex h-12 w-12 items-center justify-center rounded-full shadow-soft transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 ${isOpen
+                    ? "rotate-90 bg-gradient-to-r from-ember to-rose-600 text-white"
+                    : "p-0.5 bg-gradient-to-r from-[#0f766e] to-emerald-600 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.25)]"
                     }`}
                 aria-label="Toggle chat widget"
             >
-                {isOpen ? <X size={20} /> : <MessageSquare size={20} />}
+                {isOpen ? (
+                    <X size={20} />
+                ) : (
+                    <div className="h-full w-full rounded-full overflow-hidden border border-white/10 flex items-center justify-center bg-slate-900">
+                        <Image
+                            src="/ai-assistant-logo.png"
+                            alt="AI Assistant"
+                            width={44}
+                            height={44}
+                            className="h-full w-full object-cover rounded-full"
+                        />
+                    </div>
+                )}
             </button>
 
             {/* Chat Widget Panel */}
             {isOpen && (
-                <div className="absolute bottom-16 right-0 w-[90vw] sm:w-[380px] h-[500px] rounded-2xl border border-black/10 bg-white/95 dark:bg-[#111827]/95 shadow-soft backdrop-blur-md flex flex-col overflow-hidden animate-fade-up dark:border-white/10">
+                <div className="absolute bottom-16 right-0 w-[380px] max-w-[calc(100vw-48px)] h-[500px] max-h-[calc(100vh-160px)] rounded-2xl border border-black/10 bg-white/95 dark:bg-[#111827]/95 shadow-soft backdrop-blur-md flex flex-col overflow-hidden animate-fade-up dark:border-white/10">
 
                     {/* Header */}
                     <div className="bg-gradient-to-r from-sea to-emerald-600 px-4 py-3 text-white flex items-center justify-between">
                         <div className="flex items-center gap-3">
                             <div className="relative">
-                                <div className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center font-bold text-lg text-white">
-                                    IC
+                                <div className="h-10 w-10 rounded-full overflow-hidden bg-white/10 flex items-center justify-center border border-white/20">
+                                    <Image
+                                        src="/ai-assistant-logo.png"
+                                        alt="AI Assistant Logo"
+                                        width={40}
+                                        height={40}
+                                        className="h-full w-full object-cover"
+                                    />
                                 </div>
                                 <div className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-sea bg-emerald-400 animate-pulse" />
                             </div>
@@ -199,8 +220,14 @@ export function ChatWidget() {
                                                     }`}
                                             >
                                                 {msg.role === "assistant" && (
-                                                    <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea/10 dark:bg-teal-500/10 text-sea dark:text-teal-400 flex items-center justify-center mt-0.5">
-                                                        <Sparkles size={11} />
+                                                    <div className="flex-shrink-0 h-5 w-5 rounded-full overflow-hidden mt-0.5 border border-black/5 dark:border-white/5">
+                                                        <Image
+                                                            src="/ai-assistant-logo.png"
+                                                            alt="AI Logo"
+                                                            width={20}
+                                                            height={20}
+                                                            className="h-full w-full object-cover"
+                                                        />
                                                     </div>
                                                 )}
                                                 <div className="whitespace-pre-line">{msg.content}</div>
