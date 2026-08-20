@@ -64,6 +64,9 @@ If this folder is already a Git repository, skip `git init`.
 2. Go to `https://vercel.com/new`.
 3. Import your GitHub repository.
 4. Keep the default framework preset as Next.js.
-5. Click **Deploy**.
+5. Under **Environment Variables** in project settings, add the keys:
+   - `GEMINI_API_KEY` (recommended, from Google AI Studio) or `OPENAI_API_KEY` (from OpenAI platform) to enable live AI chatbot responses. If neither is provided, the chatbot falls back to a smart, high-fidelity static answering mode.
+   - `NEXT_PUBLIC_FORMSPREE_URL` to enable email message processing via your Formspree form ID.
+6. Click **Deploy**.
 
 Vercel will automatically run `npm run build` and publish the site.

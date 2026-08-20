@@ -1,6 +1,7 @@
 import { Footer } from "@/components/sections/footer";
 import { Header } from "@/components/sections/header";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
+import { ChatWidget } from "@/components/ui/chat-widget";
 
 type SiteLayoutProps = {
   children: React.ReactNode;
@@ -14,6 +15,7 @@ export function SiteLayout({ children, className = "" }: SiteLayoutProps) {
       {children}
       <Footer />
       <ScrollToTop />
+      <ChatWidget />
     </main>
   );
 }
