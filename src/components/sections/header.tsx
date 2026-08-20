@@ -13,8 +13,10 @@ const navItems = [
 
 export function Header() {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-black/5 bg-mist/80 backdrop-blur-xl dark:border-white/10 dark:bg-[#0d1117]/80">
-      <nav className="container-page flex h-16 items-center justify-between gap-4">
+    <header className="fixed inset-x-0 top-0 z-50 p-4 bg-transparent">
+      <nav className="container-page mx-auto flex h-16 items-center justify-between gap-4 px-6 rounded-2xl border border-black/5 bg-mist/85 backdrop-blur-xl shadow-soft dark:border-white/10 dark:bg-[#0d1117]/85 transition-all duration-300">
+
+        {/* Original System Logo.png and profile text branding */}
         <Link href="/" className="flex items-center gap-3 font-semibold text-ink dark:text-white group">
           <div className="relative flex h-10 w-10 overflow-hidden rounded-xl border border-black/5 bg-slate-50 dark:border-white/10 shadow-soft transition-transform duration-300 group-hover:scale-105">
             <Image
@@ -34,6 +36,7 @@ export function Header() {
           </div>
         </Link>
 
+        {/* Navigation links using system colors */}
         <div className="hidden items-center gap-7 md:flex">
           {navItems.map((item) => (
             <Link
@@ -46,6 +49,7 @@ export function Header() {
           ))}
         </div>
 
+        {/* Action Panel using standard theme colors */}
         <div className="flex items-center gap-3">
           <Link
             href={profile.resume}
