@@ -1,65 +1,121 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { profile } from "@/data/portfolio";
+import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 
-const navItems = [
-  { href: "/about", label: "About" },
-  { href: "/skills", label: "Skills" },
-  { href: "/projects", label: "Projects" },
-  { href: "/experience", label: "Experience" },
-  { href: "/contact", label: "Contact" }
+const navLinks = [
+  { href: "#work", label: "WORK" },
+  { href: "#lab", label: "LAB" },
+  { href: "#about", label: "ABOUT" },
+  { href: "#contact", label: "CONTACT" }
 ];
 
 export function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
   return (
-    <header className="fixed inset-x-0 top-0 z-50 p-4 bg-transparent">
-      <nav className="container-page mx-auto flex h-16 items-center justify-between gap-4 px-6 rounded-2xl border border-black/5 bg-mist/85 backdrop-blur-xl shadow-soft dark:border-white/10 dark:bg-[#0d1117]/85 transition-all duration-300">
-
-        {/* Original System Logo.png and profile text branding */}
-        <Link href="/" className="flex items-center gap-3 font-semibold text-ink dark:text-white group">
-          <div className="relative flex h-10 w-10 overflow-hidden rounded-xl border border-black/5 bg-slate-50 dark:border-white/10 shadow-soft transition-transform duration-300 group-hover:scale-105">
-            <Image
-              src="/logo.png"
-              alt="Ishan Chinthaka Logo"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-sm font-bold leading-none tracking-tight text-ink sm:text-base dark:text-white">
-              {profile.name}
-            </span>
-            <span className="hidden sm:inline-block text-[9px] font-semibold tracking-wider uppercase text-slate-500 dark:text-teal-400/80 mt-1">
-              {profile.role}
-            </span>
-          </div>
-        </Link>
-
-        {/* Navigation links using system colors */}
-        <div className="hidden items-center gap-7 md:flex">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-slate-600 transition hover:text-sea dark:text-slate-300 dark:hover:text-teal-200"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-
-        {/* Action Panel using standard theme colors */}
-        <div className="flex items-center gap-3">
-          <Link
-            href={profile.resume}
-            className="inline-flex rounded-full bg-ink px-3 py-1.5 text-xs font-semibold text-white transition hover:-translate-y-0.5 hover:bg-sea sm:px-4 sm:py-2 sm:text-sm dark:bg-white dark:text-ink dark:hover:bg-teal-200"
-          >
-            Resume
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled
+            ? "bg-[--bg]/90 backdrop-blur-xl border-b border-[--border]"
+            : "bg-transparent"
+          }`}
+      >
+        <div className="container-xl flex h-16 items-center justify-between">
+          {/* Brand */}
+          <Link href="/" className="font-mono text-xs font-black tracking-widest text-[--text] hover:text-[--lime] transition-colors">
+            ISHAN CHINTHAKA
           </Link>
-          <ThemeToggle />
+
+          {/* Desktop nav */}
+          <nav className="hidden items-center gap-10 md:flex" aria-label="Main navigation">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="font-mono text-[11px] font-semibold tracking-widest text-[--muted] transition-colors hover:text-[--text]"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Right cluster */}
+          <div className="flex items-center gap-3">
+            {/* Availability pulse */}
+            <div className="hidden items-center gap-2 md:flex">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[--lime] opacity-75" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[--lime]" />
+              </span>
+              <span className="font-mono text-[10px] font-semibold tracking-widest text-[--lime]">
+                AVAILABLE
+              </span>
+            </div>
+
+            <ThemeToggle />
+
+            {/* Mobile hamburger */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+              aria-expanded={menuOpen}
+              className="ml-2 flex h-8 w-8 flex-col items-center justify-center gap-1.5 md:hidden"
+            >
+              <span className={`block h-px w-5 bg-[--text] transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-px" : ""}`} />
+              <span className={`block h-px w-5 bg-[--text] transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-px" : ""}`} />
+            </button>
+          </div>
         </div>
-      </nav>
-    </header>
+      </header>
+
+      {/* Full-screen mobile navigation */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-40 flex flex-col bg-[--bg] px-8 pt-24 md:hidden"
+          >
+            <nav className="flex flex-col gap-8">
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.07 }}
+                  className="display-md border-b border-[--border] pb-6 text-[--text] hover:text-[--lime] transition-colors"
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+            </nav>
+
+            <div className="mt-auto pb-12 flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-[--lime]" />
+              <span className="label-lime">AVAILABLE FOR OPPORTUNITIES</span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

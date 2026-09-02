@@ -120,17 +120,12 @@ export function ChatWidget() {
     return (
         <div className="fixed bottom-20 right-6 z-50">
             {/* Floating Action Button */}
-            <button
-                onClick={() => setIsOpen(!isOpen)}
-                className={`flex h-12 w-12 items-center justify-center rounded-full shadow-soft transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 ${isOpen
-                    ? "rotate-90 bg-gradient-to-r from-ember to-rose-600 text-white"
-                    : "p-0.5 bg-gradient-to-r from-[#0f766e] to-emerald-600 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.25)]"
-                    }`}
-                aria-label="Toggle chat widget"
-            >
-                {isOpen ? (
-                    <X size={20} />
-                ) : (
+            {!isOpen && (
+                <button
+                    onClick={() => setIsOpen(true)}
+                    className="flex h-12 w-12 items-center justify-center rounded-full shadow-[0_0_15px_rgba(16,185,129,0.25)] transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 p-0.5 bg-gradient-to-r from-emerald-400 to-emerald-600 border border-emerald-500/30"
+                    aria-label="Toggle chat widget"
+                >
                     <div className="h-full w-full rounded-full overflow-hidden border border-white/10 flex items-center justify-center bg-slate-900">
                         <Image
                             src="/ai-assistant-logo.png"
@@ -140,15 +135,15 @@ export function ChatWidget() {
                             className="h-full w-full object-cover rounded-full"
                         />
                     </div>
-                )}
-            </button>
+                </button>
+            )}
 
             {/* Chat Widget Panel */}
             {isOpen && (
                 <div className="absolute bottom-16 -right-2 sm:right-0 w-[calc(100vw-32px)] sm:w-[380px] h-[500px] max-h-[calc(100vh-140px)] rounded-2xl border border-black/10 bg-white/95 dark:bg-[#111827]/95 shadow-soft backdrop-blur-md flex flex-col overflow-hidden animate-fade-up dark:border-white/10">
 
                     {/* Header */}
-                    <div className="bg-gradient-to-r from-sea to-emerald-600 px-4 py-3 text-white flex items-center justify-between">
+                    <div className="bg-gradient-to-r from-emerald-500 to-emerald-700 px-4 py-3 text-white flex items-center justify-between">
                         <div className="flex items-center gap-3">
                             <div className="relative">
                                 <div className="h-10 w-10 rounded-full overflow-hidden bg-white/10 flex items-center justify-center border border-white/20">
@@ -160,7 +155,7 @@ export function ChatWidget() {
                                         className="h-full w-full object-cover"
                                     />
                                 </div>
-                                <div className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-sea bg-emerald-400 animate-pulse" />
+                                <div className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-emerald-700 bg-emerald-400 animate-pulse" />
                             </div>
                             <div>
                                 <h4 className="font-bold text-sm leading-tight">{profile.name}</h4>
@@ -183,7 +178,7 @@ export function ChatWidget() {
                         <button
                             onClick={() => setActiveTab("ai")}
                             className={`flex-1 py-3 px-2 flex items-center justify-center gap-1.5 font-semibold transition border-b-2 ${activeTab === "ai"
-                                ? "border-sea text-sea dark:border-teal-400 dark:text-teal-400"
+                                ? "border-emerald-500 text-emerald-600 dark:border-teal-400 dark:text-teal-400"
                                 : "border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
                                 }`}
                         >
@@ -215,7 +210,7 @@ export function ChatWidget() {
                                         >
                                             <div
                                                 className={`flex gap-2 max-w-[85%] rounded-2xl px-3.5 py-2 text-sm leading-relaxed ${msg.role === "user"
-                                                    ? "bg-sea text-white rounded-br-none"
+                                                    ? "bg-emerald-600 dark:bg-emerald-500 text-white rounded-br-none"
                                                     : "bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-black/5 dark:border-white/5 rounded-bl-none shadow-sm"
                                                     }`}
                                             >
@@ -253,7 +248,7 @@ export function ChatWidget() {
                                             <button
                                                 key={index}
                                                 onClick={() => handleSend(reply.action)}
-                                                className="text-left w-full text-xs py-2 px-3 bg-white dark:bg-slate-800 border border-black/5 dark:border-white/5 rounded-xl hover:border-sea dark:hover:border-teal-500 text-slate-700 dark:text-slate-300 hover:text-sea dark:hover:text-teal-400 transition shadow-sm flex justify-between items-center"
+                                                className="text-left w-full text-xs py-2 px-3 bg-white dark:bg-slate-800 border border-black/5 dark:border-white/5 rounded-xl hover:border-emerald-500 dark:hover:border-teal-500 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-teal-400 transition shadow-sm flex justify-between items-center"
                                             >
                                                 <span>{reply.text}</span>
                                                 <ChevronRight size={12} className="text-slate-400" />
@@ -348,12 +343,12 @@ export function ChatWidget() {
                                 onChange={(e) => setInputValue(e.target.value)}
                                 onKeyDown={(e) => e.key === "Enter" && handleSend()}
                                 disabled={isLoading}
-                                className="flex-1 px-3 py-2 border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-slate-100 placeholder-slate-400 text-sm rounded-xl outline-none focus:border-sea dark:focus:border-teal-500"
+                                className="flex-1 px-3 py-2 border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-slate-100 placeholder-slate-400 text-sm rounded-xl outline-none focus:border-emerald-500 dark:focus:border-teal-500"
                             />
                             <button
                                 onClick={() => handleSend()}
                                 disabled={isLoading || !inputValue.trim()}
-                                className="p-2.5 rounded-xl bg-sea text-white hover:bg-emerald-600 disabled:opacity-50 transition flex items-center justify-center"
+                                className="p-2.5 rounded-xl bg-emerald-600 text-white hover:bg-emerald-700 disabled:opacity-50 transition flex items-center justify-center"
                             >
                                 {isLoading ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
                             </button>

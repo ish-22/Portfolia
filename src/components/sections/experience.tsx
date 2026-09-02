@@ -1,41 +1,56 @@
-import { timeline } from "@/data/portfolio";
-import { SectionHeading } from "@/components/ui/section-heading";
+"use client";
 
-export function Experience() {
+import { motion } from "framer-motion";
+import { experienceTimeline } from "@/data/portfolio";
+
+export function ExperienceTimeline() {
   return (
-    <section id="experience" className="section-padding bg-mist dark:bg-[#0d1117]">
-      <div className="container-page">
-        <SectionHeading
-          eyebrow="Experience"
-          title="A timeline for roles, education, and milestones."
-          description="Keep the most relevant items here and focus each one on impact."
-        />
-        <div className="mx-auto max-w-3xl">
-          {timeline.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <div key={`${item.title}-${item.period}`} className="relative pl-12">
-                {index !== timeline.length - 1 ? (
-                  <div className="absolute left-[1.35rem] top-12 h-full w-px bg-black/10 dark:bg-white/10" />
-                ) : null}
-                <div className="absolute left-0 top-1 grid h-11 w-11 place-items-center rounded-full border border-black/10 bg-white text-sea shadow-sm dark:border-white/10 dark:bg-[#111827] dark:text-teal-200">
-                  <Icon size={20} />
+    <section className="section bg-[--bg] border-t border-[--border]" aria-label="Career journey">
+      <div className="container-xl">
+        {/* Header */}
+        <div className="mb-20">
+          <span className="label-muted block mb-4">THE JOURNEY</span>
+          <h2 className="display-lg text-[--text]">
+            GROWTH &amp;<br />
+            <span className="text-[--muted] italic font-thin">MILESTONES.</span>
+          </h2>
+        </div>
+
+        {/* Timeline */}
+        <div className="relative pl-8 md:pl-0">
+          {/* Vertical rail */}
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-[--border] md:hidden" />
+
+          <div className="space-y-0 md:grid md:grid-cols-3 md:gap-0 md:divide-x md:divide-[--border]">
+            {experienceTimeline.map((item, i) => (
+              <motion.div
+                key={item.year}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="relative pb-12 md:pb-0 md:px-10 md:py-0 group"
+              >
+                {/* Mobile rail dot */}
+                <div className="absolute -left-8 top-0 h-3 w-3 rounded-full border-2 border-[--lime] bg-[--bg] md:hidden" />
+
+                <span className="numeral block mb-6 opacity-20 group-hover:opacity-100 group-hover:text-[--lime] transition-all duration-500">
+                  {item.year}
+                </span>
+
+                <div className="space-y-2">
+                  <span className="label-lime">{item.status}</span>
+                  <h3 className="font-bold text-lg text-[--text] leading-tight">
+                    {item.role}
+                  </h3>
+                  <p className="font-mono text-xs text-[--muted]">{item.company}</p>
+                  <p className="text-sm text-[--muted] leading-relaxed mt-4">
+                    {item.description}
+                  </p>
                 </div>
-                <div className="pb-10">
-                  <div className="glass-panel rounded-2xl p-6">
-                    <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                      <div>
-                        <h3 className="text-xl font-bold text-ink dark:text-white">{item.title}</h3>
-                        <p className="mt-1 text-sm font-medium text-sea dark:text-teal-300">{item.place}</p>
-                      </div>
-                      <p className="text-sm text-slate-500 dark:text-slate-400">{item.period}</p>
-                    </div>
-                    <p className="mt-4 leading-7 text-slate-600 dark:text-slate-300">{item.description}</p>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

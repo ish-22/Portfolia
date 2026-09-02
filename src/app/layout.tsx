@@ -1,14 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { profile } from "@/data/portfolio";
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter"
-});
 
 export const metadata: Metadata = {
   title: `${profile.name} - Full-Stack Software Developer | Portfolio`,
@@ -60,8 +54,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} antialiased`}>
+      <body className="antialiased">
+
         <ThemeProvider>{children}</ThemeProvider>
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

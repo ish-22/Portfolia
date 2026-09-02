@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { profile, projects, skills, timeline } from "@/data/portfolio";
+import { profile, selectedProjects, technologyMap, experienceTimeline } from "@/data/portfolio";
+
 
 interface ChatMessage {
     role: string;
@@ -81,23 +82,24 @@ export async function POST(req: Request) {
 Name: ${profile.name}
 Role: ${profile.role}
 Headline: ${profile.headline}
-Bio: ${profile.bio}
+Subhead: ${profile.subhead}
 About: ${profile.about.join("\n")}
 Location: ${profile.location}
 Email: ${profile.email}
-WhatsApp: +94 76 527 4750 (Link: https://wa.me/94765274750)
+WhatsApp: ${profile.whatsappFormatted}
 GitHub: ${profile.github}
 LinkedIn: ${profile.linkedin}
 
-Skills:
-${skills.map(s => `- ${s.title}: ${s.items.join(", ")}`).join("\n")}
+Technology Stack & Categories:
+${technologyMap.map(c => `- ${c.category}: ${c.items.map(i => i.name).join(", ")}`).join("\n")}
 
-Projects:
-${projects.map(p => `- ${p.title}: ${p.description} (Tags: ${p.tags.join(", ")})`).join("\n")}
+Featured Projects:
+${selectedProjects.map(p => `- ${p.title} (${p.number}): ${p.subtitle} - Stack: ${p.stack.join(", ")}`).join("\n")}
 
 Experience Timeline:
-${timeline.map(t => `- ${t.title} at ${t.place} (${t.period}): ${t.description}`).join("\n")}
+${experienceTimeline.map(t => `- ${t.year} (${t.role} at ${t.company}): ${t.description}`).join("\n")}
 `;
+
 
         const systemPrompt = `You are "Ishan's AI Portfolio Assistant", an AI representative of Ishan Chinthaka.
 Your task is to answer user inquiries about Ishan's professional profile, skills, projects, and contact information.

@@ -50,9 +50,9 @@ export function ScrollToTop() {
     return (
         <button
             onClick={scrollToTop}
-            className={`fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-black/10 bg-white/85 text-slate-700 shadow-soft backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 hover:border-sea hover:text-sea dark:border-white/10 dark:bg-[#111827]/85 dark:text-slate-300 dark:hover:border-teal-400 dark:hover:text-teal-400 ${isVisible
-                    ? "opacity-100 translate-y-0 scale-100 visible"
-                    : "opacity-0 translate-y-4 scale-75 invisible pointer-events-none"
+            className={`fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-black/10 bg-white/85 text-slate-700 shadow-soft backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 hover:border-emerald-500 hover:text-emerald-500 dark:border-white/10 dark:bg-[#111827]/85 dark:text-slate-300 dark:hover:border-teal-400 dark:hover:text-teal-400 ${isVisible
+                ? "opacity-100 translate-y-0 scale-100 visible"
+                : "opacity-0 translate-y-4 scale-75 invisible pointer-events-none"
                 }`}
             aria-label="Scroll to top"
         >
@@ -75,7 +75,7 @@ export function ScrollToTop() {
                     r={radius}
                     fill="transparent"
                     stroke="currentColor"
-                    className="text-sea dark:text-teal-400 transition-all duration-100"
+                    className="text-emerald-500 dark:text-teal-400 transition-all duration-100"
                     strokeWidth="2.5"
                     strokeDasharray={circumference}
                     strokeDashoffset={strokeDashoffset}

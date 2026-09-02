@@ -1,44 +1,66 @@
 import Link from "next/link";
-import { Github, Linkedin, Mail } from "lucide-react";
 import { profile } from "@/data/portfolio";
+
+const footerNav = [
+  { href: "#work", label: "WORK" },
+  { href: "#lab", label: "LAB" },
+  { href: "#about", label: "ABOUT" },
+  { href: "#contact", label: "CONTACT" }
+];
 
 export function Footer() {
   return (
-    <footer className="border-t border-black/10 bg-mist py-10 dark:border-white/10 dark:bg-[#0d1117]">
-      <div className="container-page flex flex-col items-center justify-between gap-5 text-center sm:flex-row sm:text-left">
-        <p className="text-sm text-slate-500 dark:text-slate-400">
-          Copyright © {new Date().getFullYear()} {profile.name}. All rights reserved.
-        </p>
-        <div className="flex items-center gap-4">
-          <Link aria-label="GitHub" href={profile.github} target="_blank" rel="noopener noreferrer" className="text-slate-500 transition hover:text-sea dark:text-slate-300">
-            <Github size={20} />
-          </Link>
-          <Link aria-label="LinkedIn" href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="text-slate-500 transition hover:text-sea dark:text-slate-300">
-            <Linkedin size={20} />
-          </Link>
-          <Link aria-label="Facebook" href={profile.facebook} target="_blank" rel="noopener noreferrer" className="text-slate-500 transition hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-[19px] h-[19px]" fill="currentColor">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-            </svg>
-          </Link>
-          <Link aria-label="TikTok" href={profile.tiktok} target="_blank" rel="noopener noreferrer" className="text-slate-500 transition hover:text-pink-500 dark:text-slate-300 dark:hover:text-pink-400">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-[19px] h-[19px]" fill="currentColor">
-              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.35a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.6a6.34 6.34 0 0 0 10.86 4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.06z" />
-            </svg>
-          </Link>
-          <Link aria-label="Email" href={`mailto:${profile.email}`} className="text-slate-500 transition hover:text-sea dark:text-slate-300">
-            <Mail size={20} />
-          </Link>
-          <Link aria-label="WhatsApp" href={`https://wa.me/${profile.whatsapp.replace("+", "")}`} target="_blank" rel="noopener noreferrer" className="text-slate-500 transition hover:text-emerald-500 dark:text-slate-300 dark:hover:text-emerald-400 flex items-center justify-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-              className="w-[19px] h-[19px]"
-              fill="currentColor"
-            >
-              <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
-            </svg>
-          </Link>
+    <footer className="border-t border-[--border] bg-[--bg] py-14" role="contentinfo">
+      <div className="container-xl">
+        <div className="grid gap-10 md:grid-cols-3 items-start">
+          {/* Brand */}
+          <div>
+            <p className="font-mono text-xs font-black tracking-widest text-[--text] mb-2">
+              ISHAN CHINTHAKA
+            </p>
+            <p className="font-mono text-[10px] text-[--muted] tracking-widest">
+              FULL-STACK SOFTWARE ENGINEER
+            </p>
+            <p className="font-mono text-[10px] text-[--muted] mt-0.5 tracking-wider">
+              UI/UX · ENGINEERING · AI · CLOUD
+            </p>
+          </div>
+
+          {/* Nav */}
+          <nav aria-label="Footer navigation" className="flex flex-wrap gap-6 mt-1">
+            {footerNav.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="font-mono text-[10px] font-semibold tracking-widest text-[--muted] hover:text-[--lime] transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Social */}
+          <div className="flex gap-5 md:justify-end mt-1">
+            <Link href={profile.github} target="_blank" rel="noopener noreferrer" className="font-mono text-[10px] text-[--muted] hover:text-[--lime] transition-colors">
+              GITHUB
+            </Link>
+            <Link href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="font-mono text-[10px] text-[--muted] hover:text-[--lime] transition-colors">
+              LINKEDIN
+            </Link>
+            <Link href={`mailto:${profile.email}`} className="font-mono text-[10px] text-[--muted] hover:text-[--lime] transition-colors">
+              EMAIL
+            </Link>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="mt-12 border-t border-[--border] pt-6 flex items-center justify-between">
+          <p className="font-mono text-[10px] text-[--muted]">
+            © {new Date().getFullYear()} ISHAN CHINTHAKA. ALL RIGHTS RESERVED.
+          </p>
+          <span className="font-mono text-[10px] text-[--muted]">
+            Sri Lanka
+          </span>
         </div>
       </div>
     </footer>
