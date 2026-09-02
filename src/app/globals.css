@@ -1,93 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ─── DESIGN TOKENS ─────────────────────────────────────────────── */
 :root {
-  color-scheme: light;
-}
-
-.dark {
+  --bg: #08090b;
+  --surface: #101216;
+  --elevated: #15181d;
+  --text: #f5f5f5;
+  --muted: #8b919c;
+  --border: rgba(255, 255, 255, 0.1);
+  --lime: #a3e635;
+  --lime-dim: rgba(163, 230, 53, 0.12);
+  --lime-glow: 0 0 40px rgba(163, 230, 53, 0.15);
   color-scheme: dark;
 }
 
-* {
+.light {
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --elevated: #f4f4f5;
+  --text: #09090b;
+  --muted: #52525b;
+  --border: rgba(0, 0, 0, 0.08);
+  --lime: #65a30d;
+  --lime-dim: rgba(101, 163, 13, 0.1);
+  color-scheme: light;
+}
+
+/* ─── BASE RESET ────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition:
+    background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
+  background: var(--bg);
+  color: var(--text);
 }
 
 body {
-  margin: 0;
-  background: #f7f7f4;
-  color: #111827;
+  background: var(--bg);
+  color: var(--text);
   font-family:
-    var(--font-inter),
+    "Inter",
     ui-sans-serif,
     system-ui,
     -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
     sans-serif;
-}
-
-.dark body {
-  background: #0d1117;
-  color: #f8fafc;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 ::selection {
-  background: rgba(15, 118, 110, 0.25);
+  background: var(--lime-dim);
 }
 
+/* ─── SCROLLBAR ─────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 1px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+/* ─── COMPONENT LAYER ───────────────────────────────────────────── */
 @layer components {
-  .container-page {
-    @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
+  /* Layout containers */
+  .container-xl {
+    @apply mx-auto w-full max-w-[1400px] px-6 md:px-12 lg:px-20;
+  }
+  .container-lg {
+    @apply mx-auto w-full max-w-6xl px-6 md:px-12;
+  }
+  .section {
+    @apply py-28 md:py-36 lg:py-44;
+  }
+  .section-sm {
+    @apply py-16 md:py-24;
   }
 
-  .section-padding {
-    @apply py-20 sm:py-24;
+  /* Editorial typography */
+  .display {
+    @apply font-black leading-[0.9] tracking-tighter uppercase;
+  }
+  .display-xl {
+    @apply text-[clamp(3.5rem,10vw,9rem)] font-black leading-[0.88] tracking-tighter uppercase;
+  }
+  .display-lg {
+    @apply text-[clamp(2.5rem,7vw,6rem)] font-black leading-[0.92] tracking-tighter uppercase;
+  }
+  .display-md {
+    @apply text-[clamp(1.8rem,4vw,3.5rem)] font-extrabold leading-[1.0] tracking-tight uppercase;
+  }
+  .heading {
+    @apply text-xl md:text-2xl font-bold tracking-tight;
   }
 
-  .glass-panel {
-    @apply border border-black/10 bg-white/75 shadow-soft backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.06];
+  /* Label */
+  .label {
+    @apply font-mono text-[10px] font-semibold tracking-[0.25em] uppercase;
+  }
+  .label-lime {
+    @apply label text-[--lime];
+  }
+  .label-muted {
+    @apply label text-[--muted];
   }
 
-  .eyebrow {
-    @apply text-sm font-semibold uppercase tracking-[0.18em] text-sea dark:text-teal-300;
+  /* Divider */
+  .rule {
+    @apply border-t border-[--border];
+  }
+
+  /* Premium card */
+  .card {
+    @apply relative overflow-hidden rounded-2xl border border-[--border]
+    bg-[--surface] transition-all duration-300
+    hover:border-[rgba(163,230,53,0.3)];
+  }
+
+  /* Number display */
+  .numeral {
+    @apply font-mono font-black text-[clamp(5rem,15vw,14rem)]
+    leading-none tracking-tighter text-[--border] select-none;
   }
 }
 
+/* ─── UTILITY LAYER ─────────────────────────────────────────────── */
 @layer utilities {
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
+  .text-lime {
+    color: var(--lime);
   }
-  /* Hide scrollbar for IE, Edge and Firefox */
-  .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+  .text-muted {
+    color: var(--muted);
+  }
+  .bg-surface {
+    background: var(--surface);
+  }
+  .bg-main {
+    background: var(--bg);
+  }
+  .border-subtle {
+    border-color: var(--border);
   }
 
+  /* Marquee animation */
   @keyframes marquee {
-    0% {
-      transform: translateX(0%);
+    from {
+      transform: translateX(0);
     }
-    100% {
+    to {
       transform: translateX(-50%);
     }
   }
-
   .animate-marquee {
-    animation: marquee 50s linear infinite;
+    animation: marquee 40s linear infinite;
   }
-
-  .animate-marquee-slow {
-    animation: marquee 50s linear infinite;
-  }
-
-  .animate-marquee-hover-pause:hover {
+  .animate-marquee:hover {
     animation-play-state: paused;
+  }
+
+  /* Fade reveal */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  /* No scrollbar */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
