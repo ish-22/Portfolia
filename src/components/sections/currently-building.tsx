@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Github, GitCommit, GitBranch, Code2 } from "lucide-react";
 import { profile } from "@/data/portfolio";
 

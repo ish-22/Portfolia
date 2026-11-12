@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -54,6 +52,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family:
+    var(--font-inter),
     "Inter",
     ui-sans-serif,
     system-ui,
@@ -82,33 +81,36 @@ body {
 @layer components {
   /* Layout containers */
   .container-xl {
-    @apply mx-auto w-full max-w-[1400px] px-6 md:px-12 lg:px-20;
+    @apply mx-auto w-full max-w-[1400px] px-4 sm:px-6 md:px-12 lg:px-20;
   }
   .container-lg {
-    @apply mx-auto w-full max-w-6xl px-6 md:px-12;
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-12;
   }
   .section {
-    @apply py-28 md:py-36 lg:py-44;
+    @apply py-20 sm:py-24 md:py-32 lg:py-40;
   }
   .section-sm {
-    @apply py-16 md:py-24;
+    @apply py-12 sm:py-16 md:py-24;
   }
 
   /* Editorial typography */
   .display {
-    @apply font-black leading-[0.9] tracking-tighter uppercase;
+    @apply font-black leading-[0.9] tracking-tighter uppercase break-words;
   }
   .display-xl {
-    @apply text-[clamp(3.5rem,10vw,9rem)] font-black leading-[0.88] tracking-tighter uppercase;
+    @apply text-[clamp(2.1rem,7.5vw,8.5rem)] font-black leading-[0.92] tracking-tighter uppercase break-words;
   }
   .display-lg {
-    @apply text-[clamp(2.5rem,7vw,6rem)] font-black leading-[0.92] tracking-tighter uppercase;
+    @apply text-[clamp(1.75rem,5.5vw,5.5rem)] font-black leading-[0.94] tracking-tighter uppercase break-words;
   }
   .display-md {
-    @apply text-[clamp(1.8rem,4vw,3.5rem)] font-extrabold leading-[1.0] tracking-tight uppercase;
+    @apply text-[clamp(1.35rem,3.8vw,3rem)] font-extrabold leading-[1.05] tracking-tight uppercase break-words;
+  }
+  .display-sm {
+    @apply text-[clamp(1.25rem,3vw,2.2rem)] font-black leading-[1.1] tracking-tight uppercase break-words;
   }
   .heading {
-    @apply text-xl md:text-2xl font-bold tracking-tight;
+    @apply text-lg sm:text-xl md:text-2xl font-bold tracking-tight;
   }
 
   /* Label */
@@ -136,7 +138,7 @@ body {
 
   /* Number display */
   .numeral {
-    @apply font-mono font-black text-[clamp(5rem,15vw,14rem)]
+    @apply font-mono font-black text-[clamp(3.5rem,12vw,14rem)]
     leading-none tracking-tighter text-[--border] select-none;
   }
 }
@@ -170,6 +172,8 @@ body {
   }
   .animate-marquee {
     animation: marquee 40s linear infinite;
+    will-change: transform;
+    transform: translateZ(0);
   }
   .animate-marquee:hover {
     animation-play-state: paused;

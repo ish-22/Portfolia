@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { profile, selectedProjects, technologyMap, experienceTimeline } from "@/data/portfolio";
+import { profile, selectedProjects, technologyMap, experienceTimeline, workExperience } from "@/data/portfolio";
 
 
 interface ChatMessage {
@@ -96,18 +96,26 @@ ${technologyMap.map(c => `- ${c.category}: ${c.items.map(i => i.name).join(", ")
 Featured Projects:
 ${selectedProjects.map(p => `- ${p.title} (${p.number}): ${p.subtitle} - Stack: ${p.stack.join(", ")}`).join("\n")}
 
+Professional Work Experience:
+${workExperience.map(w => `- ${w.company} (${w.role}, ${w.period}): ${w.summary}
+  Technologies: ${w.technologies.join(", ")}
+  Key Projects/Systems: ${w.projects.map(p => `${p.name} [${p.area}]`).join("; ")}
+  Achievements: ${w.achievements.join("; ")}`).join("\n")}
+
 Experience Timeline:
 ${experienceTimeline.map(t => `- ${t.year} (${t.role} at ${t.company}): ${t.description}`).join("\n")}
 `;
 
 
         const systemPrompt = `You are "Ishan's AI Portfolio Assistant", an AI representative of Ishan Chinthaka.
-Your task is to answer user inquiries about Ishan's professional profile, skills, projects, and contact information.
-Guidelines:
-1. Always be professional, helpful, polite, and descriptive but brief.
-2. Restrict answers to findings from the portfolio context. If a user asks about unrelated topics, politely guide them back to Ishan's portfolio.
-3. If they ask how to contact Ishan, provide his email (${profile.email}) and WhatsApp connection (+94 76 527 4750).
-4. Do not make up links, project details, or qualifications.
+Your task is to answer inquiries about Ishan's professional profile, verified skills, real-world projects, commercial experience at Amazoft IT, and contact details with 100% factual accuracy.
+
+Strict Guidelines:
+1. Accuracy First: Base all answers strictly on the portfolio context below. Never invent technologies, client companies, unverified metrics, or qualifications.
+2. If asked about Ishan's experience, highlight his current commercial role as Associate Software Engineer at Amazoft IT and his BSc (Hons) 2:1 from Cardiff Metropolitan University.
+3. If asked about Ishan's skills, refer directly to his 7 technical domains: Frontend, Backend, Programming Languages, Databases, Cloud & DevOps, Development Tools, and AI & Integrations.
+4. If asked about contact options, provide his email (${profile.email}), WhatsApp (${profile.whatsappFormatted}), phone (+94 75 246 4420), or LinkedIn.
+5. If asked about unrelated general topics, politely guide the visitor back to Ishan's portfolio and engineering work.
 
 Context:
 ${portfolioContext}
@@ -226,46 +234,54 @@ function generateStaticResponse(query: string): string {
     const q = query.toLowerCase();
 
     // 1. Specific project details matching
-    if (q.includes("smartbus") || q.includes("smart bus")) {
-        return "The SmartBus Transit Tracker is a real-time transit solution featuring GPS live bus tracking with interactive maps, seat reservation, Stripe payment, and QR code tickets. Technology Stack: Next.js, Express.js, Socket.io, React, MongoDB, and Stripe.";
+    if (q.includes("smartbus") || q.includes("smart bus") || q.includes("track my bus") || q.includes("transit")) {
+        return "Track My Bus (WORK / 001) is a real-time transit and fleet tracking ecosystem featuring live GPS bus tracking with Google Maps marker interpolation, Redis-powered seat reservation locks, Stripe payment processing, and dynamic QR code tickets. Tech Stack: Next.js 15, TypeScript, Laravel / Express, Redis, MySQL, and Google Maps API.";
     }
-    if (q.includes("study assistant") || q.includes("study-assistant") || q.includes("educational platform")) {
-        return "The AI-Powered Study Assistant is an educational platform featuring automated flashcards, relational quiz tracking, and AI-driven document chunking for RAG pipelines. Technology Stack: Next.js, TypeScript, PostgreSQL, Zod, and Tailwind CSS.";
+    if (q.includes("study assistant") || q.includes("study-assistant") || q.includes("rag") || q.includes("flashcard")) {
+        return "The AI Study Assistant (WORK / 003) is an educational platform with PDF document ingestion, semantic chunking, and grounded Q&A/quiz generation powered by Amazon Bedrock. Structured JSON outputs are strictly validated using Zod schemas to eliminate hallucinations. Tech Stack: Next.js 15, TypeScript, PostgreSQL, Node.js/Express, Amazon Bedrock, and Zod.";
     }
-    if (q.includes("fixnow") || q.includes("fix now") || q.includes("service platform")) {
-        return "The FixNow Service Platform is a service marketplace connecting customers with vendors, supporting booking, status tracking, rating feedback, and secure accounts. Technology Stack: PHP, MySQL, JavaScript, HTML, and CSS.";
+    if (q.includes("medisync") || q.includes("pharmacy") || q.includes("hospital") || q.includes("clinical")) {
+        return "MediSync Core (WORK / 002) is an enterprise medical and pharmacy management portal featuring role-based access control (RBAC), electronic health records, inventory stock alerts, and an AI clinical summarization copilot with client-side PII redaction. Tech Stack: Next.js, Node.js, MySQL, Amazon Bedrock, and Tailwind CSS.";
     }
-    if (q.includes("resort") || q.includes("ocean view") || q.includes("resort portal")) {
-        return "The Ocean View Resort Portal is a luxury-vintage themed guest resort management system featuring a cinematic booking suite. Technology Stack: Spring Boot, React, Vite, and MySQL.";
+    if (q.includes("fixnow") || q.includes("fix now") || q.includes("service platform") || q.includes("technician")) {
+        return "The FixNow Service Platform (WORK / 004) connects customers with vetted local service technicians, featuring online dispatching, state-machine booking status tracking, and provider ratings. Tech Stack: PHP, MySQL, JavaScript, HTML5, and CSS3.";
+    }
+    if (q.includes("resort") || q.includes("ocean view")) {
+        return "The Ocean View Resort Portal (WORK / 005) is a hospitality management suite built with Java Spring Boot and React, utilizing Spring Data JPA transaction isolation to achieve zero booking collisions. Tech Stack: Spring Boot, React, Vite, MySQL, and Tailwind CSS.";
     }
     if (q.includes("bookshop") || q.includes("pahana")) {
-        return "The Pahana Bookshop System is a Java desktop inventory management, ordering, and billing application. Technology Stack: Java, MySQL, Swing, and JDBC.";
+        return "The Pahana Bookshop System (WORK / 006) is a desktop retail POS and inventory management application with barcode scanning receipt generation and offline-cached transaction re-sync. Tech Stack: Java, MySQL, Swing, and JDBC.";
     }
 
-    // 2. Contact details (Checking this before greeting words like "hi" to prevent greeting match on contact queries)
+    // 2. Accuracy & AI Agent questions
+    if (/\b(accuracy|accurate|reliable|truth|hallucinat|agent accuracy)\b/.test(q)) {
+        return "As Ishan's AI Portfolio Assistant, my answers are grounded strictly in Ishan's verified portfolio and commercial experience. I do not fabricate credentials, unverified percentages, or unsupported claims. You can inspect Ishan's live GitHub repositories, system architecture diagrams, and academic qualifications directly on this site.";
+    }
+
+    // 3. Contact details
     if (/\b(contact|email|phone|whatsapp|reach|hire|connect|message)\b/.test(q) || q.includes("0765274750") || q.includes("94765274750")) {
-        return "You can get in touch with Ishan directly through:\n\n• Email: ishanchinthaka2002@gmail.com\n• WhatsApp: +94 76 527 4750\n• LinkedIn: linkedin.com/in/ishan-chinthaka-1a6b5a2b1\n\nAlternatively, use the WhatsApp tab in this widget to message him directly!";
+        return "You can get in touch with Ishan directly through:\n\n• Email: ishanchinthaka2002@gmail.com\n• WhatsApp: +94 76 527 4750\n• Phone: +94 75 246 4420\n• LinkedIn: linkedin.com/in/ishan-chinthaka\n• GitHub: github.com/ish-22\n\nYou can also click the WhatsApp tab in this widget to message him directly!";
     }
 
-    // 3. Skills / Technologies
-    if (/\b(skill|skills|technology|technologies|tech|languages|frameworks|capable)\b/.test(q)) {
-        return "Ishan specialises in:\n\n• Frontend: React, Next.js, TypeScript, Tailwind CSS\n• Backend: Node.js, PHP & Laravel, Java & Spring Boot, Python\n• Databases: MySQL, PostgreSQL, MongoDB, SQLite\n• Cloud & DevOps: AWS, Microsoft Azure, Docker, CI/CD\n\nIs there a specific framework or tool you're interested in?";
+    // 4. Skills / Technologies
+    if (/\b(skill|skills|technology|technologies|tech|languages|frameworks|capable|stack)\b/.test(q)) {
+        return "Ishan's technical capabilities span 7 verified categories:\n\n1. Frontend: React.js, Next.js, TypeScript, Tailwind CSS, HTML5 & CSS3\n2. Backend: Node.js, Express.js, Java & Spring Boot, PHP & Laravel, RESTful APIs, .NET Core\n3. Languages: TypeScript, JavaScript (ES6+), Java, PHP, C#, SQL\n4. Databases: PostgreSQL, MySQL, MongoDB, SQLite, Redis\n5. Cloud & DevOps: AWS Cloud, Docker, CI/CD Pipelines\n6. Tools: Git, GitHub, Postman, VS Code, Figma\n7. AI & Integrations: Amazon Bedrock, Vector Search & RAG, Zod Schema Validation, Google Maps API, Stripe API";
     }
 
-    // 4. Projects catalog
-    if (/\b(project|projects|work|portfolio|apps|systems)\b/.test(q)) {
-        return "Here are a few notable projects Ishan has built:\n\n1. AI-Powered Study Assistant: featuring automated flashcards and RAG pipelines (Next.js, PostgreSQL).\n2. SmartBus Transit Tracker: live-tracking GPS transit app (Next.js, Express, Socket.io).\n3. FixNow Service Platform: client-vendor booking platform (PHP, MySQL).\n4. Ocean View Resort Portal: spring boot/react guest administration system.\n\nWhich of these would you like more details on?";
+    // 5. Commercial Experience & Education
+    if (/\b(experience|job|jobs|work|career|amazoft|education|degree|university|study|graduate|qualif)\b/.test(q)) {
+        return "Ishan Chinthaka's verified background:\n\n• Current Role: Associate Software Engineer at Amazoft IT (December 2025 – Present), building production web features in React/TypeScript, optimizing PostgreSQL schemas, and conducting Agile peer reviews.\n• Prior Role: Trainee Software Developer at Amazoft IT (June 2022 – December 2025), building UIs, supporting Spring Boot APIs, and managing Docker builds.\n• Education: BSc (Hons) in Software Engineering (Second Class Upper Division 2:1) from Cardiff Metropolitan University, UK (2025–2026), and Higher Diploma in Computing (Merit / Distinction).";
     }
 
-    // 5. Experience / Education
-    if (/\b(experience|experiences|job|jobs|education|degree|study|university|graduate)\b/.test(q)) {
-        return "Ishan holds a BSc (Hons) in Software Engineering (Second Class Upper) from Cardiff Metropolitan University. He has built various web development, mobile apps, business databases, and POS/management solutions.";
+    // 6. Projects summary
+    if (/\b(project|projects|portfolio|apps|systems|work)\b/.test(q)) {
+        return "Ishan has engineered several full-stack and distributed products:\n\n1. Track My Bus: Real-time public transit tracking ecosystem (Next.js, Redis, Laravel, Stripe, Google Maps).\n2. MediSync Core: AI-assisted healthcare & pharmacy operations portal (Next.js, Node.js, MySQL, Amazon Bedrock).\n3. AI Study Assistant: Intelligent document chunking & RAG learning platform (Next.js, PostgreSQL, Bedrock, Zod).\n4. Ocean View Resort: Concurrency-managed hospitality system (Spring Boot, React, MySQL).\n5. Pahana Bookshop: Desktop inventory & barcode billing software (Java, Swing, MySQL).\n\nWhich project would you like to explore?";
     }
 
-    // 6. Greetings with boundary match
-    if (/\b(hi|hello|hey|hola|greetings|accourancy|test)\b/.test(q)) {
-        return "Hello! I am Ishan's AI Assistant. How can I help you today? You can ask about my skills, projects, experience, or how to contact me.";
+    // 7. Greetings
+    if (/\b(hi|hello|hey|hola|greetings|morning|afternoon|evening)\b/.test(q)) {
+        return "Hello! I am Ishan's AI Assistant. How can I help you today? You can ask about his commercial experience at Amazoft IT, verified technical skills, system architecture, projects, or how to get in touch.";
     }
 
-    return "I'm Ishan's Portfolio Assistant. Ask me anything about his skills, projects, qualifications, or how to get in touch. You can also chat directly with him on WhatsApp (0765274750)!";
+    return "I'm Ishan's Portfolio Assistant. Ask me anything about his technical skills across 7 domains, commercial experience at Amazoft IT, project architectures, or how to connect on WhatsApp (+94 76 527 4750) and email!";
 }

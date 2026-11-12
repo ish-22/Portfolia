@@ -118,18 +118,18 @@ export function ChatWidget() {
     };
 
     return (
-        <div className="fixed bottom-20 right-6 z-50">
+        <div className="fixed bottom-18 sm:bottom-20 right-4 sm:right-6 z-50">
             {/* Floating Action Button */}
             {!isOpen && (
                 <button
                     onClick={() => setIsOpen(true)}
-                    className="flex h-12 w-12 items-center justify-center rounded-full shadow-[0_0_15px_rgba(16,185,129,0.25)] transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 p-0.5 bg-gradient-to-r from-emerald-400 to-emerald-600 border border-emerald-500/30"
+                    className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full shadow-[0_0_15px_rgba(16,185,129,0.25)] transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 p-0.5 bg-gradient-to-r from-emerald-400 to-emerald-600 border border-emerald-500/30"
                     aria-label="Toggle chat widget"
                 >
                     <div className="h-full w-full rounded-full overflow-hidden border border-white/10 flex items-center justify-center bg-slate-900">
                         <Image
                             src="/ai-assistant-logo.png"
-                            alt="AI Assistant"
+                            alt="Ishan AI Portfolio Assistant"
                             width={44}
                             height={44}
                             className="h-full w-full object-cover rounded-full"
@@ -149,7 +149,7 @@ export function ChatWidget() {
                                 <div className="h-10 w-10 rounded-full overflow-hidden bg-white/10 flex items-center justify-center border border-white/20">
                                     <Image
                                         src="/ai-assistant-logo.png"
-                                        alt="AI Assistant Logo"
+                                        alt="Ishan AI Portfolio Assistant"
                                         width={40}
                                         height={40}
                                         className="h-full w-full object-cover"

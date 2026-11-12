@@ -60,7 +60,7 @@ export function DesignLab() {
                             <div className="md:col-span-7 relative min-h-[260px] bg-[--surface]">
                                 <Image
                                     src={item.image}
-                                    alt={item.title}
+                                    alt={`${item.title} UI/UX Case Study`}
                                     fill
                                     className="object-cover"
                                     sizes="(max-width: 768px) 100vw, 60vw"
@@ -80,13 +80,13 @@ export function DesignLab() {
                             <button
                                 key={s.step}
                                 onClick={() => setActiveStep(i)}
-                                className={`text-center p-4 font-mono text-[10px] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[--lime] ${activeStep === i
+                                className={`text-center p-2 sm:p-3 md:p-4 font-mono text-[9px] sm:text-[10px] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[--lime] min-h-[44px] ${activeStep === i
                                         ? "bg-[--lime] text-black font-black"
                                         : "bg-[--bg] text-[--muted] hover:bg-[--surface] hover:text-[--text]"
                                     }`}
                             >
-                                <span className="block text-[8px] mb-1">{s.step}</span>
-                                {s.title}
+                                <span className="block text-[8px] mb-0.5 sm:mb-1">{s.step}</span>
+                                <span className="block truncate">{s.title}</span>
                             </button>
                         ))}
                     </div>

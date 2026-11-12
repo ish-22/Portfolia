@@ -27,7 +27,7 @@ export function EngineeringSignal() {
                         >
                             {/* Oversized number */}
                             <span
-                                className={`numeral shrink-0 w-40 transition-colors duration-300 ${hovered === cap.id ? "text-[--lime]" : ""
+                                className={`numeral shrink-0 w-20 sm:w-28 md:w-40 transition-colors duration-300 ${hovered === cap.id ? "text-[--lime]" : ""
                                     }`}
                                 aria-hidden
                             >

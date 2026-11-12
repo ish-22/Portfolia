@@ -3,6 +3,7 @@ import { profile } from "@/data/portfolio";
 
 const footerNav = [
   { href: "#work", label: "WORK" },
+  { href: "#experience", label: "EXPERIENCE" },
   { href: "#lab", label: "LAB" },
   { href: "#about", label: "ABOUT" },
   { href: "#contact", label: "CONTACT" }
@@ -54,7 +55,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 border-t border-[--border] pt-6 flex items-center justify-between">
+        <div className="mt-12 border-t border-[--border] pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
           <p className="font-mono text-[10px] text-[--muted]">
             © {new Date().getFullYear()} ISHAN CHINTHAKA. ALL RIGHTS RESERVED.
           </p>

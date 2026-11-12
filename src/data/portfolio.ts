@@ -2,32 +2,37 @@ export const profile = {
   name: "Ishan Chinthaka",
   role: "Full-Stack Software Engineer",
   label: "ISHAN — DIGITAL ENGINEERING LAB",
-  headline: "Designing interfaces. Engineering systems. Building intelligent products.",
-  subhead: "Full-Stack Software Engineer focused on creating scalable web applications, thoughtful user experiences and AI-powered systems.",
+  headline: "Building responsive, reliable web applications, resilient RESTful APIs, and database-driven systems.",
+  subhead: "Full-Stack Software Engineer and Associate Software Engineer at Amazoft IT, with commercial experience building production web applications, scalable REST APIs, and database-driven solutions using React, Next.js, TypeScript, Node.js, Spring Boot, and PostgreSQL.",
   about: [
-    "I am a software engineer and product designer dedicated to building high-performance digital products, resilient backend architectures, and intelligent web systems.",
-    "My engineering core spans full-stack web applications with Next.js, React, TypeScript, Node.js, PHP, Laravel, Java Spring Boot, and Python, integrated with AWS cloud infrastructure and Amazon Bedrock AI services.",
-    "With a Cardiff Metropolitan University BSc (Hons) in Software Engineering (Second Class Upper Division), I combine rigorous architectural principles with intuitive UI/UX interaction design to turn complex engineering problems into clean, scalable software."
+    "I am a Full-Stack Software Engineer with commercial experience delivering production web applications, scalable REST APIs, and database-driven systems. As an Associate Software Engineer at Amazoft IT, I contribute across the full development lifecycle—building modular React and TypeScript web clients, designing optimized relational SQL schemas in PostgreSQL, and actively collaborating in Agile sprint cycles with structured code reviews via Git and GitHub.",
+    "My engineering work focuses on solving tangible operational friction. I have built real-time public transit tracking ecosystems with interactive mapping and sub-second telemetry, healthcare inventory and prescription portals, and AI-powered document learning platforms. My problem-solving approach is grounded in root-cause diagnostics, clean architectural boundaries, and defensive security (OWASP, JWT/RBAC), ensuring that software is maintainable, stable, and resilient in production environments.",
+    "Holding a BSc (Hons) in Software Engineering (Second Class Upper Division 2:1) from Cardiff Metropolitan University and a Higher Diploma in Computing (Merit / Distinction), I am passionate about modern full-stack systems, database query optimization, and purposeful AI integrations. My goal is to collaborate with forward-thinking engineering teams to build high-availability software products that deliver measurable business and user value."
   ],
-  location: "Sri Lanka",
+  location: "Meetiyagoda, Ambalangoda, Sri Lanka",
   email: "ishanchinthaka2002@gmail.com",
   github: "https://github.com/ish-22",
   linkedin: "https://www.linkedin.com/in/ishan-chinthaka-1a6b5a2b1",
-  tiktok: "https://www.tiktok.com/foryou?lang=en-GB",
+  tiktok: "https://www.tiktok.com/@ish_22",
   facebook: "https://www.facebook.com/share/1HYwAWdnB7/",
   resume: "/Ishan%20Chinthaka.pdf",
   whatsapp: "+94765274750",
   whatsappFormatted: "+94 76 527 4750",
+  phoneSecondary: "+94752464420",
+  phoneSecondaryFormatted: "+94 75 246 4420",
   availability: "AVAILABLE FOR OPPORTUNITIES"
 };
 
 export const heroTechSignals = [
+  "React.js",
   "Next.js",
   "TypeScript",
+  "Java",
+  "Spring Boot",
   "Node.js",
-  "Laravel",
-  "AWS",
-  "AI"
+  "PostgreSQL",
+  "Docker",
+  "AWS"
 ];
 
 export const engineeringCapabilities = [
@@ -119,12 +124,12 @@ export const selectedProjects: ProjectData[] = [
       "Deliver instant interactive seat reservation with real-time capacity locks via Redis.",
       "Provide secure payment processing with dynamic QR code validation."
     ],
-    research: "Analyzed commuter boarding bottlenecks and discovered that 68% of delay time occurs during manual ticket issuance at stops.",
+    research: "Identified recurring commuter boarding bottlenecks caused by slow manual cash transactions and lack of visibility into oncoming bus capacity.",
     userFlow: "Search Route → View Live GPS Map → Select Bus & Seats → Confirm Payment → Receive Dynamic QR Ticket → Scan at Vehicle Gate.",
     architectureNotes: "Client Next.js app communicates via REST API to a Laravel backend, which leverages Redis in-memory pub/sub for bus location updates and transactional MySQL storage.",
     challenges: "Handling rapid websocket location updates from dozens of active vehicles without degrading client map rendering frames.",
     solution: "Implemented debounced batch update intervals in Redis with client-side interpolation on Google Maps canvas layers.",
-    result: "Reduced average passenger waiting time by 35% and increased digital pre-booking compliance across operational test routes."
+    result: "Streamlined passenger boarding by replacing manual cash ticketing with real-time seat reservation and instant QR code validation."
   },
   {
     id: "medisync-core",
@@ -149,12 +154,12 @@ export const selectedProjects: ProjectData[] = [
       "Provide AI assistance for instant prescription summarization and dosage alerts.",
       "Enforce strict role-based access control (RBAC) across sensitive medical logs."
     ],
-    research: "Interviews with clinical staff revealed an average of 4 minutes wasted per consultation searching physical drug availability catalogs.",
+    research: "Feedback from clinical and pharmacy staff highlighted consultation delays caused by disconnected physical drug availability catalogs.",
     userFlow: "Login (RBAC) → Patient Lookup → View EHR & History → Enter Prescription → AI Safety Audit → Automated Inventory Deduct → Dispense.",
     architectureNotes: "Built with Node.js microservices, MySQL relational schemas, Next.js dashboard UI, and Amazon Bedrock Nova model integration for clinical text processing.",
     challenges: "Maintaining strict data privacy while running LLM analysis on clinical notes.",
     solution: "Implemented automated client-side PII redactors prior to invoking Bedrock API endpoints.",
-    result: "Accelerated prescription processing time by 50% and eliminated out-of-stock prescription errors during trial deployment."
+    result: "Eliminated manual stock verification delays by linking real-time pharmacy inventory with role-based clinical prescription workflows."
   },
   {
     id: "ai-study-assistant",
@@ -182,12 +187,12 @@ export const selectedProjects: ProjectData[] = [
       "Deliver low-latency Q&A responses grounded strictly in uploaded document context.",
       "Generate structured multiple-choice quizzes with automatic scoring logs."
     ],
-    research: "User testing indicated 82% higher memory retention when study materials were presented as active recall quizzes.",
+    research: "Applied cognitive science active-recall principles, structuring study materials into dynamic self-assessment quizzes to improve conceptual retention.",
     userFlow: "Upload PDF → Semantic Vector Chunking → Interactive Workspace → Generate Flashcards / Ask AI → Track Assessment Score.",
     architectureNotes: "Next.js frontend connects to an Express API executing chunked document ingestion, stored in PostgreSQL with indexed retrieval pipelines.",
     challenges: "Preventing AI model hallucinations when answering technical academic queries.",
     solution: "Enforced strict system prompt constraints requiring context citations and implemented Zod schema validation on structured AI outputs.",
-    result: "Achieved 94% accuracy on user document Q&A queries and processed thousands of study notes seamlessly."
+    result: "Delivered contextually grounded document Q&A and active-recall quizzes by enforcing strict context citation prompts and Zod schema output validation."
   }
 ];
 
@@ -268,7 +273,7 @@ export const secondaryProjects: ProjectData[] = [
     architectureNotes: "Java Swing desktop UI connecting via JDBC driver to MySQL database.",
     challenges: "Ensuring offline resilience when server connection drops.",
     solution: "Implemented local cached transaction queues with automatic re-sync.",
-    result: "Sped up daily cashier billing speeds by 40%."
+    result: "Significantly accelerated cashier checkout flows through instant ISBN barcode scanning, automated receipt generation, and real-time inventory deduction."
   }
 ];
 
@@ -386,66 +391,257 @@ export const aiLabItems = [
   }
 ];
 
-export const technologyMap = [
+export interface TechCategory {
+  category: string;
+  description: string;
+  items: {
+    name: string;
+    note: string;
+  }[];
+}
+
+export const technologyMap: TechCategory[] = [
   {
-    category: "FRONTEND",
+    category: "Frontend Development",
+    description: "Modern client-side web architectures, reactive state management, and responsive interfaces.",
     items: [
-      { name: "Next.js", note: "App Router SSR, Server Components & Dynamic Routing" },
-      { name: "React 19", note: "Modern Hooks, Concurrent Rendering & Component Patterns" },
-      { name: "TypeScript", note: "Strict Static Typing, Interfaces & Type Safety" },
-      { name: "Tailwind CSS", note: "Design Tokens, Responsive Layouts & Utility Styling" },
-      { name: "Framer Motion", note: "Smooth Motion Dynamics & Micro-Interactions" }
+      { name: "React.js", note: "Component architecture, Virtual DOM, custom hooks & state patterns" },
+      { name: "Next.js", note: "App Router SSR, Server Components, dynamic routing & SEO optimization" },
+      { name: "Tailwind CSS", note: "Design tokens, responsive layouts, dark mode & utility styling" },
+      { name: "HTML5 & CSS3", note: "Semantic structure, responsive CSS Grid/Flexbox & modern web standards" }
     ]
   },
   {
-    category: "BACKEND",
+    category: "Backend Development",
+    description: "Robust server runtimes, REST API architectures, middleware, and business logic services.",
     items: [
-      { name: "Node.js & Express", note: "Asynchronous RESTful APIs & Microservices" },
-      { name: "Laravel (PHP)", note: "MVC Architecture, Eloquent ORM & Authentication" },
-      { name: "Java & Spring Boot", note: "Enterprise Java Services, JPA & Security" },
-      { name: "MySQL / PostgreSQL", note: "Relational Database Design, Indexing & Queries" },
-      { name: "Redis", note: "In-Memory Caching, Queue Management & Pub/Sub" }
+      { name: "Node.js", note: "Event-driven asynchronous server runtime & microservice architectures" },
+      { name: "Express.js", note: "RESTful routing, modular middleware pipelines & controller architecture" },
+      { name: "Spring Boot", note: "Enterprise Java services, Spring Data JPA, dependency injection & REST APIs" },
+      { name: "Laravel", note: "PHP MVC architecture, Eloquent ORM, middleware & secure authentication" },
+      { name: "RESTful APIs", note: "REST contract design, HTTP status conventions, JSON schemas & endpoints" },
+      { name: ".NET Core", note: "Foundational backend architecture, C# web APIs & MVC patterns" }
     ]
   },
   {
-    category: "CLOUD & DEVOPS",
+    category: "Programming Languages",
+    description: "Core languages applied across frontend, enterprise backend, and database scripting.",
     items: [
-      { name: "AWS Services", note: "AWS S3, EC2, IAM, Bedrock & Cloud Architecture" },
-      { name: "Vercel / Amplify", note: "Automated Edge Deployment & CI/CD Pipelines" },
-      { name: "Docker", note: "Containerized Workflows & Consistent Environments" },
-      { name: "Git & GitHub", note: "Branching Strategies, Code Reviews & Action Workflows" }
+      { name: "TypeScript", note: "Strict static typing, generic interfaces, utility types & compile-time safety" },
+      { name: "JavaScript (ES6+)", note: "Modern ECMAScript, asynchronous async/await, event loops & DOM APIs" },
+      { name: "Java", note: "Object-oriented programming, enterprise services, JDBC & multithreading" },
+      { name: "PHP", note: "Server-side scripting, modern PHP 8.x paradigms & OOP architecture" },
+      { name: "C#", note: "Object-oriented design, strongly-typed backend logic & .NET architecture" },
+      { name: "SQL", note: "Relational query composition, schema definition, indexing & joins" }
     ]
   },
   {
-    category: "AI & INTEGRATION",
+    category: "Databases",
+    description: "Relational ACID stores, distributed document stores, and in-memory caching solutions.",
     items: [
-      { name: "Amazon Bedrock", note: "Generative AI LLM Pipelines & Bedrock SDK" },
-      { name: "RAG Systems", note: "Document Context Chunking & Information Retrieval" },
-      { name: "Python / AI Models", note: "Data Pipelines, Jupyter Notebooks & Scikit-Learn" }
+      { name: "PostgreSQL", note: "Relational schema design, query indexing, constraints & high throughput" },
+      { name: "MySQL", note: "Transactional tables, foreign keys, ACID compliance & relational queries" },
+      { name: "MongoDB", note: "Document collections, NoSQL schema modeling & query aggregation" },
+      { name: "SQLite", note: "Embedded relational datastores & lightweight local persistence" },
+      { name: "Redis", note: "In-memory caching, sub-millisecond lookups & real-time pub/sub queues" }
     ]
+  },
+  {
+    category: "Cloud and DevOps",
+    description: "Cloud infrastructure provisioning, containerized environments, and continuous delivery.",
+    items: [
+      { name: "AWS Cloud", note: "Cloud hosting, S3 bucket storage, EC2 compute & Bedrock AI infrastructure" },
+      { name: "Docker", note: "Multi-service containerization, Dockerfiles & reproducible deployment builds" },
+      { name: "CI/CD & Automation", note: "Automated build checks, linting, regression testing & deployment pipelines" }
+    ]
+  },
+  {
+    category: "Development Tools",
+    description: "Collaborative version control, API testing suites, UI wireframing, and development IDEs.",
+    items: [
+      { name: "Git", note: "Distributed version control, feature branching, interactive rebasing & conflict resolution" },
+      { name: "GitHub", note: "Pull request reviews, GitHub Actions, repository administration & teamwork" },
+      { name: "Postman", note: "API contract validation, automated test suites & endpoint regression testing" },
+      { name: "VS Code", note: "Development environment, debugging workflows, linters & productivity tooling" },
+      { name: "Figma", note: "UI/UX wireframing, user journey mapping & component design systems" }
+    ]
+  },
+  {
+    category: "AI and Integrations",
+    description: "Generative AI pipelines, contextual retrieval systems, and third-party API integrations.",
+    items: [
+      { name: "Amazon Bedrock", note: "Foundation LLM integration, inference endpoints & clinical text processing" },
+      { name: "Vector Search & RAG", note: "PDF text extraction, semantic vector chunking & contextual document retrieval" },
+      { name: "Zod Schema Validation", note: "Runtime schema validation & strict type parsing on structured AI outputs" },
+      { name: "Google Maps API", note: "Interactive map canvas, live GPS location markers & route polyline layers" },
+      { name: "Stripe API", note: "Secure payment gateway checkout flows & transactional webhooks" }
+    ]
+  }
+];
+
+export const education = [
+  {
+    degree: "BSc (Hons) in Software Engineering",
+    institution: "Cardiff Metropolitan University, United Kingdom",
+    classification: "Second Class Upper Division (2:1)",
+    period: "2025 – 2026",
+    status: "Completed"
+  },
+  {
+    degree: "Higher Diploma in Computing & Software Engineering",
+    institution: "Cardiff Met. (via ICBT Campus, Sri Lanka)",
+    classification: "Merit / Distinction",
+    period: "2023 – 2025",
+    status: "Completed"
   }
 ];
 
 export const experienceTimeline = [
   {
-    year: "2026",
-    role: "Full-Stack Software Engineer & Product Designer",
-    company: "Personal Engineering Lab & Enterprise Projects",
-    description: "Building production-grade AI-powered study systems, healthcare portals, cloud pipelines, and responsive digital products with Next.js, Laravel, and AWS Bedrock.",
-    status: "Active Focus"
+    year: "2025 – Present",
+    role: "Associate Software Engineer",
+    company: "Amazoft IT",
+    description: "Architecting React.js & TypeScript web applications, designing optimized PostgreSQL schemas, conducting root-cause diagnostics, and collaborating in Agile sprint cycles.",
+    status: "Current Commercial Role"
   },
   {
-    year: "2025",
-    role: "Full-Stack Developer",
-    company: "Smart Transit & Business Systems",
-    description: "Engineered real-time fleet GPS tracking applications (Track My Bus), pharmacy inventory control platforms, and cloud database integrations.",
-    status: "Project Delivery"
+    year: "2022 – 2025",
+    role: "Trainee Software Developer",
+    company: "Amazoft IT",
+    description: "Built responsive UIs with React.js, supported Java Spring Boot REST APIs, implemented JWT/OAuth 2.0 token authentication, Docker containerization, and Postman test suites.",
+    status: "Commercial Role"
   },
   {
-    year: "2024",
-    role: "BSc (Hons) Software Engineering Graduate",
-    company: "Cardiff Metropolitan University",
-    description: "Graduated with Second Class Upper Division honors. Specialized in software architecture, enterprise Java systems, database design, and web technology.",
+    year: "2025 – 2026",
+    role: "BSc (Hons) in Software Engineering",
+    company: "Cardiff Metropolitan University, UK",
+    description: "Graduated with Second Class Upper Division (2:1). Specialized in software architecture, enterprise systems, database design, and web technology.",
     status: "Degree Awarded"
+  },
+  {
+    year: "2023 – 2025",
+    role: "Higher Diploma in Computing & Software Engineering",
+    company: "Cardiff Met. (via ICBT Campus, Sri Lanka)",
+    description: "Completed with Merit / Distinction, establishing rigorous foundations in computing fundamentals, OOP, database design, and software engineering.",
+    status: "Merit / Distinction"
+  }
+];
+
+export interface CompanyProject {
+  id: string;
+  name: string;
+  area: string;
+  description: string;
+  link?: string;
+  tech: string[];
+}
+
+export interface WorkExperience {
+  company: string;
+  role: string;
+  period: string;
+  status: "CURRENT" | "PAST";
+  location: string;
+  summary: string;
+  responsibilities: string[];
+  technologies: string[];
+  projects: CompanyProject[];
+  achievements: string[];
+}
+
+export const workExperience: WorkExperience[] = [
+  {
+    company: "Amazoft IT",
+    role: "Associate Software Engineer",
+    period: "December 2025 – Present",
+    status: "CURRENT",
+    location: "Meetiyagoda, Ambalangoda, Sri Lanka",
+    summary:
+      "Architect and maintain production web features using React.js, TypeScript, and REST APIs, design and optimize relational SQL schemas in PostgreSQL, conduct root-cause diagnostics, and collaborate in Agile sprint cycles.",
+    responsibilities: [
+      "Architect and maintain production web features using React.js, TypeScript, and REST APIs, ensuring modularity and optimal browser performance.",
+      "Design and optimize relational SQL schemas and indexing strategies in PostgreSQL, ensuring data integrity, minimal latency, and high query throughput.",
+      "Conduct rigorous debugging, log analysis, and root-cause diagnostics to resolve defect tickets and improve overall application stability.",
+      "Collaborate in Agile sprint planning, daily scrums, and thorough peer code reviews via Git/GitHub to uphold clean code standards and test coverage."
+    ],
+    technologies: [
+      "React.js",
+      "TypeScript",
+      "RESTful APIs",
+      "PostgreSQL",
+      "SQL Indexing",
+      "Git",
+      "GitHub",
+      "Agile/Scrum",
+      "Root-Cause Diagnostics"
+    ],
+    projects: [
+      {
+        id: "nipunex",
+        name: "nipuneX – AI-Driven Recruitment Platform",
+        area: "AI / Recruitment Platform",
+        description:
+          "Developed high-speed user interfaces in Next.js/React.js integrated with REST endpoints for talent filtering and automated candidate assessment. Integrated AWS cloud services and PostgreSQL database queries, achieving sub-second response times for complex applicant searches.",
+        link: "https://www.nipunex.com/",
+        tech: ["Next.js", "React.js", "Node.js", "PostgreSQL", "AWS"]
+      },
+      {
+        id: "school-management",
+        name: "School Management System (EdTech Platform)",
+        area: "EdTech Platform",
+        description:
+          "Engineered role-based portals (Admin, Teacher, Student, Parent) with modules for attendance tracking, grading, timetables, and notification alerts. Modeled normalized MySQL relational databases ensuring transactional reliability, granular permissions, and dynamic reporting analytics.",
+        tech: ["PHP", "MySQL", "JavaScript", "HTML5", "CSS3"]
+      }
+    ],
+    achievements: [
+      "Optimized PostgreSQL queries and AWS integration on nipuneX to achieve sub-second response times for complex applicant search filters.",
+      "Enforced strict modular component architecture and TypeScript type safety across production web features.",
+      "Conducted thorough peer code reviews on GitHub and proactive root-cause diagnostics, resolving defect tickets and improving application stability."
+    ]
+  },
+  {
+    company: "Amazoft IT",
+    role: "Trainee Software Developer",
+    period: "June 2022 – December 2025",
+    status: "PAST",
+    location: "Meetiyagoda, Ambalangoda, Sri Lanka",
+    summary:
+      "Developed responsive user interfaces with HTML5, CSS3, and React.js while supporting Java Spring Boot RESTful API services, token authentication, Docker builds, and Postman API contract testing.",
+    responsibilities: [
+      "Developed responsive user interfaces with HTML5, CSS3, and React.js while supporting RESTful API services built with Java and Spring Boot.",
+      "Implemented secure token-based authentication (JWT, OAuth 2.0) and Role-Based Access Control (RBAC) following secure coding guidelines.",
+      "Assisted in containerizing multi-service components using Docker, preparing reproducible builds, and deploying services to AWS test environments.",
+      "Authored comprehensive Postman test collections and unit test suites to validate API endpoint contracts and regression stability."
+    ],
+    technologies: [
+      "Java",
+      "Spring Boot",
+      "Spring Framework",
+      "React.js",
+      "HTML5",
+      "CSS3",
+      "JWT",
+      "OAuth 2.0",
+      "RBAC",
+      "Docker",
+      "AWS",
+      "Postman"
+    ],
+    projects: [
+      {
+        id: "attendance-pos",
+        name: "Employee Attendance & HR Management System / POS & Inventory",
+        area: "HR / Attendance & POS Inventory",
+        description:
+          "Built attendance and shift tracking microservices with strict RBAC; engineered transactional POS sales, GRN (Goods Received Note), and real-time inventory logic.",
+        tech: ["Java", "Spring Boot", "PostgreSQL", "Docker", "REST APIs"]
+      }
+    ],
+    achievements: [
+      "Built resilient attendance microservices with strict RBAC and token-based authentication (JWT, OAuth 2.0).",
+      "Prepared reproducible multi-service Docker builds and deployed containerized services to AWS test environments.",
+      "Authored comprehensive Postman test suites validating API endpoint contracts and ensuring regression stability."
+    ]
   }
 ];

@@ -22,7 +22,7 @@ export function Philosophy() {
                     transition={{ duration: 0.8 }}
                     className="mb-24"
                 >
-                    <h2 className="display-xl text-[--text] max-w-[12ch]">
+                    <h2 className="display-xl text-[--text] max-w-full sm:max-w-[12ch] break-words">
                         GOOD <span className="text-[--muted] italic font-thin">SOFTWARE</span><br />
                         SHOULD <span className="text-[--lime]">FEEL</span><br />
                         <span className="italic font-thin text-[--muted]">SIMPLE.</span>

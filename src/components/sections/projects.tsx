@@ -7,8 +7,6 @@ import { motion } from "framer-motion";
 import { selectedProjects, secondaryProjects, ProjectData } from "@/data/portfolio";
 
 export function SelectedWork() {
-  const allProjects = [...selectedProjects, ...secondaryProjects];
-
   return (
     <section id="work" className="section bg-[--bg] border-t border-[--border]" aria-labelledby="work-heading">
       <div className="container-xl">
@@ -38,23 +36,23 @@ export function SelectedWork() {
         <div className="mt-20">
           <span className="label-muted block mb-8">MORE WORK</span>
           <div className="divide-y divide-[--border]">
-            {secondaryProjects.map((project, i) => (
+            {secondaryProjects.map((project) => (
               <Link
                 key={project.id}
                 href={`/projects/${project.slug}`}
                 data-cursor="CASE STUDY"
-                className="group flex items-center justify-between gap-6 py-5 transition-colors hover:text-[--lime]"
+                className="group flex items-center justify-between gap-3 sm:gap-6 py-4 sm:py-5 transition-colors hover:text-[--lime]"
               >
-                <div className="flex items-center gap-6">
-                  <span className="font-mono text-xs text-[--muted]">{project.number}</span>
-                  <span className="font-bold text-[--text] group-hover:text-[--lime] transition-colors">
+                <div className="flex items-center gap-3 sm:gap-6 min-w-0">
+                  <span className="font-mono text-xs text-[--muted] shrink-0">{project.number}</span>
+                  <span className="font-bold text-xs sm:text-sm text-[--text] group-hover:text-[--lime] transition-colors truncate">
                     {project.title}
                   </span>
-                  <span className="hidden sm:block text-sm text-[--muted]">{project.subtitle}</span>
+                  <span className="hidden sm:block text-sm text-[--muted] truncate">{project.subtitle}</span>
                 </div>
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3 sm:gap-4 shrink-0">
                   <span className="hidden md:block font-mono text-[10px] text-[--muted]">{project.year}</span>
-                  <span className="font-mono text-[10px] text-[--muted] group-hover:text-[--lime] transition-colors">→</span>
+                  <span className="font-mono text-xs text-[--muted] group-hover:text-[--lime] transition-colors">→</span>
                 </div>
               </Link>
             ))}
@@ -144,7 +142,7 @@ function ProjectRow({ project, index }: { project: ProjectData; index: number })
           >
             <Image
               src={project.image}
-              alt={project.title}
+              alt={`${project.title} - ${project.subtitle}`}
               fill
               className="object-cover object-top"
               sizes="(max-width: 768px) 100vw, 60vw"

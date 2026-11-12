@@ -1,11 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 const techStack = [
-    "Next.js", "React", "TypeScript", "Node.js", "Laravel", "Tailwind CSS",
-    "MySQL", "PostgreSQL", "Redis", "AWS", "Docker", "Vercel", "Git", "GitHub",
-    "Framer Motion", "Amazon Bedrock", "Python"
+    "React.js", "Next.js", "TypeScript", "JavaScript", "Java", "Spring Boot",
+    "Node.js", "Express.js", "PHP", "Laravel", ".NET Core", "Tailwind CSS",
+    "PostgreSQL", "MySQL", "MongoDB", "SQLite", "Redis", "AWS", "Docker",
+    "Git", "GitHub", "Postman", "Figma", "Amazon Bedrock", "REST APIs"
 ];
 
 const doubled = [...techStack, ...techStack];
