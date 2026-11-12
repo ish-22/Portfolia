@@ -70,7 +70,7 @@ export default async function CaseStudyPage({ params }: { params: CaseStudyParam
                 <div className="container-lg max-w-5xl">
                     {/* Back Navigation Button */}
                     <Link
-                        href="/#work"
+                        href="/projects"
                         className="inline-flex items-center gap-2 font-mono text-xs font-bold text-[--muted] hover:text-[--lime] transition-colors mb-8"
                     >
                         <ArrowLeft size={16} />
@@ -222,7 +222,7 @@ export default async function CaseStudyPage({ params }: { params: CaseStudyParam
                     {/* Footer CTAs */}
                     <div className="mt-12 sm:mt-16 border-t border-[--border] pt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
                         <Link
-                            href="/#work"
+                            href="/projects"
                             className="inline-flex items-center justify-center gap-2 font-mono text-xs font-bold text-[--muted] hover:text-[--lime] transition-colors py-2.5"
                         >
                             <ArrowLeft size={16} />

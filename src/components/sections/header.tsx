@@ -2,21 +2,24 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const navLinks = [
-  { href: "#work", label: "WORK" },
-  { href: "#experience", label: "EXPERIENCE" },
-  { href: "#skills", label: "SKILLS" },
-  { href: "#lab", label: "LAB" },
-  { href: "#about", label: "ABOUT" },
-  { href: "#contact", label: "CONTACT" }
+  { href: "/projects", sectionId: "work", label: "WORK" },
+  { href: "/experience", sectionId: "experience", label: "EXPERIENCE" },
+  { href: "/skills", sectionId: "skills", label: "SKILLS" },
+  { href: "/#lab", sectionId: "lab", label: "LAB" },
+  { href: "/about", sectionId: "about", label: "ABOUT" },
+  { href: "/contact", sectionId: "contact", label: "CONTACT" }
 ];
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60);
@@ -28,6 +31,39 @@ export function Header() {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
+
+  // Clean any remaining hash from address bar on page load or navigation
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      const id = window.location.hash.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: "smooth" });
+          window.history.replaceState(null, "", window.location.pathname);
+        }, 150);
+      } else {
+        window.history.replaceState(null, "", window.location.pathname);
+      }
+    }
+  }, [pathname]);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, link: (typeof navLinks)[0]) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      const el = document.getElementById(link.sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+        if (window.location.hash) {
+          window.history.replaceState(null, "", "/");
+        }
+      }
+    } else if (link.sectionId === "lab") {
+      e.preventDefault();
+      router.push("/#lab");
+    }
+    if (menuOpen) setMenuOpen(false);
+  };
 
   return (
     <>
@@ -46,13 +82,14 @@ export function Header() {
           {/* Desktop nav */}
           <nav className="hidden items-center gap-10 md:flex" aria-label="Main navigation">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
+              <Link
+                key={link.label}
+                href={pathname === "/" ? `#${link.sectionId}` : link.href}
+                onClick={(e) => handleNavClick(e, link)}
                 className="font-mono text-[11px] font-semibold tracking-widest text-[--muted] transition-colors hover:text-[--text]"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -100,17 +137,20 @@ export function Header() {
           >
             <nav className="flex flex-col gap-5 sm:gap-7 my-auto pt-4 pb-6">
               {navLinks.map((link, i) => (
-                <motion.a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
+                <motion.div
+                  key={link.label}
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
-                  className="display-md border-b border-[--border] pb-4 text-[--text] hover:text-[--lime] transition-colors py-2"
                 >
-                  {link.label}
-                </motion.a>
+                  <Link
+                    href={pathname === "/" ? `#${link.sectionId}` : link.href}
+                    onClick={(e) => handleNavClick(e, link)}
+                    className="display-md block border-b border-[--border] pb-4 text-[--text] hover:text-[--lime] transition-colors py-2"
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
             </nav>
 

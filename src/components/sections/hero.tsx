@@ -114,6 +114,16 @@ export function Hero() {
             {/* Primary Action 1: View My Projects */}
             <a
               href="#work"
+              onClick={(e) => {
+                e.preventDefault();
+                const el = document.getElementById("work");
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth" });
+                  if (window.location.hash) {
+                    window.history.replaceState(null, "", "/");
+                  }
+                }
+              }}
               data-cursor="PROJECTS"
               className="group inline-flex items-center justify-center gap-2.5 border border-[--lime] bg-[--lime] px-6 sm:px-7 py-3.5 font-mono text-xs font-black tracking-widest text-black transition-all duration-300 hover:bg-transparent hover:text-[--lime] hover:shadow-[0_0_24px_rgba(163,230,53,0.25)] focus:outline-none focus:ring-2 focus:ring-[--lime] focus:ring-offset-2 focus:ring-offset-[--bg]"
               aria-label="View my projects"

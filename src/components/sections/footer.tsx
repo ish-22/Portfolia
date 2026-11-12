@@ -1,15 +1,37 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { profile } from "@/data/portfolio";
 
 const footerNav = [
-  { href: "#work", label: "WORK" },
-  { href: "#experience", label: "EXPERIENCE" },
-  { href: "#lab", label: "LAB" },
-  { href: "#about", label: "ABOUT" },
-  { href: "#contact", label: "CONTACT" }
+  { href: "/projects", sectionId: "work", label: "WORK" },
+  { href: "/experience", sectionId: "experience", label: "EXPERIENCE" },
+  { href: "/#lab", sectionId: "lab", label: "LAB" },
+  { href: "/about", sectionId: "about", label: "ABOUT" },
+  { href: "/contact", sectionId: "contact", label: "CONTACT" }
 ];
 
 export function Footer() {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: (typeof footerNav)[0]) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      const el = document.getElementById(item.sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+        if (window.location.hash) {
+          window.history.replaceState(null, "", "/");
+        }
+      }
+    } else if (item.sectionId === "lab") {
+      e.preventDefault();
+      router.push("/#lab");
+    }
+  };
+
   return (
     <footer className="border-t border-[--border] bg-[--bg] py-14" role="contentinfo">
       <div className="container-xl">
@@ -30,13 +52,14 @@ export function Footer() {
           {/* Nav */}
           <nav aria-label="Footer navigation" className="flex flex-wrap gap-6 mt-1">
             {footerNav.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
+              <Link
+                key={item.label}
+                href={pathname === "/" ? `#${item.sectionId}` : item.href}
+                onClick={(e) => handleNavClick(e, item)}
                 className="font-mono text-[10px] font-semibold tracking-widest text-[--muted] hover:text-[--lime] transition-colors"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
