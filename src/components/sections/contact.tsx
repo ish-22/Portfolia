@@ -2,7 +2,7 @@
 
 import { useState, FormEvent, ChangeEvent } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { profile } from "@/data/portfolio";
 import {
   Mail,

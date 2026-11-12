@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+import { fadeUp, viewportCard } from "@/lib/animations";
 import { selectedProjects, secondaryProjects, ProjectData } from "@/data/portfolio";
 
 export function SelectedWork() {
@@ -70,10 +71,11 @@ function ProjectRow({ project, index }: { project: ProjectData; index: number })
     <motion.article
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.15 }}
+      variants={fadeUp}
+      custom={index * 0.15}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportCard}
       className="group relative border border-[--border] overflow-hidden"
     >
       <Link href={`/projects/${project.slug}`} data-cursor="CASE STUDY" className="block">

@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+import { fadeUp, fadeIn, viewportOnce } from "@/lib/animations";
 
 const philosophyStatements = [
     { label: "DESIGN WITH PURPOSE.", text: "Every interface starts with understanding humans, not pixels." },
@@ -16,10 +17,10 @@ export function Philosophy() {
             <div className="container-xl">
                 {/* Big statement */}
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
+                    variants={fadeIn}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewportOnce}
                     className="mb-24"
                 >
                     <h2 className="display-xl text-[--text] max-w-full sm:max-w-[12ch] break-words">
@@ -37,10 +38,11 @@ export function Philosophy() {
                     {philosophyStatements.map((item, i) => (
                         <motion.div
                             key={item.label}
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: i * 0.08 }}
+                            variants={fadeUp}
+                            custom={i * 0.08}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={viewportOnce}
                             className="group flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-12 py-7 hover:text-[--lime] transition-colors cursor-default"
                         >
                             <span className="font-mono text-xs font-black tracking-widest text-[--lime] shrink-0">

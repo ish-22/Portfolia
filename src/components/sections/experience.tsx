@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+import { fadeUp, viewportCard, viewportOnce } from "@/lib/animations";
 import {
   Briefcase,
   Calendar,
@@ -45,10 +46,11 @@ export function ProfessionalExperience() {
           {workExperience.map((exp, idx) => (
             <motion.div
               key={`${exp.company}-${exp.role}`}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              variants={fadeUp}
+              custom={idx * 0.1}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportCard}
               className="border border-[--border] bg-[--surface]/40 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[--lime]/30"
             >
               {/* Card Header & Status Banner */}
@@ -239,10 +241,11 @@ export function ProfessionalExperience() {
             {education.map((edu, eIdx) => (
               <motion.div
                 key={edu.degree}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: eIdx * 0.1 }}
+                variants={fadeUp}
+                custom={eIdx * 0.1}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportCard}
                 className="border border-[--border] bg-[--surface]/40 rounded-xl p-6 transition-all duration-300 hover:border-[--lime]/30"
               >
                 <div className="flex items-center justify-between gap-2 mb-3">
@@ -267,10 +270,11 @@ export function ProfessionalExperience() {
               {experienceTimeline.map((item, i) => (
                 <motion.div
                   key={`${item.year}-${item.role}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  variants={fadeUp}
+                  custom={i * 0.1}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={viewportOnce}
                   className="relative pb-10 md:pb-0 md:px-6 md:py-0 group"
                 >
                   <div className="absolute -left-8 top-0 h-3 w-3 rounded-full border-2 border-[--lime] bg-[--bg] md:hidden" />

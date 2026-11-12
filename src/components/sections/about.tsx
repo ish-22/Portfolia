@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Image from "next/image";
 import { profile } from "@/data/portfolio";
+import { fadeUp, viewportOnce } from "@/lib/animations";
 
 const focusAreas = [
   "Full-Stack Web Architecture (React, Next.js, TypeScript & REST APIs)",
@@ -64,10 +65,11 @@ export function About() {
                 {profile.about.map((para, i) => (
                   <motion.p
                     key={i}
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
+                    variants={fadeUp}
+                    custom={i * 0.1}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewportOnce}
                     className="text-sm md:text-base text-[--muted] leading-relaxed"
                   >
                     {para}

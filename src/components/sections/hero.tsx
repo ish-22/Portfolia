@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+import { motion, useMotionValue, useTransform, useSpring } from "motion/react";
 import { ArrowDownRight, Download } from "lucide-react";
 import { profile, heroTechSignals } from "@/data/portfolio";
 
