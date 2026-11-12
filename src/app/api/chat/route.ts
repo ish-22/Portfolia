@@ -147,8 +147,12 @@ ${portfolioContext}
                         return NextResponse.json({ role: "assistant", content: reply });
                     }
                 } else {
-                    const errText = await response.text();
-                    console.error("Vercel AI Gateway request failed with status:", response.status, errText);
+                    const errData = await response.json().catch(() => null);
+                    if (response.status === 403 && errData?.error?.type === "customer_verification_required") {
+                        console.warn("[Chat API] Vercel AI Gateway requires a credit card on file in Vercel settings. Falling back to next available provider.");
+                    } else {
+                        console.error("Vercel AI Gateway request failed with status:", response.status, errData);
+                    }
                 }
             } catch (err) {
                 console.error("Vercel AI Gateway request failed, trying fallback:", err);
@@ -237,11 +241,11 @@ function generateStaticResponse(query: string): string {
     if (q.includes("smartbus") || q.includes("smart bus") || q.includes("track my bus") || q.includes("transit")) {
         return "Track My Bus (WORK / 001) is a real-time transit and fleet tracking ecosystem featuring live GPS bus tracking with Google Maps marker interpolation, Redis-powered seat reservation locks, Stripe payment processing, and dynamic QR code tickets. Tech Stack: Next.js 15, TypeScript, Laravel / Express, Redis, MySQL, and Google Maps API.";
     }
-    if (q.includes("study assistant") || q.includes("study-assistant") || q.includes("rag") || q.includes("flashcard")) {
-        return "The AI Study Assistant (WORK / 003) is an educational platform with PDF document ingestion, semantic chunking, and grounded Q&A/quiz generation powered by Amazon Bedrock. Structured JSON outputs are strictly validated using Zod schemas to eliminate hallucinations. Tech Stack: Next.js 15, TypeScript, PostgreSQL, Node.js/Express, Amazon Bedrock, and Zod.";
-    }
     if (q.includes("medisync") || q.includes("pharmacy") || q.includes("hospital") || q.includes("clinical")) {
         return "MediSync Core (WORK / 002) is an enterprise medical and pharmacy management portal featuring role-based access control (RBAC), electronic health records, inventory stock alerts, and an AI clinical summarization copilot with client-side PII redaction. Tech Stack: Next.js, Node.js, MySQL, Amazon Bedrock, and Tailwind CSS.";
+    }
+    if (q.includes("study assistant") || q.includes("study-assistant") || q.includes("flashcard")) {
+        return "The AI Study Assistant (WORK / 003) is an educational platform with PDF document ingestion, semantic chunking, and grounded Q&A/quiz generation powered by Amazon Bedrock. Structured JSON outputs are strictly validated using Zod schemas to eliminate hallucinations. Tech Stack: Next.js 15, TypeScript, PostgreSQL, Node.js/Express, Amazon Bedrock, and Zod.";
     }
     if (q.includes("fixnow") || q.includes("fix now") || q.includes("service platform") || q.includes("technician")) {
         return "The FixNow Service Platform (WORK / 004) connects customers with vetted local service technicians, featuring online dispatching, state-machine booking status tracking, and provider ratings. Tech Stack: PHP, MySQL, JavaScript, HTML5, and CSS3.";
@@ -253,32 +257,47 @@ function generateStaticResponse(query: string): string {
         return "The Pahana Bookshop System (WORK / 006) is a desktop retail POS and inventory management application with barcode scanning receipt generation and offline-cached transaction re-sync. Tech Stack: Java, MySQL, Swing, and JDBC.";
     }
 
-    // 2. Accuracy & AI Agent questions
+    // 2. AI specific projects & inquiries
+    if (/\b(ai project|ai projects|machine learning|bedrock|rag|artificial intelligence)\b/.test(q)) {
+        return "Ishan has engineered two major AI-powered platforms:\n\n1. AI Study Assistant (WORK / 003): An intelligent document learning platform featuring PDF document ingestion, semantic chunking, and grounded Q&A/quiz generation powered by Amazon Bedrock with strict Zod schema validation to eliminate hallucinations.\n\n2. MediSync Core (WORK / 002): An enterprise clinical and pharmacy management portal featuring an AI clinical summarization copilot powered by Amazon Bedrock with client-side PII redaction.\n\nHe has also integrated Vector Search, RAG workflows, and LLM APIs across full-stack applications.";
+    }
+
+    // 3. CV / Resume download
+    if (/\b(cv|resume|download|curriculum vitae)\b/.test(q)) {
+        return `You can download Ishan Chinthaka's verified engineering CV directly here:\n\n📄 [Download CV (PDF)](${profile.resume})\n\nYou can also click the 'Download CV' button on the homepage Hero section.`;
+    }
+
+    // 4. Bio / Who is Ishan Chinthaka
+    if (/\b(who is|about ishan|about him|bio|profile|background|who are you|introduce|overview)\b/.test(q)) {
+        return "Ishan Chinthaka is a Full-Stack Software Engineer and Associate Software Engineer at Amazoft IT. He holds a BSc (Hons) in Software Engineering (Second Class Upper Division 2:1) from Cardiff Metropolitan University and specializes in building high-availability web applications, scalable REST APIs, relational databases (PostgreSQL/MySQL), and purposeful AI integrations with Amazon Bedrock.";
+    }
+
+    // 5. Accuracy & AI Agent questions
     if (/\b(accuracy|accurate|reliable|truth|hallucinat|agent accuracy)\b/.test(q)) {
         return "As Ishan's AI Portfolio Assistant, my answers are grounded strictly in Ishan's verified portfolio and commercial experience. I do not fabricate credentials, unverified percentages, or unsupported claims. You can inspect Ishan's live GitHub repositories, system architecture diagrams, and academic qualifications directly on this site.";
     }
 
-    // 3. Contact details
+    // 6. Contact details
     if (/\b(contact|email|phone|whatsapp|reach|hire|connect|message)\b/.test(q) || q.includes("0765274750") || q.includes("94765274750")) {
-        return "You can get in touch with Ishan directly through:\n\n• Email: ishanchinthaka2002@gmail.com\n• WhatsApp: +94 76 527 4750\n• Phone: +94 75 246 4420\n• LinkedIn: linkedin.com/in/ishan-chinthaka\n• GitHub: github.com/ish-22\n\nYou can also click the WhatsApp tab in this widget to message him directly!";
+        return "You can get in touch with Ishan directly through:\n\n• Email: ishanchinthaka2002@gmail.com\n• WhatsApp: +94 76 527 4750\n• Phone: +94 75 246 4420\n• LinkedIn: [linkedin.com/in/ishan-chinthaka](https://linkedin.com/in/ishan-chinthaka)\n• GitHub: [github.com/ish-22](https://github.com/ish-22)\n\nYou can also click the WhatsApp tab in this widget to message him directly!";
     }
 
-    // 4. Skills / Technologies
+    // 7. Skills / Technologies
     if (/\b(skill|skills|technology|technologies|tech|languages|frameworks|capable|stack)\b/.test(q)) {
         return "Ishan's technical capabilities span 7 verified categories:\n\n1. Frontend: React.js, Next.js, TypeScript, Tailwind CSS, HTML5 & CSS3\n2. Backend: Node.js, Express.js, Java & Spring Boot, PHP & Laravel, RESTful APIs, .NET Core\n3. Languages: TypeScript, JavaScript (ES6+), Java, PHP, C#, SQL\n4. Databases: PostgreSQL, MySQL, MongoDB, SQLite, Redis\n5. Cloud & DevOps: AWS Cloud, Docker, CI/CD Pipelines\n6. Tools: Git, GitHub, Postman, VS Code, Figma\n7. AI & Integrations: Amazon Bedrock, Vector Search & RAG, Zod Schema Validation, Google Maps API, Stripe API";
     }
 
-    // 5. Commercial Experience & Education
+    // 8. Commercial Experience & Education
     if (/\b(experience|job|jobs|work|career|amazoft|education|degree|university|study|graduate|qualif)\b/.test(q)) {
         return "Ishan Chinthaka's verified background:\n\n• Current Role: Associate Software Engineer at Amazoft IT (December 2025 – Present), building production web features in React/TypeScript, optimizing PostgreSQL schemas, and conducting Agile peer reviews.\n• Prior Role: Trainee Software Developer at Amazoft IT (June 2022 – December 2025), building UIs, supporting Spring Boot APIs, and managing Docker builds.\n• Education: BSc (Hons) in Software Engineering (Second Class Upper Division 2:1) from Cardiff Metropolitan University, UK (2025–2026), and Higher Diploma in Computing (Merit / Distinction).";
     }
 
-    // 6. Projects summary
+    // 9. Projects summary
     if (/\b(project|projects|portfolio|apps|systems|work)\b/.test(q)) {
         return "Ishan has engineered several full-stack and distributed products:\n\n1. Track My Bus: Real-time public transit tracking ecosystem (Next.js, Redis, Laravel, Stripe, Google Maps).\n2. MediSync Core: AI-assisted healthcare & pharmacy operations portal (Next.js, Node.js, MySQL, Amazon Bedrock).\n3. AI Study Assistant: Intelligent document chunking & RAG learning platform (Next.js, PostgreSQL, Bedrock, Zod).\n4. Ocean View Resort: Concurrency-managed hospitality system (Spring Boot, React, MySQL).\n5. Pahana Bookshop: Desktop inventory & barcode billing software (Java, Swing, MySQL).\n\nWhich project would you like to explore?";
     }
 
-    // 7. Greetings
+    // 10. Greetings
     if (/\b(hi|hello|hey|hola|greetings|morning|afternoon|evening)\b/.test(q)) {
         return "Hello! I am Ishan's AI Assistant. How can I help you today? You can ask about his commercial experience at Amazoft IT, verified technical skills, system architecture, projects, or how to get in touch.";
     }
