@@ -289,12 +289,12 @@ export function Contact() {
                 <div className="flex items-center justify-between gap-2 mb-1">
                   <span className="label-lime">INQUIRY FORM</span>
                   <span className="font-mono text-[10px] text-[--lime] bg-[--lime]/10 border border-[--lime]/30 px-2 py-0.5 rounded">
-                    ⚡ &lt;24H RESPONSE TIME
+                    ⚡ DIRECT INBOX DELIVERY
                   </span>
                 </div>
                 <h3 className="text-xl font-bold text-[--text]">Send a Direct Message</h3>
                 <p className="text-xs text-[--muted] mt-1 font-mono">
-                  Delivered directly to Ishan&apos;s verified inbox. I review and respond to every message within 24 hours.
+                  Delivered directly to Ishan&apos;s personal inbox. I review and respond promptly to every genuine inquiry.
                 </p>
               </div>
 

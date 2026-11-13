@@ -54,8 +54,8 @@ function makeTechCard(
     <text x="220" y="278" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="900" fill="#f5f5f5" text-anchor="middle" letter-spacing="-0.5">${sTitle}</text>
     <text x="220" y="312" font-family="monospace" font-size="13" font-weight="500" fill="#94a3b8" text-anchor="middle">${sSubtitle}</text>
     <line x1="60" y1="360" x2="380" y2="360" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
-    <circle cx="150" cy="388" r="4" fill="#a3e635" />
-    <text x="165" y="392" font-family="monospace" font-size="11" font-weight="bold" fill="#f5f5f5" letter-spacing="1.5">PRODUCTION VERIFIED</text>
+    <circle cx="170" cy="388" r="4" fill="#a3e635" />
+    <text x="185" y="392" font-family="monospace" font-size="11" font-weight="bold" fill="#f5f5f5" letter-spacing="1.5">CORE TECHNOLOGY</text>
   </svg>`;
     return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
 }
@@ -70,9 +70,9 @@ const techItemsData = [
     { title: "Java", subtitle: "OOP & Enterprise Architecture", category: "Language", color: "#f89820", symbol: "JAVA", num: "07" },
     { title: "PHP & Laravel", subtitle: "Enterprise MVC Workflows", category: "Full-Stack", color: "#ff2d20", symbol: "PHP", num: "08" },
     { title: "PostgreSQL", subtitle: "Relational Schemas & Indexing", category: "Database", color: "#336791", symbol: "PG", num: "09" },
-    { title: "MySQL", subtitle: "High-Throughput ACID Storage", category: "Database", color: "#00758f", symbol: "SQL", num: "10" },
+    { title: "MySQL", subtitle: "Relational Database Engine", category: "Database", color: "#00758f", symbol: "SQL", num: "10" },
     { title: "Redis", subtitle: "In-Memory Caching & Pub/Sub", category: "Memory", color: "#dc382d", symbol: "REDIS", num: "11" },
-    { title: "Amazon Bedrock", subtitle: "Generative AI & RAG Pipelines", category: "AI System", color: "#ff9900", symbol: "AI", num: "12" },
+    { title: "Amazon Bedrock", subtitle: "Generative AI & Document Search", category: "AI System", color: "#ff9900", symbol: "AI", num: "12" },
     { title: "Docker", subtitle: "Containerization & Registry", category: "DevOps", color: "#2496ed", symbol: "DOCK", num: "13" },
     { title: "Tailwind CSS", subtitle: "Design Tokens & Motion", category: "Styling", color: "#38bdf8", symbol: "TW", num: "14" }
 ];
@@ -157,7 +157,7 @@ export function TechnologyWall() {
                             <span>DRAG 3D CYLINDER · CLICK TO INSPECT</span>
                         </span>
                         <span className="text-[10px] text-[--muted]">
-                            14 Production Verified Toolkits
+                            14 Core Technologies
                         </span>
                     </div>
                 </div>

@@ -242,24 +242,24 @@ function generateStaticResponse(query: string): string {
         return "Track My Bus (WORK / 001) is a real-time transit and fleet tracking ecosystem featuring live GPS bus tracking with Google Maps marker interpolation, Redis-powered seat reservation locks, Stripe payment processing, and dynamic QR code tickets. Tech Stack: Next.js 15, TypeScript, Laravel / Express, Redis, MySQL, and Google Maps API.";
     }
     if (q.includes("medisync") || q.includes("pharmacy") || q.includes("hospital") || q.includes("clinical")) {
-        return "MediSync Core (WORK / 002) is an enterprise medical and pharmacy management portal featuring role-based access control (RBAC), electronic health records, inventory stock alerts, and an AI clinical summarization copilot with client-side PII redaction. Tech Stack: Next.js, Node.js, MySQL, Amazon Bedrock, and Tailwind CSS.";
+        return "MediSync Core (WORK / 002) is a healthcare and pharmacy management portal featuring role-based access control (different permissions for doctors, pharmacists, and admins), electronic health records, inventory stock alerts, and an AI clinical summarization copilot that removes private patient information before processing. Tech Stack: Next.js, Node.js, MySQL, Amazon Bedrock, and Tailwind CSS.";
     }
     if (q.includes("study assistant") || q.includes("study-assistant") || q.includes("flashcard")) {
-        return "The AI Study Assistant (WORK / 003) is an educational platform with PDF document ingestion, semantic chunking, and grounded Q&A/quiz generation powered by Amazon Bedrock. Structured JSON outputs are strictly validated using Zod schemas to eliminate hallucinations. Tech Stack: Next.js 15, TypeScript, PostgreSQL, Node.js/Express, Amazon Bedrock, and Zod.";
+        return "The AI Study Assistant (WORK / 003) is an educational platform with PDF document processing and grounded Q&A and quiz generation powered by Amazon Bedrock. Structured JSON outputs are validated using Zod schemas to ensure high answer accuracy. Tech Stack: Next.js 15, TypeScript, PostgreSQL, Node.js/Express, Amazon Bedrock, and Zod.";
     }
     if (q.includes("fixnow") || q.includes("fix now") || q.includes("service platform") || q.includes("technician")) {
         return "The FixNow Service Platform (WORK / 004) connects customers with vetted local service technicians, featuring online dispatching, state-machine booking status tracking, and provider ratings. Tech Stack: PHP, MySQL, JavaScript, HTML5, and CSS3.";
     }
     if (q.includes("resort") || q.includes("ocean view")) {
-        return "The Ocean View Resort Portal (WORK / 005) is a hospitality management suite built with Java Spring Boot and React, utilizing Spring Data JPA transaction isolation to achieve zero booking collisions. Tech Stack: Spring Boot, React, Vite, MySQL, and Tailwind CSS.";
+        return "The Ocean View Resort Portal (WORK / 005) is a hospitality management web app built with Java Spring Boot and React, utilizing Spring Data JPA transaction isolation to prevent double-booking collisions. Tech Stack: Spring Boot, React, Vite, MySQL, and Tailwind CSS.";
     }
     if (q.includes("bookshop") || q.includes("pahana")) {
-        return "The Pahana Bookshop System (WORK / 006) is a desktop retail POS and inventory management application with barcode scanning receipt generation and offline-cached transaction re-sync. Tech Stack: Java, MySQL, Swing, and JDBC.";
+        return "The Pahana Bookshop System (WORK / 006) is a desktop retail POS and inventory management application with barcode scanning receipt generation and offline transaction handling. Tech Stack: Java, MySQL, Swing, and JDBC.";
     }
 
     // 2. AI specific projects & inquiries
     if (/\b(ai project|ai projects|machine learning|bedrock|rag|artificial intelligence)\b/.test(q)) {
-        return "Ishan has engineered two major AI-powered platforms:\n\n1. AI Study Assistant (WORK / 003): An intelligent document learning platform featuring PDF document ingestion, semantic chunking, and grounded Q&A/quiz generation powered by Amazon Bedrock with strict Zod schema validation to eliminate hallucinations.\n\n2. MediSync Core (WORK / 002): An enterprise clinical and pharmacy management portal featuring an AI clinical summarization copilot powered by Amazon Bedrock with client-side PII redaction.\n\nHe has also integrated Vector Search, RAG workflows, and LLM APIs across full-stack applications.";
+        return "Ishan has built practical AI-powered applications:\n\n1. AI Study Assistant (WORK / 003): An intelligent study platform featuring PDF document search and grounded Q&A and quiz generation powered by Amazon Bedrock with strict schema validation for accuracy.\n\n2. MediSync Core (WORK / 002): A clinical and pharmacy management portal featuring an AI summarization assistant powered by Amazon Bedrock that removes private patient data before processing.\n\nHe has also integrated document Q&A and LLM APIs across full-stack applications.";
     }
 
     // 3. CV / Resume download

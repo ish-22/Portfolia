@@ -188,7 +188,7 @@ export function TechnologyUniverse() {
                   <span>CATEGORY {String(technologyMap.findIndex(c => c.category === cat.category) + 1).padStart(2, "0")}</span>
                   <span className="text-[--lime] flex items-center gap-1">
                     <CheckCircle2 size={11} />
-                    VERIFIED
+                    PRACTICAL
                   </span>
                 </div>
               </motion.div>

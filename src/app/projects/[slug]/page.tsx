@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Github, CheckCircle, Cpu } from "lucide-react";
+import { ArrowLeft, Github, CheckCircle, Cpu, ExternalLink } from "lucide-react";
 import { selectedProjects, secondaryProjects } from "@/data/portfolio";
 import { SiteLayout } from "@/components/site-layout";
 
@@ -274,6 +274,17 @@ export default async function CaseStudyPage({ params }: { params: CaseStudyParam
                             <span>EXPLORE ALL PROJECTS</span>
                         </Link>
 
+                        {project.link && project.link !== "#" && (
+                            <Link
+                                href={project.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center gap-2 border border-[--lime] bg-[--lime] text-[--btn-text] px-5 py-2.5 font-mono text-xs font-bold hover:bg-transparent hover:text-[--lime] transition-all min-h-[44px]"
+                            >
+                                <span>LIVE APPLICATION</span>
+                                <ExternalLink size={14} />
+                            </Link>
+                        )}
                         {project.repo && typeof project.repo === "string" && (
                             <Link
                                 href={project.repo}

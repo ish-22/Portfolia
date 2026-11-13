@@ -13,7 +13,7 @@ const principles = [
   {
     number: "02",
     title: "Clean, Maintainable Architecture",
-    desc: "Type-safe TypeScript, structured REST APIs, and normalized SQL databases that your engineering team can easily understand, test, and build upon."
+    desc: "Writing maintainable TypeScript, well-organized databases, and clear APIs that your team can easily understand, test, and build upon."
   },
   {
     number: "03",
@@ -78,8 +78,8 @@ export function About() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 sm:p-8 rounded-2xl border border-[--border] bg-[--surface] mb-16 shadow-xs font-mono">
           <div>
             <span className="text-3xl sm:text-4xl font-black text-[--text]">3+</span>
-            <p className="text-xs text-[--muted] uppercase tracking-wider mt-1">Years Commercial Work</p>
-            <span className="text-[10px] text-[--lime] block mt-0.5 font-normal">Amazoft IT (2022–Present)</span>
+            <p className="text-xs text-[--muted] uppercase tracking-wider mt-1">Years at Amazoft IT</p>
+            <span className="text-[10px] text-[--lime] block mt-0.5 font-normal">2022–Present (Trainee → Associate)</span>
           </div>
           <div>
             <span className="text-3xl sm:text-4xl font-black text-[--lime]">2:1</span>
@@ -88,12 +88,12 @@ export function About() {
           </div>
           <div>
             <span className="text-3xl sm:text-4xl font-black text-[--text]">8+</span>
-            <p className="text-xs text-[--muted] uppercase tracking-wider mt-1">Software Systems Built</p>
-            <span className="text-[10px] text-[--muted] block mt-0.5 font-normal">Commercial &amp; Full-Stack</span>
+            <p className="text-xs text-[--muted] uppercase tracking-wider mt-1">Documented Projects</p>
+            <span className="text-[10px] text-[--muted] block mt-0.5 font-normal">Commercial &amp; Personal Systems</span>
           </div>
           <div>
-            <span className="text-3xl sm:text-4xl font-black text-[--lime]">&lt;24h</span>
-            <p className="text-xs text-[--muted] uppercase tracking-wider mt-1">Direct Response Time</p>
+            <span className="text-3xl sm:text-4xl font-black text-[--lime]">Direct</span>
+            <p className="text-xs text-[--muted] uppercase tracking-wider mt-1">Direct Developer Contact</p>
             <span className="text-[10px] text-[--lime] block mt-0.5 font-normal">Email &amp; WhatsApp Direct</span>
           </div>
         </div>

@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useMotionValue, useSpring } from "motion/react";
 import { fadeUp, viewportCard } from "@/lib/animations";
 import { selectedProjects, secondaryProjects, ProjectData } from "@/data/portfolio";
@@ -201,6 +202,26 @@ function ProjectEditorialCard({
             {project.subtitle}
           </p>
         </div>
+
+        {/* Real Application Screenshot with Consistent Proportions */}
+        {project.image && (
+          <Link
+            href={`/projects/${project.slug}`}
+            className="block relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden rounded-xl border border-[--border] bg-[--elevated]/40 mb-6 group/img cursor-pointer"
+          >
+            <Image
+              src={project.image}
+              alt={`${project.title} user interface screenshot`}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+              className="object-cover object-top transition-transform duration-500 group-hover/img:scale-[1.02]"
+            />
+            <div className="absolute bottom-3 right-3 bg-black/80 backdrop-blur-sm border border-white/10 px-2.5 py-1 rounded font-mono text-[10px] text-[--lime] flex items-center gap-1.5">
+              <span>VIEW CASE STUDY</span>
+              <ArrowUpRight size={12} />
+            </div>
+          </Link>
+        )}
 
         {/* Narrative Description */}
         <p className="text-sm sm:text-base text-[--text] opacity-85 leading-relaxed max-w-4xl mb-6">

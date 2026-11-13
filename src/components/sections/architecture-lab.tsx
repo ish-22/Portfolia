@@ -62,8 +62,8 @@ const architectures: ProjectArchitecture[] = [
     overview:
       "A public transit system that streams live bus GPS locations to passenger maps while handling seat reservations and digital ticket payments without double-booking.",
     security: {
-      auth: "Role-Based Access Control (RBAC) separating Commuters, Fleet Operators, and Ticket Inspectors via secure HTTP-only JWTs.",
-      integrity: "Redis mutex locks prevent simultaneous double-booking of identical seats during high-concurrency checkout windows.",
+      auth: "Different access levels for Commuters, Fleet Operators, and Ticket Inspectors via secure HTTP-only tokens.",
+      integrity: "In-memory locks prevent two passengers from booking the same seat at the same time.",
       protocols: "TLS/HTTPS for API endpoints, Redis in-memory pub/sub for location broadcasting, and cryptographic HMAC Stripe webhook signatures."
     },
     nodes: [
@@ -442,7 +442,7 @@ export function ArchitectureLab() {
               <span className="font-mono text-xs font-bold text-[--lime] block mb-1">04. SECURE STORAGE</span>
               <h4 className="font-bold text-sm text-[--text] mb-1">PostgreSQL &amp; MySQL</h4>
               <p className="text-xs text-[--muted] leading-relaxed">
-                The permanent vault. Safely stores customer accounts, bookings, and financial records.
+                The permanent vault. Safely stores customer accounts, bookings, and financial records with database backup safety.
               </p>
             </div>
           </div>
