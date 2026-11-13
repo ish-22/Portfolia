@@ -63,7 +63,7 @@ export function SelectedWork() {
             </h2>
           </div>
           <p className="max-w-md text-sm md:text-base text-[--text] opacity-85 leading-relaxed font-normal">
-            Production-grade software systems, real-time IoT transit tracking, AI document intelligence, and enterprise full-stack web applications engineered for business impact.
+            Production web applications, real-time tracking systems, AI-powered tools, and full-stack business software I have built.
           </p>
         </div>
 
@@ -211,7 +211,7 @@ function ProjectEditorialCard({
         <div className="grid md:grid-cols-2 gap-4 mb-6">
           <div className="p-4 rounded-xl border border-[--border] bg-[--elevated]/30">
             <span className="font-mono text-[10px] uppercase font-bold text-[--muted] tracking-wider block mb-1.5">
-              The Real-World Problem
+              The Problem
             </span>
             <p className="text-xs sm:text-sm text-[--text] opacity-80 leading-relaxed">
               {project.problem}
@@ -219,7 +219,7 @@ function ProjectEditorialCard({
           </div>
           <div className="p-4 rounded-xl border border-[--lime]/30 bg-[--lime]/5">
             <span className="font-mono text-[10px] uppercase font-bold text-[--lime] tracking-wider block mb-1.5">
-              Engineered Solution
+              My Solution
             </span>
             <p className="text-xs sm:text-sm text-[--text] opacity-90 leading-relaxed font-medium">
               {project.solution}
@@ -245,7 +245,7 @@ function ProjectEditorialCard({
             <span className="h-2 w-2 rounded-full bg-emerald-500 mt-1.5 shrink-0 animate-pulse" />
             <div>
               <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400 block mb-1">
-                Real-World Business Impact
+                Business Value
               </span>
               <p className="font-mono text-xs sm:text-sm text-[--text] opacity-90 leading-relaxed font-medium">
                 {project.businessImpact}
@@ -259,7 +259,7 @@ function ProjectEditorialCard({
           <div className="mb-8 p-5 sm:p-6 rounded-xl border border-[--border] bg-[--elevated]/40">
             <div className="flex items-center gap-2 mb-4 font-mono text-xs text-[--lime]">
               <Layers size={14} />
-              <span className="font-bold tracking-wider uppercase">KEY FEATURES &amp; DELIVERABLES</span>
+              <span className="font-bold tracking-wider uppercase">KEY FEATURES</span>
             </div>
             <div className="grid sm:grid-cols-3 gap-3 font-mono text-xs">
               {project.goals.map((goal, gIdx) => (

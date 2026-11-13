@@ -58,9 +58,9 @@ const architectures: ProjectArchitecture[] = [
     id: "track-my-bus",
     badge: "WORK / 001",
     title: "Track My Bus Architecture",
-    subtitle: "Real-Time Transit Telemetry, In-Memory Caching & Atomic Booking",
+    subtitle: "Real-Time GPS Tracking, Caching & Seat Booking",
     overview:
-      "A distributed public transit system engineered to process sub-second GPS coordinate streams from transit vehicles while executing atomic seat reservations and payment settlements.",
+      "A public transit system that streams live bus GPS locations to passenger maps while handling seat reservations and digital ticket payments without double-booking.",
     security: {
       auth: "Role-Based Access Control (RBAC) separating Commuters, Fleet Operators, and Ticket Inspectors via secure HTTP-only JWTs.",
       integrity: "Redis mutex locks prevent simultaneous double-booking of identical seats during high-concurrency checkout windows.",
@@ -104,11 +104,11 @@ const architectures: ProjectArchitecture[] = [
         id: "mysql-db",
         name: "MySQL Relational Database",
         tier: "DATABASE",
-        role: "ACID Transactional Ledger",
+        role: "Reliable Data Storage",
         tech: "MySQL 8.0 (InnoDB)",
         protocol: "TCP / Connection Pool",
         description:
-          "Maintains relational records for routes, fleet schedules, fare structures, verified ticket serials, and historical financial logs.",
+          "Stores route schedules, fare structures, verified ticket records, and financial transaction history in organized relational tables.",
         connections: ["api-gateway"]
       },
       {
@@ -137,7 +137,7 @@ const architectures: ProjectArchitecture[] = [
     flows: [
       {
         title: "Flow 1: Real-Time Fleet GPS Location Streaming",
-        description: "How active buses broadcast their live coordinates to passenger map interfaces with sub-second latency.",
+        description: "How active buses broadcast their live locations to passenger map interfaces.",
         steps: [
           {
             step: "01",
@@ -217,9 +217,9 @@ const architectures: ProjectArchitecture[] = [
     id: "ai-study-assistant",
     badge: "WORK / 003",
     title: "AI Study Assistant Architecture",
-    subtitle: "Document Ingestion, Semantic Chunking & Schema-Validated RAG",
+    subtitle: "PDF Processing, Text Search & AI-Powered Quiz Generation",
     overview:
-      "A document intelligence platform engineered to parse dense academic lecture notes into structured text chunks and orchestrate zero-hallucination Q&A and quizzes using Amazon Bedrock.",
+      "A document search platform that processes academic lecture notes into searchable text sections and provides accurate question answering and auto-generated quizzes using Amazon Bedrock AI.",
     security: {
       auth: "JWT-based session authentication with strict tenant isolation preventing unauthorized access across user document workspaces.",
       integrity: "Strict Zod schema interceptors validate AI inference outputs before rendering, discarding invalid or unformatted response objects.",
@@ -252,11 +252,11 @@ const architectures: ProjectArchitecture[] = [
         id: "doc-parser",
         name: "PDF Parsing & Chunking Engine",
         tier: "CACHE_ENGINE",
-        role: "Semantic Text Extraction",
+        role: "Text Extraction & Splitting",
         tech: "Node.js Stream Tokenizer",
         protocol: "In-Memory Stream Parsing",
         description:
-          "Extracts text layers from uploaded PDF documents and executes sliding-window semantic chunking with metadata offsets.",
+          "Extracts text from uploaded PDF documents and splits it into smaller searchable sections with page number references.",
         connections: ["postgres-db"]
       },
       {
@@ -274,22 +274,22 @@ const architectures: ProjectArchitecture[] = [
         id: "bedrock-ai",
         name: "Amazon Bedrock LLM Inference",
         tier: "INTEGRATION",
-        role: "Context-Grounded Generation",
+        role: "AI-Powered Q&A Generation",
         tech: "Amazon Bedrock (Nova / Claude)",
         protocol: "AWS Bedrock SDK / REST",
         description:
-          "Executes generative Q&A and multiple-choice question formulation grounded strictly in retrieved academic chunk citations.",
+          "Generates answers and multiple-choice questions based strictly on the retrieved document content, with page citations.",
         connections: ["zod-validator"]
       },
       {
         id: "zod-validator",
         name: "Zod Schema Interceptor",
         tier: "CACHE_ENGINE",
-        role: "Output Type Safety & Anti-Hallucination",
+        role: "Output Validation & Quality Check",
         tech: "TypeScript · Zod Schema Engine",
         protocol: "In-Memory Runtime Validation",
         description:
-          "Intercepts raw LLM JSON outputs, strictly validating schema structures (questions, options, correctIndex, explanation) before client response.",
+          "Checks AI-generated JSON outputs against strict format rules (questions, options, correct answer, explanation) before showing them to users. Discards any invalid responses.",
         connections: ["client-workspace"]
       }
     ],
@@ -366,7 +366,7 @@ const architectures: ProjectArchitecture[] = [
             sender: "Amazon Bedrock LLM",
             receiver: "Zod Interceptor → Client",
             protocol: "TypeScript Schema Parse",
-            description: "Validates JSON against strict `QuizSchema`. Discards unparsable responses, streaming 100% valid quiz cards to the UI."
+            description: "Validates JSON against strict `QuizSchema`. Discards unparsable responses, streaming validated quiz cards to the UI."
           }
         ]
       }
@@ -401,7 +401,7 @@ export function ArchitectureLab() {
             </h2>
           </div>
           <p className="max-w-md text-sm text-[--muted] leading-relaxed">
-            Good software is more than just visual design. Here is how I organize servers, databases, security, and cloud services to ensure high availability and zero data loss.
+            Good software is more than just visual design. Here is how I organize servers, databases, security, and cloud services to keep applications running smoothly.
           </p>
         </div>
 
@@ -604,7 +604,7 @@ export function ArchitectureLab() {
             <span className="font-mono text-xs text-[--muted]">/</span>
             <span className="font-mono text-xs text-[--muted]">STEP-BY-STEP DATA FLOWS</span>
           </div>
-          <h3 className="text-2xl font-bold text-[--text] mb-6">Audited System Data Sequences</h3>
+          <h3 className="text-2xl font-bold text-[--text] mb-6">Step-by-Step Data Flows</h3>
 
           {/* Flow Switcher */}
           <div className="flex flex-wrap gap-2 mb-6">

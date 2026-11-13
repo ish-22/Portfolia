@@ -113,7 +113,7 @@ export default async function CaseStudyPage({ params }: { params: CaseStudyParam
                         {project.myContribution && (
                             <div className="mt-6 p-4 sm:p-5 rounded-xl border border-[--lime]/30 bg-[--lime]/5">
                                 <span className="font-mono text-xs font-bold uppercase tracking-widest text-[--lime] block mb-1">
-                                    My Role &amp; Engineering Contribution
+                                    My Role & Contribution
                                 </span>
                                 <p className="text-sm text-[--text] leading-relaxed">
                                     {project.myContribution}
@@ -127,7 +127,7 @@ export default async function CaseStudyPage({ params }: { params: CaseStudyParam
                                 <span className="h-2 w-2 rounded-full bg-emerald-500 mt-1.5 shrink-0 animate-pulse" />
                                 <div>
                                     <span className="font-mono text-xs font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400 block mb-1">
-                                        Real-World Business Impact
+                                        Business Value
                                     </span>
                                     <p className="text-sm text-[--text] leading-relaxed">
                                         {project.businessImpact}
@@ -167,7 +167,7 @@ export default async function CaseStudyPage({ params }: { params: CaseStudyParam
                             className="object-cover"
                         />
                         <div className="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md border border-white/10 px-3 py-1 rounded font-mono text-[10px] text-[--lime]">
-                            PRODUCTION USER INTERFACE PREVIEW
+                            APPLICATION SCREENSHOT
                         </div>
                     </div>
 
@@ -176,7 +176,7 @@ export default async function CaseStudyPage({ params }: { params: CaseStudyParam
                         {/* 01 — Overview */}
                         <section className="p-5 sm:p-8 border border-[--border] bg-[--surface]/20">
                             <span className="label-lime block mb-4">01 — OVERVIEW</span>
-                            <h2 className="text-xl sm:text-2xl font-bold text-[--text] mb-4">System Executive Summary</h2>
+                            <h2 className="text-xl sm:text-2xl font-bold text-[--text] mb-4">Project Overview</h2>
                             <p className="text-sm sm:text-base text-[--muted] leading-relaxed">
                                 {project.overview}
                             </p>
@@ -186,7 +186,7 @@ export default async function CaseStudyPage({ params }: { params: CaseStudyParam
                         <div className="grid gap-6 sm:gap-8 sm:grid-cols-2">
                             <section className="p-5 sm:p-8 border border-[--border] bg-[--surface]/20">
                                 <span className="label-muted block mb-4">02 — THE PROBLEM</span>
-                                <h3 className="text-lg sm:text-xl font-bold text-[--text] mb-3">Core Friction</h3>
+                                <h3 className="text-lg sm:text-xl font-bold text-[--text] mb-3">The Problem</h3>
                                 <p className="text-sm text-[--muted] leading-relaxed">
                                     {project.problem}
                                 </p>
@@ -194,7 +194,7 @@ export default async function CaseStudyPage({ params }: { params: CaseStudyParam
 
                             <section className="p-5 sm:p-8 border border-[--border] bg-[--surface]/20">
                                 <span className="label-muted block mb-4">03 — TARGET USERS</span>
-                                <h3 className="text-lg sm:text-xl font-bold text-[--text] mb-3">Primary Personas</h3>
+                                <h3 className="text-lg sm:text-xl font-bold text-[--text] mb-3">Who It's For</h3>
                                 <p className="text-sm text-[--muted] leading-relaxed">
                                     {project.users}
                                 </p>
@@ -204,7 +204,7 @@ export default async function CaseStudyPage({ params }: { params: CaseStudyParam
                         {/* 04 — Product Goals */}
                         <section className="p-5 sm:p-8 border border-[--border] bg-[--surface]/20">
                             <span className="label-lime block mb-4">04 — PRODUCT GOALS</span>
-                            <h2 className="text-xl sm:text-2xl font-bold text-[--text] mb-4">Engineering Objectives</h2>
+                            <h2 className="text-xl sm:text-2xl font-bold text-[--text] mb-4">Project Goals</h2>
                             <ul className="space-y-3 font-mono text-xs sm:text-sm text-[--muted]">
                                 {project.goals.map((goal, idx) => (
                                     <li key={idx} className="flex items-start gap-3 sm:gap-4">
@@ -238,13 +238,13 @@ export default async function CaseStudyPage({ params }: { params: CaseStudyParam
                                 <Cpu size={16} />
                                 <span>07 — BACKEND ARCHITECTURE & ENGINE</span>
                             </div>
-                            <h2 className="text-xl sm:text-2xl font-bold text-[--text] mb-4">System Architecture & Challenges</h2>
+                            <h2 className="text-xl sm:text-2xl font-bold text-[--text] mb-4">Architecture & Challenges</h2>
                             <p className="text-sm text-[--muted] leading-relaxed mb-6">
                                 {project.architectureNotes}
                             </p>
 
                             <div className="border-t border-[--border] pt-6">
-                                <h4 className="font-mono text-xs text-[--lime] uppercase mb-4">Engineering Challenge & Solution</h4>
+                                <h4 className="font-mono text-xs text-[--lime] uppercase mb-4">Challenge & Solution</h4>
                                 <p className="text-sm text-[--muted] mb-3">
                                     <strong className="text-[--text]">Challenge:</strong> {project.challenges}
                                 </p>
@@ -257,7 +257,7 @@ export default async function CaseStudyPage({ params }: { params: CaseStudyParam
                         {/* 08 — Result & Impact */}
                         <section className="p-5 sm:p-8 border border-[--lime]/30 bg-[--lime]/10">
                             <span className="label-lime block mb-4">08 — RESULT & OUTCOME</span>
-                            <h2 className="text-xl sm:text-2xl font-bold text-[--text] mb-4">Measured Product Impact</h2>
+                            <h2 className="text-xl sm:text-2xl font-bold text-[--text] mb-4">Result & Outcome</h2>
                             <p className="text-sm sm:text-base font-semibold text-[--lime] leading-relaxed">
                                 {project.result}
                             </p>

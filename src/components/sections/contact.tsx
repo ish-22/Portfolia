@@ -22,8 +22,8 @@ const contactServices = [
   "Full-Stack Web Development",
   "Frontend Architecture (React / Next.js)",
   "Backend & RESTful API Engineering",
-  "AI & Document Ingestion Pipelines",
-  "Technical Consultation / Employment"
+  "AI & Document Search Tools",
+  "Employment Inquiry / Consultation"
 ];
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
@@ -162,10 +162,10 @@ export function Contact() {
           <h2 id="contact-heading" className="display-lg text-[--text] mb-6">
             LET&apos;S BUILD<br />
             <span className="text-[--lime]">SOMETHING</span><br />
-            <span className="text-[--text] font-extrabold">EXTRAORDINARY.</span>
+            <span className="text-[--text] font-extrabold">GREAT TOGETHER.</span>
           </h2>
           <p className="text-base text-[--muted] leading-relaxed">
-            Have a product concept, technical challenge, or engineering opening? Reach out directly via the form below or connect through verified channels.
+            Have a project idea, a technical challenge, or a job opening? Reach out directly using the form below or connect through my contact channels.
           </p>
         </div>
 
@@ -274,7 +274,7 @@ export function Contact() {
               >
                 <div className="flex items-center gap-2">
                   <FileDown size={16} />
-                  <span>DOWNLOAD VERIFIED CV (PDF)</span>
+                  <span>DOWNLOAD CV (PDF)</span>
                 </div>
                 <span>→</span>
               </Link>
@@ -456,7 +456,7 @@ export function Contact() {
                   >
                     <AlertCircle size={18} className="shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-bold">Transmission Failed</p>
+                      <p className="font-bold">Message Not Sent</p>
                       <p className="mt-0.5 text-xs text-red-300">
                         {errorMessage || `Please reach out directly at ${profile.email}`}
                       </p>
@@ -479,11 +479,11 @@ export function Contact() {
                   {status === "submitting" ? (
                     <>
                       <Loader2 size={15} className="animate-spin" />
-                      <span>TRANSMITTING...</span>
+                      <span>SENDING...</span>
                     </>
                   ) : (
                     <>
-                      <span>TRANSMIT INQUIRY</span>
+                      <span>SEND MESSAGE</span>
                       <Send size={14} />
                     </>
                   )}

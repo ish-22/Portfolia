@@ -56,7 +56,7 @@ export function TechnologyUniverse() {
             <div className="flex items-center gap-2 mb-4">
               <span className="label-lime">TECHNICAL STACK</span>
               <span className="font-mono text-xs text-[--muted]">/</span>
-              <span className="font-mono text-xs text-[--muted]">{totalSkillsCount} VERIFIED TECHNOLOGIES</span>
+              <span className="font-mono text-xs text-[--muted]">{totalSkillsCount} TECHNOLOGIES</span>
             </div>
             <h2 id="skills-heading" className="display-lg text-[--text]">
               ENGINEERING<br />
@@ -65,7 +65,7 @@ export function TechnologyUniverse() {
             </h2>
           </div>
           <p className="max-w-md text-sm sm:text-base text-[--text] opacity-85 leading-relaxed font-normal">
-            Organized into verified engineering specializations. Each node represents active commercial or prototype experience with documented architectural application.
+            Organized into practical engineering categories. Each technology represents hands-on experience from commercial or personal project work.
           </p>
         </div>
 
@@ -207,7 +207,7 @@ export function TechnologyUniverse() {
               <span>
                 {isExpanded
                   ? "SHOW CONDENSED VIEW"
-                  : `VIEW FULL TECHNICAL MATRIX (${technologyMap.length} CATEGORIES, ${totalSkillsCount} TECHNOLOGIES) ↓`}
+                  : `VIEW ALL TECHNOLOGIES (${technologyMap.length} CATEGORIES, ${totalSkillsCount} TOOLS) ↓`}
               </span>
               {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
             </button>

@@ -190,7 +190,7 @@ export function ProfessionalExperience() {
                   <div className="lg:col-span-5 p-6 sm:p-8 md:p-10 bg-[--elevated]/60">
                     <div className="flex items-center gap-2 mb-6">
                       <Sparkles className="h-4 w-4 text-[--lime]" />
-                      <span className="label-muted font-bold">VERIFIED ACHIEVEMENTS &amp; IMPACT</span>
+                      <span className="label-muted font-bold">KEY ACHIEVEMENTS</span>
                     </div>
                     <div className="space-y-3.5">
                       {exp.achievements.map((ach, aIdx) => (
@@ -212,7 +212,7 @@ export function ProfessionalExperience() {
 
                 {/* Technologies Used Bar */}
                 <div className="border-t border-[--border] p-6 sm:p-8 bg-[--elevated]/40">
-                  <span className="label-muted block mb-3 font-bold">PRODUCTION TECHNOLOGIES &amp; METHODOLOGIES</span>
+                  <span className="label-muted block mb-3 font-bold">TECHNOLOGIES USED</span>
                   <div className="flex flex-wrap items-center gap-2">
                     {exp.technologies.map((tech) => (
                       <span
@@ -230,7 +230,7 @@ export function ProfessionalExperience() {
                   <div className="border-t border-[--border] p-6 sm:p-8 md:p-10 bg-[--surface]">
                     <div className="flex items-center gap-2 mb-6">
                       <Layers className="h-4 w-4 text-[--lime]" />
-                      <span className="label-muted font-bold">PRODUCTION PLATFORMS SHIPPED UNDER THIS ROLE</span>
+                      <span className="label-muted font-bold">PROJECTS UNDER THIS ROLE</span>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {exp.projects.map((project) => (

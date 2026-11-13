@@ -2,11 +2,11 @@ export const profile = {
   name: "Ishan Chinthaka",
   role: "Full-Stack Software Engineer",
   label: "ISHAN CHINTHAKA — FULL-STACK ENGINEER",
-  headline: "Building fast, reliable web applications, secure REST APIs, and practical database solutions.",
-  subhead: "I build responsive websites, custom business web applications, and database-driven software. From real-time tracking portals to AI-powered study tools, I turn complex business requirements into clean, dependable software products that solve real problems.",
+  headline: "I build modern websites and software applications that help businesses solve real-world problems and create better digital experiences.",
+  subhead: "I build responsive websites, custom business web applications, and database-driven software. From real-time bus tracking to AI-powered study tools, I turn business requirements into clean, working software that solves real problems.",
   about: [
-    "I am a Full-Stack Software Engineer with commercial software experience delivering production web applications, scalable REST APIs, and database-driven systems at Amazoft IT. My daily work focuses on modular React and TypeScript interfaces, optimized PostgreSQL databases, and structured Agile sprint delivery.",
-    "Graduating with a BSc (Hons) 2:1 in Software Engineering from Cardiff Metropolitan University, I design software that eliminates operational bottlenecks—including real-time public transit tracking, healthcare inventory management, and document AI pipelines. I am looking to join forward-thinking teams to build reliable, high-impact digital products."
+    "I am a Full-Stack Software Engineer with commercial experience delivering production web applications, REST APIs, and database-driven systems at Amazoft IT. My work focuses on building React and TypeScript interfaces, designing PostgreSQL databases, and delivering software through structured Agile sprints.",
+    "Graduating with a BSc (Hons) 2:1 in Software Engineering from Cardiff Metropolitan University, I build software that solves real operational problems — including real-time public transit tracking, healthcare inventory management, and AI-powered document search. I am looking to join teams where I can build reliable, useful digital products."
   ],
   location: "Meetiyagoda, Ambalangoda, Sri Lanka (Open to Remote & Relocation)",
   email: "ishanchinthaka2002@gmail.com",
@@ -130,7 +130,7 @@ export const selectedProjects: ProjectData[] = [
       "Provide an interactive seat selection layout with instant locking to prevent double-booking.",
       "Generate digital QR tickets that can be scanned for verification in under two seconds."
     ],
-    research: "Surveyed local public transit commuters in Sri Lanka. 87% reported that knowing the exact bus location and seat availability would significantly reduce their daily travel stress.",
+    research: "Spoke with local public transit commuters in Sri Lanka who consistently reported that knowing the exact bus location and seat availability would significantly reduce their daily travel stress.",
     userFlow: "Search Route → View Buses on Live GPS Map → Select Bus & Pick Seat → Confirm Payment → Receive Instant QR Ticket → Show Ticket on Boarding.",
     architectureNotes: "The Next.js client renders responsive map layers and seat grids. It communicates with a Laravel backend API, which uses Redis for high-frequency GPS coordinate caching and MySQL for transactional ticket records.",
     challenges: "Updating bus GPS coordinates continuously for dozens of active vehicles without making the user's map lag or overloading the backend database.",
@@ -175,15 +175,15 @@ export const selectedProjects: ProjectData[] = [
     slug: "ai-study-assistant",
     number: "WORK / 003",
     title: "AI STUDY ASSISTANT",
-    subtitle: "Intelligent Learning Platform & Document Q&A (RAG) System",
+    subtitle: "AI-Powered Study Platform with Document Q&A",
     category: "AI Web Application",
     projectType: "AI PRODUCT",
     year: "2026",
     role: "Lead Full-Stack & AI Pipeline Engineer",
-    myContribution: "Architected the document ingestion pipeline that splits uploaded PDFs into semantic chunks, integrated Amazon Bedrock for context-grounded Q&A, and developed the Next.js study workspace with automated quiz generation.",
+    myContribution: "Architected the document processing system that splits uploaded PDFs into searchable text sections, integrated Amazon Bedrock for accurate Q&A grounded in the document content, and developed the Next.js study workspace with automated quiz generation.",
     stack: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Amazon Bedrock AI", "Tailwind CSS", "Zod"],
     description: "An AI-powered learning workspace where students upload lecture slides and textbooks to ask questions directly to their documents, generate interactive flashcards, and take self-assessment quizzes.",
-    businessImpact: "Enables students and professionals to extract accurate answers from dense 50+ page documents in seconds, backed by exact page citations without AI hallucination.",
+    businessImpact: "Enables students and professionals to find accurate answers from long documents in seconds, with exact page references and without AI making up information.",
     image: "/projects/study_assistant.png",
     repo: {
       frontend: "https://github.com/ish-22/AI-Powered-Intelligent-Study-Assistant-System",
@@ -199,7 +199,7 @@ export const selectedProjects: ProjectData[] = [
       "Deliver fast, accurate answers grounded strictly in the uploaded document content.",
       "Generate structured practice quizzes with automated scoring and explanations."
     ],
-    research: "Based on active recall and spaced repetition study methodologies, which show that self-testing immediately after reading improves long-term conceptual retention by over 50%.",
+    research: "Based on active recall and spaced repetition study methodologies, which show that self-testing immediately after reading significantly improves long-term conceptual retention.",
     userFlow: "Upload PDF → System Chunks & Indexes Document → Ask AI Questions with Direct Citations → Click 'Generate Flashcards' → Take Practice Quiz.",
     architectureNotes: "Next.js frontend connects to an Express.js backend. Document text is extracted, chunked with overlap, and queried via Amazon Bedrock using prompt constraints that require direct quotes from the context.",
     challenges: "Preventing the AI model from making up answers (hallucination) when the uploaded document does not contain the answer.",
@@ -415,21 +415,21 @@ export const architectureNodes = [
     id: "cache",
     title: "Redis In-Memory Cache",
     type: "CACHE",
-    description: "Sub-millisecond data caching, session store, and real-time pub/sub queues.",
+    description: "Fast data caching, session store, and real-time pub/sub queues.",
     tech: "Redis 7.0"
   },
   {
     id: "db",
     title: "Relational Database",
     type: "DATABASE",
-    description: "ACID-compliant transactional store for structured application data.",
+    description: "Secure and reliable data storage for structured application records.",
     tech: "MySQL 8.0 · PostgreSQL"
   },
   {
     id: "ai",
     title: "Amazon Bedrock AI Engine",
     type: "AI INFRASTRUCTURE",
-    description: "Secure, low-latency LLM inference pipelines for document RAG and translations.",
+    description: "AI-powered document search, question answering, and content translation.",
     tech: "Amazon Bedrock Nova Micro / Pro"
   },
   {
@@ -508,8 +508,8 @@ export const technologyMap: TechCategory[] = [
     description: "Where user information, transactions, and business records are safely and permanently stored.",
     items: [
       { name: "PostgreSQL", note: "Advanced relational database engine", businessBenefit: "Proven data integrity for complex multi-table queries and financial records." },
-      { name: "MySQL", note: "High-throughput ACID transactional store", businessBenefit: "Reliable database power for user management, catalogs, and order history." },
-      { name: "Redis", note: "In-memory caching and message queues", businessBenefit: "Speeds up frequent queries to sub-millisecond response times." }
+      { name: "MySQL", note: "Reliable relational database", businessBenefit: "Reliable database power for user management, catalogs, and order history." },
+      { name: "Redis", note: "In-memory caching and message queues", businessBenefit: "Speeds up frequently accessed data for faster page loads." }
     ]
   },
   {
@@ -533,7 +533,7 @@ export const education = [
     status: "Graduated / Degree Awarded",
     verificationNote: "Official degree qualification accredited by Cardiff Metropolitan University UK.",
     highlights: [
-      "Rigorous foundations in distributed software architecture, enterprise systems, and database engineering.",
+      "Rigorous foundations in software architecture, enterprise systems, and database engineering.",
       "Graduated with Second Class Honours Upper Division (2:1).",
       "Academic transcript and degree certificate available for recruiter verification upon request."
     ]
@@ -557,7 +557,7 @@ export const experienceTimeline = [
     year: "2025 – Present",
     role: "Associate Software Engineer",
     company: "Amazoft IT",
-    description: "Developing production React.js & TypeScript web applications, designing optimized PostgreSQL schemas, conducting root-cause diagnostics, and collaborating in Agile sprint cycles.",
+    description: "Developing production React.js & TypeScript web applications, designing optimized database schemas, investigating and fixing bugs, and collaborating in Agile sprint cycles.",
     status: "Current Commercial Position"
   },
   {
@@ -613,12 +613,12 @@ export const workExperience: WorkExperience[] = [
     status: "CURRENT",
     location: "Meetiyagoda, Ambalangoda, Sri Lanka",
     summary:
-      "Architect and maintain production web features using React.js, TypeScript, and REST APIs, design and optimize relational SQL schemas in PostgreSQL, conduct root-cause diagnostics, and collaborate in Agile sprint cycles.",
+      "Architect and maintain production web features using React.js, TypeScript, and REST APIs, design and optimize database schemas in PostgreSQL, investigate and fix bugs, and collaborate in Agile sprint cycles.",
     responsibilities: [
       "Architect and maintain production web features using React.js, TypeScript, and REST APIs, ensuring modularity and optimal browser performance.",
-      "Design and optimize relational SQL schemas and indexing strategies in PostgreSQL, ensuring data integrity, minimal latency, and high query throughput.",
-      "Conduct rigorous debugging, log analysis, and root-cause diagnostics to resolve defect tickets and improve overall application stability.",
-      "Collaborate in Agile sprint planning, daily scrums, and thorough peer code reviews via Git/GitHub to uphold clean code standards and test coverage."
+      "Design and optimize database schemas and indexing strategies in PostgreSQL, ensuring data integrity and efficient query performance.",
+      "Investigate, debug, and fix application issues through log analysis and systematic troubleshooting to improve overall application stability.",
+      "Collaborate in Agile sprint planning, daily standups, and code reviews via Git/GitHub to maintain clean code standards."
     ],
     technologies: [
       "React.js",
@@ -646,14 +646,14 @@ export const workExperience: WorkExperience[] = [
         name: "School Management System (EdTech Platform)",
         area: "EdTech Platform",
         description:
-          "Engineered role-based portals (Admin, Teacher, Student, Parent) with modules for attendance tracking, grading, timetables, and notification alerts. Modeled normalized MySQL relational databases ensuring transactional reliability, granular permissions, and dynamic reporting analytics.",
+          "Engineered role-based portals (Admin, Teacher, Student, Parent) with modules for attendance tracking, grading, timetables, and notification alerts. Designed MySQL databases with proper permissions and reporting features.",
         tech: ["PHP", "MySQL", "JavaScript", "HTML5", "CSS3"]
       }
     ],
     achievements: [
-      "Optimized PostgreSQL query indexing and data fetching to ensure fast, reliable candidate filtering for hiring teams.",
+      "Optimized PostgreSQL query indexing and data fetching for efficient candidate filtering.",
       "Enforced modular component architecture and strict TypeScript type safety across production frontend features.",
-      "Participated actively in daily Agile standups, pull request reviews on GitHub, and proactive root-cause diagnostics to resolve bug tickets."
+      "Participated actively in daily Agile standups and pull request reviews on GitHub to maintain code quality."
     ]
   },
   {
@@ -690,14 +690,14 @@ export const workExperience: WorkExperience[] = [
         name: "Employee Attendance & HR Management System / POS & Inventory",
         area: "HR / Attendance & POS Inventory",
         description:
-          "Built attendance and shift tracking microservices with strict RBAC; engineered transactional POS sales, GRN (Goods Received Note), and real-time inventory logic.",
+          "Built attendance and shift tracking features with role-based access control; developed POS sales, goods receiving, and real-time inventory management logic.",
         tech: ["Java", "Spring Boot", "PostgreSQL", "Docker", "REST APIs"]
       }
     ],
     achievements: [
-      "Built resilient attendance microservices with strict RBAC and token-based authentication (JWT, OAuth 2.0).",
-      "Prepared reproducible multi-service Docker builds and deployed containerized services to AWS test environments.",
-      "Authored comprehensive Postman test suites validating API endpoint contracts and ensuring regression stability."
+      "Built reliable attendance tracking features with role-based access control and token-based authentication (JWT, OAuth 2.0).",
+      "Prepared reproducible Docker builds and deployed containerized services to AWS test environments.",
+      "Authored comprehensive Postman test suites to validate API endpoint behavior and catch regressions."
     ]
   }
 ];
