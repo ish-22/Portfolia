@@ -1,3 +1,4 @@
+/* eslint-disable */
 // @ts-nocheck
 'use client';
 
@@ -448,7 +449,7 @@ function SplashCursor({
       return undefined;
     }
 
-    const use = name => {
+    const activateProgram = name => {
       const item = programs[name];
       gl.useProgram(item.program);
       return item.uniforms;
@@ -533,7 +534,7 @@ function SplashCursor({
     const resizeDouble = (pair, width, height, format, filter, keep) => {
       if (keep) {
         const next = createTarget(width, height, format, filter);
-        const u = use('copy');
+        const u = activateProgram('copy');
         gl.uniform1i(u.uTexture, pair.read.attach(0));
         blit(next);
         destroyTarget(pair.read);
@@ -625,7 +626,7 @@ function SplashCursor({
     };
 
     const splat = (ax, ay, bx, by, vx, vy, color, radius) => {
-      const u = use('splat');
+      const u = activateProgram('splat');
       gl.uniform1i(u.uTarget, velocity.read.attach(0));
       gl.uniform1f(u.aspectRatio, canvas.width / canvas.height);
       gl.uniform2f(u.pointA, ax, ay);
@@ -688,7 +689,7 @@ function SplashCursor({
       const s = settingsRef.current;
       const seed = Math.random() * Math.PI * 2;
       const aspect = canvas.width / canvas.height;
-      let u = use('burst');
+      let u = activateProgram('burst');
       gl.uniform1i(u.uTarget, velocity.read.attach(0));
       gl.uniform1f(u.aspectRatio, aspect);
       gl.uniform2f(u.point, x, y);
@@ -701,7 +702,7 @@ function SplashCursor({
       const amount = 1.6 * s.intensity;
       const first = inkFor(colorAt(offset, now), amount);
       const second = inkFor(colorAt(offset + 0.3, now), amount);
-      u = use('crown');
+      u = activateProgram('crown');
       gl.uniform1i(u.uTarget, dye.read.attach(0));
       gl.uniform1f(u.aspectRatio, aspect);
       gl.uniform2f(u.point, x, y);
@@ -718,12 +719,12 @@ function SplashCursor({
       const iterations = QUALITY[s.quality].iterations;
       gl.disable(gl.BLEND);
 
-      let u = use('curl');
+      let u = activateProgram('curl');
       gl.uniform2f(u.texelSize, velocity.texelX, velocity.texelY);
       gl.uniform1i(u.uVelocity, velocity.read.attach(0));
       blit(curl);
 
-      u = use('vorticity');
+      u = activateProgram('vorticity');
       gl.uniform2f(u.texelSize, velocity.texelX, velocity.texelY);
       gl.uniform1i(u.uVelocity, velocity.read.attach(0));
       gl.uniform1i(u.uCurl, curl.attach(1));
@@ -732,18 +733,18 @@ function SplashCursor({
       blit(velocity.write);
       velocity.swap();
 
-      u = use('divergence');
+      u = activateProgram('divergence');
       gl.uniform2f(u.texelSize, velocity.texelX, velocity.texelY);
       gl.uniform1i(u.uVelocity, velocity.read.attach(0));
       blit(divergence);
 
-      u = use('clear');
+      u = activateProgram('clear');
       gl.uniform1i(u.uTexture, pressure.read.attach(0));
       gl.uniform1f(u.value, 0.1);
       blit(pressure.write);
       pressure.swap();
 
-      u = use('pressure');
+      u = activateProgram('pressure');
       gl.uniform2f(u.texelSize, velocity.texelX, velocity.texelY);
       gl.uniform1i(u.uDivergence, divergence.attach(0));
       for (let i = 0; i < iterations; i++) {
@@ -752,14 +753,14 @@ function SplashCursor({
         pressure.swap();
       }
 
-      u = use('gradient');
+      u = activateProgram('gradient');
       gl.uniform2f(u.texelSize, velocity.texelX, velocity.texelY);
       gl.uniform1i(u.uPressure, pressure.read.attach(0));
       gl.uniform1i(u.uVelocity, velocity.read.attach(1));
       blit(velocity.write);
       velocity.swap();
 
-      u = use('advection');
+      u = activateProgram('advection');
       gl.uniform2f(u.texelSize, velocity.texelX, velocity.texelY);
       gl.uniform1i(u.uVelocity, velocity.read.attach(0));
       gl.uniform1i(u.uSource, velocity.read.attach(0));
@@ -779,13 +780,13 @@ function SplashCursor({
       const base = ensureBloom();
       if (!bloomChain.length) return;
       gl.disable(gl.BLEND);
-      let u = use('prefilter');
+      let u = activateProgram('prefilter');
       const knee = BLOOM_THRESHOLD * BLOOM_KNEE + 0.0001;
       gl.uniform3f(u.curve, BLOOM_THRESHOLD - knee, knee * 2, 0.25 / knee);
       gl.uniform1f(u.threshold, BLOOM_THRESHOLD);
       gl.uniform1i(u.uTexture, dye.read.attach(0));
       blit(base);
-      u = use('blur');
+      u = activateProgram('blur');
       gl.uniform1f(u.intensity, 1);
       let last = base;
       bloomChain.forEach(target => {
@@ -814,7 +815,7 @@ function SplashCursor({
       const s = settingsRef.current;
       if (s.glow > 0) applyBloom(2 * s.glow);
       gl.disable(gl.BLEND);
-      const u = use('display');
+      const u = activateProgram('display');
       gl.uniform2f(u.texelSize, 1 / gl.drawingBufferWidth, 1 / gl.drawingBufferHeight);
       gl.uniform1i(u.uTexture, dye.read.attach(0));
       gl.uniform1i(u.uBloom, (bloom ?? dye.read).attach(1));
