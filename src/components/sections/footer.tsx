@@ -42,6 +42,9 @@ export function Footer() {
   }, []);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: (typeof footerNav)[0]) => {
+    if (item.href === "/contact") {
+      return;
+    }
     if (pathname === "/") {
       e.preventDefault();
       const el = document.getElementById(item.sectionId);
@@ -94,7 +97,7 @@ export function Footer() {
             {footerNav.map((item) => (
               <Link
                 key={item.label}
-                href={pathname === "/" ? `#${item.sectionId}` : item.href}
+                href={item.href === "/contact" ? "/contact" : pathname === "/" ? `#${item.sectionId}` : item.href}
                 onClick={(e) => handleNavClick(e, item)}
                 className="font-mono text-[10px] font-semibold tracking-widest text-[--muted] hover:text-[--lime] transition-colors"
               >

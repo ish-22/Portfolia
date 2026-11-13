@@ -59,7 +59,7 @@ export function About() {
             {/* Circular CTA Button (Dennis Snellenberg / Savindu inspired) */}
             <div className="pt-2">
               <Link
-                href="#contact"
+                href="/contact"
                 className="group relative w-36 h-36 sm:w-40 sm:h-40 rounded-full border border-[--border] bg-[--surface] hover:border-[--lime] text-[--text] flex flex-col items-center justify-center font-mono text-xs font-bold transition-all duration-500 hover:scale-105 shadow-xl hover:shadow-[0_0_30px_rgba(163,230,53,0.15)]"
               >
                 <span className="relative z-10 flex items-center gap-1 group-hover:text-[--lime] transition-colors">
