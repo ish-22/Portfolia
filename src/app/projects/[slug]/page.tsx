@@ -194,7 +194,7 @@ export default async function CaseStudyPage({ params }: { params: CaseStudyParam
 
                             <section className="p-5 sm:p-8 border border-[--border] bg-[--surface]/20">
                                 <span className="label-muted block mb-4">03 — TARGET USERS</span>
-                                <h3 className="text-lg sm:text-xl font-bold text-[--text] mb-3">Who It's For</h3>
+                                <h3 className="text-lg sm:text-xl font-bold text-[--text] mb-3">Who It&apos;s For</h3>
                                 <p className="text-sm text-[--muted] leading-relaxed">
                                     {project.users}
                                 </p>
