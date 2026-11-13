@@ -93,13 +93,16 @@ export function Hero() {
       </div>
 
       {/* Dennis Snellenberg / Savindu Signature Refined Typographic Marquee */}
-      <div className="relative z-20 w-full pointer-events-none overflow-hidden pb-3 sm:pb-5">
+      <div className="relative z-20 w-full overflow-hidden pb-3 sm:pb-5">
         <div className="relative w-full overflow-hidden whitespace-nowrap select-none">
-          <div className="flex animate-marquee whitespace-nowrap will-change-transform">
+          <div
+            data-cursor="ISHAN"
+            className="flex animate-marquee hover:[animation-play-state:paused] cursor-default whitespace-nowrap will-change-transform"
+          >
             {[...Array(6)].map((_, i) => (
               <h1
                 key={i}
-                className="text-[10vw] sm:text-[8vw] md:text-[7vw] lg:text-[6vw] font-extrabold tracking-tighter text-[--text] pr-8 sm:pr-14 leading-none select-none uppercase opacity-90 transition-opacity"
+                className="text-[10vw] sm:text-[8vw] md:text-[7vw] lg:text-[6vw] font-extrabold tracking-tighter text-[--text] pr-8 sm:pr-14 leading-none select-none uppercase opacity-90 transition-opacity hover:text-[--lime]"
               >
                 {profile.name} —
               </h1>

@@ -1,6 +1,10 @@
 {
   "extends": ["next/core-web-vitals", "next/typescript"],
-  "ignorePatterns": ["next-env.d.ts", "src/components/ui/SplashCursor.tsx"],
+  "ignorePatterns": [
+    "next-env.d.ts",
+    "src/components/ui/SplashCursor.tsx",
+    "src/components/ui/CircularCarousel.tsx"
+  ],
   "rules": {
     "@typescript-eslint/ban-ts-comment": "off"
   }

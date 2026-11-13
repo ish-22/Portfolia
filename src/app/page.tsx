@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/hero";
 import { EngineeringSignal } from "@/components/sections/engineering-signal";
+import { VisualShowcase } from "@/components/sections/visual-showcase";
 import { SelectedWork } from "@/components/sections/projects";
 import { ExperienceTimeline } from "@/components/sections/experience";
 import { TechnologyWall } from "@/components/sections/technology-wall";
@@ -17,6 +18,7 @@ export default function Home() {
       <Hero />
       <About />
       <EngineeringSignal />
+      <VisualShowcase />
       <SelectedWork />
       <ExperienceTimeline />
       <TechnologyWall />

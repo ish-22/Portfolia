@@ -8,15 +8,29 @@ import { SiteLayout } from "@/components/site-layout";
 
 type CaseStudyParams = Promise<{ slug: string }>;
 
+const SLUG_ALIASES: Record<string, string> = {
+    "pharmacy-inventory": "medisync-core",
+    "smart-bus": "track-my-bus",
+    "study-assistant": "ai-study-assistant",
+    "ocean-view": "ocean-view-resort"
+};
+
+function resolveSlug(slug: string): string {
+    return SLUG_ALIASES[slug] || slug;
+}
+
 export async function generateStaticParams() {
     const all = [...selectedProjects, ...secondaryProjects];
-    return all.map((p) => ({ slug: p.slug }));
+    const canonical = all.map((p) => ({ slug: p.slug }));
+    const aliases = Object.keys(SLUG_ALIASES).map((slug) => ({ slug }));
+    return [...canonical, ...aliases];
 }
 
 export async function generateMetadata({ params }: { params: CaseStudyParams }): Promise<Metadata> {
     const { slug } = await params;
     const allProjects = [...selectedProjects, ...secondaryProjects];
-    const project = allProjects.find((p) => p.slug === slug);
+    const targetSlug = resolveSlug(slug);
+    const project = allProjects.find((p) => p.slug === targetSlug);
 
     if (!project) {
         return {
@@ -58,7 +72,8 @@ export async function generateMetadata({ params }: { params: CaseStudyParams }):
 export default async function CaseStudyPage({ params }: { params: CaseStudyParams }) {
     const { slug } = await params;
     const allProjects = [...selectedProjects, ...secondaryProjects];
-    const project = allProjects.find((p) => p.slug === slug);
+    const targetSlug = resolveSlug(slug);
+    const project = allProjects.find((p) => p.slug === targetSlug);
 
     if (!project) {
         notFound();

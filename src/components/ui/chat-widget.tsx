@@ -355,7 +355,7 @@ export function ChatWidget() {
     };
 
     return (
-        <div className="fixed bottom-18 sm:bottom-20 right-4 sm:right-6 z-50">
+        <div className="fixed bottom-20 sm:bottom-24 right-4 sm:right-6 z-50">
             {/* Floating Action Button */}
             <AnimatePresence>
                 {!isOpen && (
@@ -367,17 +367,21 @@ export function ChatWidget() {
                         whileHover={prefersReducedMotion ? {} : { scale: 1.06, y: -2 }}
                         whileTap={prefersReducedMotion ? {} : { scale: 0.94 }}
                         onClick={() => setIsOpen(true)}
-                        className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full shadow-[0_0_20px_rgba(16,185,129,0.3)] p-0.5 bg-gradient-to-r from-emerald-400 to-emerald-600 border border-emerald-500/40 cursor-pointer"
+                        className="relative flex h-12 w-12 items-center justify-center rounded-full shadow-[0_0_20px_rgba(16,185,129,0.4)] p-0.5 bg-gradient-to-r from-emerald-400 to-emerald-600 border border-emerald-500/40 cursor-pointer"
                         aria-label="Open AI chat assistant"
                     >
                         <div className="h-full w-full rounded-full overflow-hidden border border-white/10 flex items-center justify-center bg-slate-900">
                             <Image
                                 src="/ai-assistant-logo.png"
                                 alt="Ishan AI Portfolio Assistant"
-                                width={44}
-                                height={44}
+                                width={48}
+                                height={48}
                                 className="h-full w-full object-cover rounded-full"
                             />
+                        </div>
+                        {/* Live active beacon */}
+                        <div className="absolute top-0 right-0 h-3 w-3 rounded-full border-2 border-slate-900 bg-emerald-400">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                         </div>
                     </motion.button>
                 )}
@@ -396,7 +400,7 @@ export function ChatWidget() {
                         exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, scale: 0.92, y: 16 }}
                         transition={{ duration: 0.22, ease: "easeOut" }}
                         style={{ transformOrigin: "bottom right" }}
-                        className="absolute bottom-16 -right-2 sm:right-0 w-[calc(100vw-32px)] sm:w-[390px] h-[520px] max-h-[calc(100vh-130px)] rounded-2xl border border-black/10 bg-white/95 dark:bg-[#111827]/95 shadow-soft backdrop-blur-md flex flex-col overflow-hidden dark:border-white/10"
+                        className="fixed bottom-3 right-3 left-3 sm:left-auto sm:right-0 sm:bottom-16 sm:absolute w-auto sm:w-[390px] h-[520px] max-h-[calc(100dvh-24px)] sm:max-h-[calc(100vh-130px)] rounded-2xl border border-black/10 bg-white/95 dark:bg-[#111827]/95 shadow-soft backdrop-blur-md flex flex-col overflow-hidden dark:border-white/10"
                     >
                         {/* Header */}
                         <div className="bg-gradient-to-r from-emerald-600 to-teal-700 px-4 py-3 text-white flex items-center justify-between">

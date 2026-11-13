@@ -128,9 +128,11 @@ export function CustomCursor() {
       if (!el) return;
 
       const cursor = el.closest("[data-cursor]");
-      setLabel(cursor?.getAttribute("data-cursor") ?? "");
+      const cursorLabel = cursor?.getAttribute("data-cursor") ?? "";
+      setLabel(cursorLabel);
 
       const isInteractive =
+        Boolean(cursorLabel) ||
         el.tagName === "BUTTON" ||
         el.tagName === "A" ||
         el.closest("button") !== null ||

@@ -55,6 +55,10 @@ export function Header() {
   }, [menuOpen]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, link: (typeof navLinks)[0]) => {
+    if (link.href === "/contact") {
+      if (menuOpen) setMenuOpen(false);
+      return;
+    }
     if (pathname === "/") {
       e.preventDefault();
       const el = document.getElementById(link.sectionId);
@@ -73,46 +77,46 @@ export function Header() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-[--bg]/80 backdrop-blur-xl border-b border-[--border] py-3.5"
-            : "bg-transparent py-5"
+            ? "bg-[--bg]/95 backdrop-blur-xl border-b border-[--border] py-3 shadow-md shadow-black/25"
+            : "bg-[--bg]/80 backdrop-blur-md border-b border-[--border]/40 py-4 sm:py-5"
         }`}
       >
         <div className="container-xl flex items-center justify-between">
           {/* Brand & Creative Code Signature */}
           <Link
             href="/"
-            className="group flex items-center gap-2 font-mono text-xs font-bold tracking-wider text-[--text] transition-colors"
+            className="group flex items-center gap-2 font-mono text-xs sm:text-sm font-bold tracking-wider text-[--text] transition-colors"
           >
             <span className="text-[--lime] group-hover:rotate-180 transition-transform duration-500">©</span>
-            <span className="tracking-widest uppercase">Code by Ishan</span>
+            <span className="tracking-widest uppercase font-extrabold">Code by Ishan</span>
           </Link>
 
           {/* Center / Right cluster */}
-          <div className="flex items-center gap-6 sm:gap-8">
+          <div className="flex items-center gap-5 sm:gap-7 md:gap-8">
             {/* Desktop Quick Nav Links */}
-            <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
+            <nav className="hidden md:flex items-center gap-7 lg:gap-9" aria-label="Main navigation">
               {navLinks.slice(0, 4).map((link) => (
                 <Link
                   key={link.label}
                   href={pathname === "/" ? `#${link.sectionId}` : link.href}
                   onClick={(e) => handleNavClick(e, link)}
-                  className="font-mono text-xs tracking-widest text-[--muted] transition-colors hover:text-[--text] relative group"
+                  className="font-mono text-xs sm:text-[13px] font-bold tracking-widest text-[--text] opacity-85 hover:opacity-100 hover:text-[--lime] transition-all relative group py-1"
                 >
                   <span>{link.label}</span>
-                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-[--lime] transition-all duration-300 group-hover:w-full" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[--lime] transition-all duration-300 group-hover:w-full" />
                 </Link>
               ))}
             </nav>
 
             {/* Availability Badge */}
-            <div className="hidden lg:flex items-center gap-2 border border-[--border] bg-[--surface]/60 px-3 py-1 rounded-full font-mono text-[11px]">
+            <div className="hidden lg:flex items-center gap-2.5 border border-[--border] bg-[--surface] px-3.5 py-1.5 rounded-full font-mono text-[11px] shadow-xs">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[--lime] opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-[--lime]" />
               </span>
-              <span className="text-[--muted] text-[10px] tracking-wider uppercase font-semibold">
+              <span className="text-[--text] text-[10px] tracking-wider uppercase font-bold">
                 Available for work
               </span>
             </div>
@@ -128,7 +132,7 @@ export function Header() {
               className={`h-11 w-11 rounded-full border transition-all duration-300 flex items-center justify-center ${
                 menuOpen
                   ? "border-[--lime] bg-[--lime] text-black"
-                  : "border-[--border] bg-[--surface]/80 text-[--text] hover:border-[--lime]/60 hover:scale-105"
+                  : "border-[--border] bg-[--surface] text-[--text] hover:border-[--lime]/70 hover:scale-105 shadow-xs"
               }`}
             >
               <div className="flex flex-col items-center justify-center gap-1.5 w-4">
@@ -183,7 +187,7 @@ export function Header() {
                   transition={{ delay: 0.15 + i * 0.08, duration: 0.4 }}
                 >
                   <Link
-                    href={pathname === "/" ? `#${link.sectionId}` : link.href}
+                    href={link.href === "/contact" ? "/contact" : pathname === "/" ? `#${link.sectionId}` : link.href}
                     onClick={(e) => handleNavClick(e, link)}
                     className="group flex items-baseline gap-4 sm:gap-8 transition-colors"
                   >
