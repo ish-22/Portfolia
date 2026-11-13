@@ -3,7 +3,7 @@ export const profile = {
   role: "Full-Stack Software Engineer",
   label: "ISHAN — DIGITAL ENGINEERING LAB",
   headline: "Building responsive, reliable web applications, resilient RESTful APIs, and database-driven systems.",
-  subhead: "Full-Stack Software Engineer and Associate Software Engineer at Amazoft IT, with commercial experience building production web applications, scalable REST APIs, and database-driven solutions using React, Next.js, TypeScript, Node.js, Spring Boot, and PostgreSQL.",
+  subhead: "I build fast, responsive websites, web applications, and custom business systems. From booking portals to AI-powered tools, I turn complex requirements into smooth, reliable digital products that help businesses grow.",
   about: [
     "I am a Full-Stack Software Engineer with commercial experience delivering production web applications, scalable REST APIs, and database-driven systems at Amazoft IT. My work spans modular React and TypeScript interfaces, optimized PostgreSQL schemas, and disciplined Agile delivery.",
     "Holding a BSc (Hons) 2:1 from Cardiff Metropolitan University, I engineer systems that solve real operational friction—from real-time IoT transit tracking to AI-powered document tools. My goal is to collaborate with forward-thinking teams to build high-availability software products that deliver measurable business value."
@@ -19,7 +19,7 @@ export const profile = {
   whatsappFormatted: "+94 76 527 4750",
   phoneSecondary: "+94752464420",
   phoneSecondaryFormatted: "+94 75 246 4420",
-  availability: "AVAILABLE FOR OPPORTUNITIES"
+  availability: "OPEN FOR FULL-TIME ROLES & FREELANCE PROJECTS"
 };
 
 export const heroTechSignals = [
@@ -37,33 +37,33 @@ export const heroTechSignals = [
 export const engineeringCapabilities = [
   {
     id: "01",
-    title: "PRODUCT DESIGN",
-    subtitle: "Interface & Experience Architecture",
-    description: "Designing user flows, scalable design systems, and responsive interaction patterns grounded in UX research.",
+    title: "PRODUCT & UI DESIGN",
+    subtitle: "Modern User Flows & Responsive Interfaces",
+    description: "Designing intuitive user journeys, clean visual design systems, and responsive layouts that convert visitors into customers.",
     items: ["UI/UX Design", "User Flow Mapping", "Design Systems", "Interaction Design", "Wireframing"],
     accent: "Lime"
   },
   {
     id: "02",
     title: "FRONTEND ENGINEERING",
-    subtitle: "High-Performance Web Clients",
-    description: "Architecting responsive, accessible, and fast web applications built with modern SSR and state management.",
+    subtitle: "Fast, Responsive Websites & Web Apps",
+    description: "Architecting responsive, lightning-fast web applications with modern frameworks, mobile-friendly layouts, and smooth animations.",
     items: ["Next.js (App Router)", "React 19", "TypeScript", "Tailwind CSS", "Framer Motion"],
     accent: "Lime"
   },
   {
     id: "03",
     title: "BACKEND SYSTEMS",
-    subtitle: "Robust API & Data Architectures",
-    description: "Engineering scalable RESTful APIs, real-time message brokers, relational schemas, and microservice workflows.",
+    subtitle: "Fast, Secure Backend & Databases",
+    description: "Engineering reliable server systems, secure API integrations, and organized databases that keep user data safe and systems fast.",
     items: ["Node.js & Express", "Laravel (PHP)", "REST & GraphQL", "MySQL & PostgreSQL", "Redis Caching"],
     accent: "Lime"
   },
   {
     id: "04",
     title: "CLOUD + AI",
-    subtitle: "Intelligent Infrastructure & RAG",
-    description: "Deploying automated cloud pipelines on AWS, integrating Amazon Bedrock LLMs, and building intelligent search systems.",
+    subtitle: "AI Solutions & Cloud Infrastructure",
+    description: "Building intelligent AI assistants, automated document search systems, and scalable cloud deployments on AWS.",
     items: ["AWS Cloud Architecture", "Amazon Bedrock AI", "Docker & CI/CD", "Vector Search / RAG", "Serverless Functions"],
     accent: "Lime"
   }
@@ -80,6 +80,7 @@ export interface ProjectData {
   role: string;
   stack: string[];
   description: string;
+  businessImpact?: string;
   image: string;
   repo?: string | { frontend?: string; backend?: string };
   link?: string;
@@ -108,6 +109,7 @@ export const selectedProjects: ProjectData[] = [
     role: "Product Design · UI/UX · Full Stack Engineering",
     stack: ["Next.js", "TypeScript", "Laravel", "MySQL", "Redis", "Google Maps", "AWS"],
     description: "A real-time transit ecosystem featuring live GPS bus tracking with interactive maps, seat reservation pipelines, integrated payments, and dynamic ticketing queues.",
+    businessImpact: "Helps daily commuters track buses in real-time and buy instant QR tickets without waiting in lines.",
     image: "/projects/smart_bus.png",
     repo: {
       frontend: "https://github.com/ish-22/smartbus_frontend",
@@ -141,6 +143,7 @@ export const selectedProjects: ProjectData[] = [
     role: "Full Stack Development · UI/UX · System Architecture",
     stack: ["Next.js", "TypeScript", "Node.js", "MySQL", "Amazon Bedrock", "Tailwind CSS"],
     description: "Healthcare workflow suite managing clinical records, multi-role staff access, pharmacy inventory tracking, and AI-driven clinical summary extraction.",
+    businessImpact: "Streamlines clinic workflows by combining patient records with instant stock alerts to prevent medication errors.",
     image: "/projects/pharmacy_inventory.png",
     repo: "https://github.com/ish-22/Pharmacy_inventory_Management",
     link: "#",
@@ -171,6 +174,7 @@ export const selectedProjects: ProjectData[] = [
     role: "Lead Full-Stack Developer · AI Pipeline Engineer",
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Amazon Bedrock", "Tailwind CSS", "Zod"],
     description: "AI-powered study hub with PDF document chunking, dynamic Q&A, automated flashcard generation, and adaptive quiz assessment engines.",
+    businessImpact: "Cuts student revision time in half by generating instant flashcards and practice quizzes from PDF lecture slides.",
     image: "/projects/study_assistant.png",
     repo: {
       frontend: "https://github.com/ish-22/AI-Powered-Intelligent-Study-Assistant-System",
@@ -207,6 +211,7 @@ export const secondaryProjects: ProjectData[] = [
     role: "Full Stack Developer",
     stack: ["PHP", "MySQL", "JavaScript", "HTML5", "CSS3"],
     description: "A service marketplace connecting local users with verified service technicians, featuring online request dispatching, service ratings, and admin tracking.",
+    businessImpact: "Bridges local customers with verified technicians, speeding up repair booking and transparent pricing.",
     image: "/projects/fix_now.png",
     repo: "https://github.com/ish-22/FIXNOW-FINAL_PROJECT",
     link: "#",
@@ -233,6 +238,7 @@ export const secondaryProjects: ProjectData[] = [
     role: "Full Stack Engineer",
     stack: ["Spring Boot", "React", "Vite", "MySQL", "Tailwind CSS"],
     description: "Cinematic guest inquiry system and administrative suite for high-end resort booking management, room vacancy monitoring, and guest services.",
+    businessImpact: "Eliminated double-booking errors during peak seasons with seamless real-time room reservations.",
     image: "/projects/ocean_view.png",
     repo: "https://github.com/ish-22/Ocean-View_resort",
     link: "#",
@@ -259,6 +265,7 @@ export const secondaryProjects: ProjectData[] = [
     role: "Software Developer",
     stack: ["Java", "Swing", "MySQL", "JDBC", "OOP Design"],
     description: "Desktop POS software engineered for book retail, managing item catalogs, daily customer invoice generation, and real-time inventory deduction.",
+    businessImpact: "Accelerated retail checkout times with sub-second barcode scanning and live inventory updates.",
     image: "/projects/pahana_bookshop.png",
     repo: "https://github.com/ish-22/pahana_bookshop",
     link: "#",

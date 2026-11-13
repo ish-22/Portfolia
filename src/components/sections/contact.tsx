@@ -162,7 +162,7 @@ export function Contact() {
           <h2 id="contact-heading" className="display-lg text-[--text] mb-6">
             LET&apos;S BUILD<br />
             <span className="text-[--lime]">SOMETHING</span><br />
-            RELIABLE &amp; SCALABLE.
+            <span className="text-[--text] font-extrabold">EXTRAORDINARY.</span>
           </h2>
           <p className="text-base text-[--muted] leading-relaxed">
             Have a product concept, technical challenge, or engineering opening? Reach out directly via the form below or connect through verified channels.
@@ -270,7 +270,7 @@ export function Contact() {
                 href={profile.resume}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full p-3.5 border border-[--lime]/40 bg-[--lime]/10 flex items-center justify-between font-mono text-xs font-bold text-[--lime] hover:bg-[--lime] hover:text-black transition-all"
+                className="w-full p-3.5 border border-[--lime]/40 bg-[--lime]/10 flex items-center justify-between font-mono text-xs font-bold text-[--lime] hover:bg-[--lime] hover:text-[--btn-text] transition-all"
               >
                 <div className="flex items-center gap-2">
                   <FileDown size={16} />
@@ -469,7 +469,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="w-full sm:w-auto px-8 py-3.5 bg-[--lime] font-mono text-xs font-black tracking-widest text-black hover:bg-[--lime]/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-8 py-3.5 bg-[--lime] font-mono text-xs font-black tracking-widest text-[--btn-text] hover:bg-[--lime]/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
                 >
                   {status === "submitting" ? (
                     <>
@@ -491,3 +491,5 @@ export function Contact() {
     </section>
   );
 }
+
+export default Contact;

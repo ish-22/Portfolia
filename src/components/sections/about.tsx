@@ -1,109 +1,129 @@
 "use client";
 
 import { motion } from "motion/react";
-import Image from "next/image";
-import { profile } from "@/data/portfolio";
-import { fadeUp, viewportOnce } from "@/lib/animations";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
-const focusAreas = [
-  "Full-Stack Web Architecture (React, Next.js, TypeScript & REST APIs)",
-  "Distributed & Real-Time Data (Redis, Pub/Sub & PostgreSQL/MySQL)",
-  "Practical AI Integration (Document ingestion, schema validation & Bedrock)",
-  "Engineering Rigor & Security (Root-cause diagnostics, RBAC & clean code)"
+const principles = [
+  {
+    number: "01",
+    title: "Performance by Default",
+    desc: "Sub-second load times, optimized PostgreSQL schemas, lightweight client hydration, and clean bundle footprints."
+  },
+  {
+    number: "02",
+    title: "Scalable Architecture",
+    desc: "Modular component hierarchies, secure RESTful APIs, resilient ACID database transactions, and cloud-ready Docker containers."
+  },
+  {
+    number: "03",
+    title: "Human-Centered UX",
+    desc: "Intuitive workflows that transform dense operational requirements into smooth, pleasant, and friction-free user experiences."
+  }
 ];
 
 export function About() {
   return (
-    <section id="about" className="section bg-[--bg] border-t border-[--border]" aria-labelledby="about-heading">
+    <section id="about" className="section bg-[--bg] border-t border-[--border]" aria-label="About Ishan">
       <div className="container-xl">
-        <div className="grid gap-12 lg:gap-16 lg:grid-cols-12">
+        {/* Top Eyebrow Tag */}
+        <div className="flex items-center gap-3 mb-10 sm:mb-16">
+          <span className="h-px w-8 bg-[--lime]" />
+          <span className="label-muted">WHO I AM &amp; PHILOSOPHY</span>
+          <span className="font-mono text-xs text-[--muted]">/</span>
+          <span className="label-lime">MANIFESTO</span>
+        </div>
 
-          {/* Left column — Portrait Image */}
-          <div className="lg:col-span-4 flex flex-col justify-center">
-            <div className="relative w-full max-w-sm mx-auto lg:mx-0 aspect-[4/5] overflow-hidden border border-[--border] shadow-xl group bg-[--surface]">
-              {/* Note: Save your image in the public folder as "portrait.jpg" */}
-              <Image
-                src="/portrait.jpg"
-                alt="Ishan Chinthaka - Full-Stack Software Engineer"
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 384px, 350px"
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
-            </div>
+        {/* Large Editorial Manifesto (Savindu / Creative Developer style) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-16 sm:mb-24">
+          <div className="lg:col-span-8">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="text-[clamp(1.85rem,4.5vw,3.85rem)] font-bold tracking-tight text-[--text] leading-[1.22] sm:leading-[1.18]"
+            >
+              Engineering <span className="text-[--lime]">high-performance web products</span> and resilient systems that solve real operational friction.{" "}
+              <span className="text-[--muted] font-normal">
+                Commercial precision, clean code, and disciplined Agile delivery grounded in Cardiff Metropolitan software engineering rigor.
+              </span>
+            </motion.h2>
           </div>
 
-          {/* Right Area (Split into two sub-columns) */}
-          <div className="lg:col-span-8 grid gap-12 md:grid-cols-12 items-center">
+          <div className="lg:col-span-4 flex flex-col gap-8 items-start lg:items-end">
+            <p className="text-sm sm:text-base text-[--text] opacity-85 leading-relaxed max-w-md text-left lg:text-right">
+              The combination of my commercial engineering at Amazoft IT, full-stack database architectures, and UI/UX design discipline positions me to turn complex requirements into smooth, scalable software.
+            </p>
 
-            {/* Middle column */}
-            <div className="md:col-span-5">
-              <span className="label-muted block mb-6">PROFESSIONAL PROFILE</span>
-              <h2 id="about-heading" className="display-sm text-[--text] mb-8">
-                FULL-STACK<br />
-                <span className="text-[--lime]">SOFTWARE</span><br />
-                ENGINEER.
-              </h2>
-
-              <div className="space-y-4 border-t border-[--border] pt-8">
-                {focusAreas.map((area) => (
-                  <div key={area} className="flex items-start gap-3">
-                    <span className="mt-1.5 h-1 w-4 shrink-0 bg-[--lime]" />
-                    <span className="text-sm text-[--muted] leading-relaxed">{area}</span>
-                  </div>
-                ))}
-              </div>
+            {/* Circular CTA Button (Dennis Snellenberg / Savindu inspired) */}
+            <div className="pt-2">
+              <Link
+                href="#contact"
+                className="group relative w-36 h-36 sm:w-40 sm:h-40 rounded-full border border-[--border] bg-[--surface] hover:border-[--lime] text-[--text] flex flex-col items-center justify-center font-mono text-xs font-bold transition-all duration-500 hover:scale-105 shadow-xl hover:shadow-[0_0_30px_rgba(163,230,53,0.15)]"
+              >
+                <span className="relative z-10 flex items-center gap-1 group-hover:text-[--lime] transition-colors">
+                  <span>GET IN TOUCH</span>
+                  <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </span>
+                <span className="relative z-10 text-[10px] text-[--muted] font-normal mt-1">
+                  Let&apos;s build
+                </span>
+              </Link>
             </div>
+          </div>
+        </div>
 
-            {/* Right column — narrative */}
-            <div className="md:col-span-7 flex flex-col justify-center">
-              <blockquote className="text-xl md:text-2xl font-medium text-[--text] leading-[1.4] mb-8 border-l-2 border-[--lime] pl-6 md:pl-8">
-                &ldquo;I build software that balances responsive, intuitive interface design with disciplined, reliable backend architecture.&rdquo;
-              </blockquote>
+        {/* Stats & Verified Credentials Bar */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 sm:p-8 rounded-2xl border border-[--border] bg-[--surface] mb-16 shadow-xs font-mono">
+          <div>
+            <span className="text-3xl sm:text-4xl font-black text-[--text]">3+</span>
+            <p className="text-xs text-[--muted] uppercase tracking-wider mt-1">Years Commercial Experience</p>
+          </div>
+          <div>
+            <span className="text-3xl sm:text-4xl font-black text-[--lime]">2:1</span>
+            <p className="text-xs text-[--muted] uppercase tracking-wider mt-1">Cardiff Met. BSc (Hons)</p>
+          </div>
+          <div>
+            <span className="text-3xl sm:text-4xl font-black text-[--text]">100%</span>
+            <p className="text-xs text-[--muted] uppercase tracking-wider mt-1">Agile Sprint Delivery</p>
+          </div>
+          <div>
+            <span className="text-3xl sm:text-4xl font-black text-[--lime]">6+</span>
+            <p className="text-xs text-[--muted] uppercase tracking-wider mt-1">Production Platforms Shipped</p>
+          </div>
+        </div>
 
-              <div className="space-y-5">
-                {profile.about.map((para, i) => (
-                  <motion.p
-                    key={i}
-                    variants={fadeUp}
-                    custom={i * 0.1}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={viewportOnce}
-                    className="text-sm md:text-base text-[--muted] leading-relaxed"
-                  >
-                    {para}
-                  </motion.p>
-                ))}
-              </div>
+        {/* Three Core Engineering Values */}
+        <div>
+          <div className="flex items-center gap-2 mb-8">
+            <span className="label-muted font-bold">HOW I DELIVER BUSINESS VALUE</span>
+          </div>
 
-              {/* Credential badges */}
-              <div className="mt-10 flex flex-col sm:flex-row gap-4 self-start w-full sm:w-auto">
-                <div className="flex items-center gap-3 border border-[--border] p-3 sm:px-4 sm:py-3 bg-[--surface]/40 w-full sm:w-auto min-w-0">
-                  <span className="h-8 w-8 rounded-full bg-[--lime]/10 flex items-center justify-center text-[--lime] text-xs font-black shrink-0">
-                    BSc
+          <div className="grid sm:grid-cols-3 gap-6">
+            {principles.map((item) => (
+              <div
+                key={item.number}
+                className="p-6 rounded-2xl border border-[--border] bg-[--surface] flex flex-col justify-between hover:border-[--lime]/40 transition-colors shadow-xs"
+              >
+                <div>
+                  <span className="font-mono text-xs font-bold text-[--lime] mb-3 block">
+                    {item.number}
                   </span>
-                  <div className="min-w-0 flex-1">
-                    <p className="font-mono text-xs font-bold text-[--text] truncate">BSc (HONS) SOFTWARE ENGINEERING</p>
-                    <p className="font-mono text-[10px] text-[--muted] leading-tight mt-0.5">Cardiff Metropolitan University, UK · 2:1</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 border border-[--border] p-3 sm:px-4 sm:py-3 bg-[--surface]/40 w-full sm:w-auto min-w-0">
-                  <span className="h-8 w-8 rounded-full bg-[--lime]/10 flex items-center justify-center text-[--lime] text-xs font-black shrink-0">
-                    HD
-                  </span>
-                  <div className="min-w-0 flex-1">
-                    <p className="font-mono text-xs font-bold text-[--text] truncate">HIGHER DIPLOMA IN COMPUTING</p>
-                    <p className="font-mono text-[10px] text-[--muted] leading-tight mt-0.5">Cardiff Met. / ICBT · Merit / Distinction</p>
-                  </div>
+                  <h3 className="font-bold text-base sm:text-lg text-[--text] mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[--muted] leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
               </div>
-            </div>
-
+            ))}
           </div>
         </div>
       </div>
     </section>
   );
 }
+
+export default About;

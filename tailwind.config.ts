@@ -25,12 +25,15 @@ const config: Config = {
         loosest: "0.25em"
       },
       transitionTimingFunction: {
-        "out-expo": "cubic-bezier(0.19, 1, 0.22, 1)"
+        "out-expo": "cubic-bezier(0.19, 1, 0.22, 1)",
+        editorial: "cubic-bezier(0.22, 1, 0.36, 1)",
+        snappy: "cubic-bezier(0.16, 1, 0.3, 1)"
       },
       animation: {
         marquee: "marquee 40s linear infinite",
         "fade-up": "fadeUp 0.6s ease-out forwards",
-        "pulse-lime": "pulseLime 2s ease-in-out infinite"
+        "pulse-lime": "pulseLime 2s ease-in-out infinite",
+        "spin-slow": "spin 20s linear infinite"
       },
       keyframes: {
         marquee: {

@@ -13,7 +13,7 @@ export function AILab() {
                         <span className="label-muted block mb-4">BUILDING WITH AI</span>
                         <h2 className="display-lg text-[--text]">
                             INTELLIGENT<br />
-                            <span className="italic font-thin text-[--muted]">SYSTEMS.</span>
+                            <span className="text-[--lime] font-extrabold">SYSTEMS.</span>
                         </h2>
                     </div>
                     <div className="md:col-span-5 flex items-end">
@@ -49,7 +49,7 @@ export function AILab() {
                             <div className="sm:w-48 sm:text-right flex sm:block items-center gap-3">
                                 <span className={`inline-block border px-2.5 py-1 font-mono text-[10px] font-bold ${item.status === "PRODUCTION"
                                         ? "border-[--lime]/30 text-[--lime]"
-                                        : "border-amber-500/30 text-amber-400"
+                                        : "border-amber-600/40 dark:border-amber-500/30 text-amber-700 dark:text-amber-400 bg-amber-500/10"
                                     }`}>
                                     {item.status}
                                 </span>
@@ -62,3 +62,5 @@ export function AILab() {
         </section>
     );
 }
+
+export default AILab;

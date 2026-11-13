@@ -1,178 +1,174 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useMotionValue, useTransform, useSpring } from "motion/react";
-import { ArrowDownRight, Download } from "lucide-react";
-import { profile, heroTechSignals } from "@/data/portfolio";
+import Image from "next/image";
+import { motion } from "motion/react";
+import { Globe, ArrowDownRight, MessageCircle, Download } from "lucide-react";
+import { profile } from "@/data/portfolio";
 
 export function Hero() {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const gridX = useSpring(useTransform(mouseX, [0, 1], [-10, 10]), { stiffness: 100, damping: 30 });
-  const gridY = useSpring(useTransform(mouseY, [0, 1], [-10, 10]), { stiffness: 100, damping: 30 });
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    mouseX.set(e.clientX / window.innerWidth);
-    mouseY.set(e.clientY / window.innerHeight);
+  const handleScrollToWork = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const el = document.getElementById("work");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      if (window.location.hash) {
+        window.history.replaceState(null, "", "/");
+      }
+    }
   };
 
   return (
     <section
-      onMouseMove={handleMouseMove}
-      className="relative min-h-[calc(100vh-4rem)] lg:min-h-screen overflow-hidden bg-[--bg] flex flex-col justify-end pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-12 sm:pb-16 md:pb-20"
-      aria-label="Hero"
+      id="hero"
+      className="relative min-h-screen bg-[--bg] flex flex-col justify-between overflow-hidden select-none pt-24 sm:pt-28 md:pt-32 pb-6 sm:pb-10"
+      aria-label="Hero Introduction"
     >
-      {/* Reactive background grid */}
-      <motion.div
-        className="pointer-events-none absolute inset-0 opacity-[0.035]"
-        style={{ x: gridX, y: gridY }}
-      >
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#a3e635" strokeWidth="0.5" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-      </motion.div>
+      {/* Background ambient lighting */}
+      <div className="pointer-events-none absolute top-1/4 left-1/2 h-[350px] w-[350px] sm:h-[600px] sm:w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[--lime] opacity-[0.05] blur-[140px]" />
 
-      {/* Glow orb */}
-      <div className="pointer-events-none absolute top-1/3 left-1/4 h-[400px] w-[400px] sm:h-[600px] sm:w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[--lime] opacity-[0.04] blur-[120px]" />
-
-      <div className="container-xl relative z-10 w-full">
-        {/* Recruiter-friendly identity banner & availability status */}
+      {/* Top Floating Badges (Dennis Snellenberg / Savindu inspired) */}
+      <div className="container-xl relative z-30 w-full flex items-start justify-between gap-4">
+        {/* Left: Location & Globe Badge */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-4 sm:mb-6 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-xs"
+          initial={{ opacity: 0, x: -25 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="pointer-events-auto"
         >
-          <span className="h-px w-6 sm:w-8 bg-[--lime]" />
-          <span className="font-bold tracking-widest text-[--text] uppercase">
-            {profile.name}
-          </span>
-          <span className="text-[--border]">/</span>
-          <span className="flex items-center gap-2">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[--lime] opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[--lime]" />
-            </span>
-            <span className="label-lime">{profile.availability}</span>
-          </span>
-          <span className="hidden sm:inline text-[--border]">/</span>
-          <span className="hidden sm:inline text-[--muted] font-medium">
-            {profile.location}
-          </span>
-        </motion.div>
-
-        {/* Professional Title Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.05 }}
-          className="mb-4 sm:mb-6"
-        >
-          <div className="inline-flex items-center gap-2 rounded-full border border-[--lime]/25 bg-[--lime-dim] px-3.5 py-1.5 backdrop-blur-sm">
-            <span className="h-1.5 w-1.5 rounded-full bg-[--lime]" />
-            <h2 className="font-mono text-xs sm:text-sm font-semibold tracking-wider text-[--lime]">
-              {profile.role}
-            </h2>
+          <div className="inline-flex items-center gap-3 bg-[--surface] text-[--text] rounded-full py-2 pl-3.5 pr-2 sm:py-2.5 sm:pl-5 sm:pr-2.5 shadow-xl border border-[--border] group">
+            <div className="leading-tight">
+              <span className="text-[10px] font-mono tracking-widest text-[--lime] block uppercase font-bold">
+                LOCATED IN
+              </span>
+              <span className="text-xs sm:text-sm font-bold tracking-tight text-[--text]">
+                Sri Lanka · LK
+              </span>
+            </div>
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[--elevated] flex items-center justify-center text-[--lime] border border-[--border]">
+              <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-[--lime] animate-spin-slow stroke-[1.5]" />
+            </div>
           </div>
         </motion.div>
 
-        {/* Main editorial headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-[clamp(2.1rem,6.5vw,7.5rem)] font-black leading-[0.96] sm:leading-[0.92] tracking-tighter uppercase text-[--text] max-w-[15ch] break-words"
+        {/* Right: Specialty & Role Indicator */}
+        <motion.div
+          initial={{ opacity: 0, x: 25 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.05 }}
+          className="pointer-events-auto text-right flex flex-col items-end gap-1"
         >
-          I BUILD DIGITAL{" "}
-          <span className="text-[--lime]">PRODUCTS,</span>
-          <br />
-          INTELLIGENT{" "}
-          <span className="italic font-thin text-[--muted]">SYSTEMS</span>
-          <br />
-          &amp; CLOUD{" "}
-          <span className="text-[--muted]">SOLUTIONS.</span>
-        </motion.h1>
+          <div className="text-xl sm:text-2xl font-light text-[--lime]">↘</div>
+          <span className="text-[10px] font-mono tracking-widest text-[--muted] uppercase font-bold">
+            SPECIALIZATION
+          </span>
+          <h2 className="text-xs sm:text-base md:text-lg font-bold tracking-tight text-[--text] leading-snug">
+            Full-Stack Software Engineer
+            <span className="block text-[11px] font-mono text-[--lime] font-normal">
+              @ Amazoft IT
+            </span>
+          </h2>
+        </motion.div>
+      </div>
 
-        {/* Subhead + Recruiter CTAs */}
+      {/* Center Editorial Portrait Frame */}
+      <div className="relative inset-x-0 my-auto flex justify-center items-end pointer-events-none z-10 w-full px-4">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95, y: 30 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="relative w-full max-w-[300px] sm:max-w-[420px] md:max-w-[500px] lg:max-w-[560px] h-[48vh] sm:h-[58vh] md:h-[64vh] rounded-t-3xl sm:rounded-t-[48px] overflow-hidden border-t border-x border-[--border] bg-gradient-to-b from-transparent via-[--surface]/40 to-[--bg] shadow-2xl"
+        >
+          <Image
+            src="/portrait.jpg"
+            alt={profile.name}
+            fill
+            priority
+            sizes="(max-width: 640px) 300px, (max-width: 1024px) 500px, 560px"
+            className="object-cover object-top filter contrast-[1.02]"
+          />
+          {/* Subtle gradient vignette at bottom to seamlessly blend with background marquee */}
+          <div className="absolute inset-x-0 bottom-0 h-32 sm:h-40 bg-gradient-to-t from-[--bg] via-[--bg]/70 to-transparent" />
+        </motion.div>
+      </div>
+
+      {/* Dennis Snellenberg / Savindu Signature Refined Typographic Marquee */}
+      <div className="relative z-20 w-full pointer-events-none overflow-hidden pb-3 sm:pb-5">
+        <div className="relative w-full overflow-hidden whitespace-nowrap select-none">
+          <div className="flex animate-marquee whitespace-nowrap will-change-transform">
+            {[...Array(6)].map((_, i) => (
+              <h1
+                key={i}
+                className="text-[10vw] sm:text-[8vw] md:text-[7vw] lg:text-[6vw] font-extrabold tracking-tighter text-[--text] pr-8 sm:pr-14 leading-none select-none uppercase opacity-90 transition-opacity"
+              >
+                {profile.name} —
+              </h1>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Floating Quick Actions & Availability Bar */}
+      <div className="container-xl relative z-30 w-full pt-2">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="mt-8 sm:mt-10 md:mt-12 flex flex-col gap-6 lg:gap-10 lg:flex-row lg:items-end lg:justify-between"
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[--border] pt-4"
         >
-          <p className="max-w-xl text-sm sm:text-base md:text-lg leading-relaxed text-[--muted]">
-            {profile.subhead}
-          </p>
+          {/* Availability Beacon */}
+          <div className="flex items-center gap-2.5 font-mono text-xs">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[--lime] opacity-75" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[--lime]" />
+            </span>
+            <span className="font-bold text-[--text] tracking-wider text-[11px] sm:text-xs uppercase">
+              {profile.availability}
+            </span>
+          </div>
 
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto shrink-0">
-            {/* Primary Action 1: View My Projects */}
+          {/* Quick Action Button Group */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 w-full sm:w-auto">
+            {/* View Work Button */}
             <a
               href="#work"
-              onClick={(e) => {
-                e.preventDefault();
-                const el = document.getElementById("work");
-                if (el) {
-                  el.scrollIntoView({ behavior: "smooth" });
-                  if (window.location.hash) {
-                    window.history.replaceState(null, "", "/");
-                  }
-                }
-              }}
-              data-cursor="PROJECTS"
-              className="group inline-flex items-center justify-center gap-2.5 border border-[--lime] bg-[--lime] px-6 sm:px-7 py-3.5 font-mono text-xs font-black tracking-widest text-black transition-all duration-300 hover:bg-transparent hover:text-[--lime] hover:shadow-[0_0_24px_rgba(163,230,53,0.25)] focus:outline-none focus:ring-2 focus:ring-[--lime] focus:ring-offset-2 focus:ring-offset-[--bg]"
-              aria-label="View my projects"
+              onClick={handleScrollToWork}
+              data-cursor="WORK"
+              className="btn-editorial-primary"
             >
-              <span>VIEW MY PROJECTS</span>
-              <ArrowDownRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
+              <span>EXPLORE WORK</span>
+              <ArrowDownRight className="h-3.5 w-3.5" />
             </a>
 
-            {/* Primary Action 2: Download CV */}
+            {/* Chat on WhatsApp */}
+            <a
+              href={`https://wa.me/${profile.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent("Hi Ishan, I saw your portfolio and would like to discuss an opportunity.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor="WHATSAPP"
+              className="inline-flex items-center justify-center gap-2 border border-emerald-600/30 dark:border-emerald-500/40 bg-emerald-500/10 px-4 sm:px-5 py-3 font-mono text-xs font-semibold tracking-wider text-emerald-700 dark:text-emerald-400 transition-all duration-300 hover:bg-emerald-600 dark:hover:bg-emerald-500 hover:text-white dark:hover:text-black cursor-pointer"
+            >
+              <MessageCircle className="h-3.5 w-3.5" />
+              <span>WHATSAPP</span>
+            </a>
+
+            {/* Download CV */}
             <Link
               href={profile.resume}
               download="Ishan_Chinthaka_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
               data-cursor="CV"
-              className="group inline-flex items-center justify-center gap-2.5 border border-[--border] bg-transparent px-6 sm:px-7 py-3.5 font-mono text-xs font-semibold tracking-widest text-[--text] transition-all duration-300 hover:border-[--lime] hover:text-[--lime] hover:bg-[--lime-dim] focus:outline-none focus:ring-2 focus:ring-[--lime] focus:ring-offset-2 focus:ring-offset-[--bg]"
-              aria-label="Download CV as PDF"
+              className="btn-editorial-secondary"
             >
-              <Download className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5" />
-              <span>DOWNLOAD CV</span>
+              <Download className="h-3.5 w-3.5" />
+              <span>CV (PDF)</span>
             </Link>
-          </div>
-        </motion.div>
-
-        {/* Tech signals & academic credential line */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className="mt-12 sm:mt-14 md:mt-16 border-t border-[--border] pt-6 sm:pt-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between"
-        >
-          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
-            <span className="label-muted mr-1">CORE STACK</span>
-            {heroTechSignals.map((t) => (
-              <span
-                key={t}
-                className="inline-flex items-center rounded border border-[--border] bg-[--surface]/60 px-2.5 py-1 font-mono text-[11px] font-medium text-[--muted] transition-colors hover:border-[--lime]/40 hover:text-[--text]"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-2 font-mono text-[11px] text-[--muted]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[--lime]" />
-            <span>BSc (Hons) Software Engineering · Cardiff Metropolitan University</span>
           </div>
         </motion.div>
       </div>
     </section>
   );
 }
+
+export default Hero;

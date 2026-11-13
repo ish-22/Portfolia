@@ -396,7 +396,7 @@ export function ArchitectureLab() {
             </div>
             <h2 className="display-lg text-[--text]">
               PRODUCTION<br />
-              <span className="text-[--muted] italic font-thin">&amp; SYSTEM</span><br />
+              <span className="text-[--lime] font-extrabold">&amp; SYSTEM</span><br />
               ARCHITECTURE.
             </h2>
           </div>
@@ -651,3 +651,5 @@ export function ArchitectureLab() {
     </section>
   );
 }
+
+export default ArchitectureLab;

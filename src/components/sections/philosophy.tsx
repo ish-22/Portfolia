@@ -24,9 +24,9 @@ export function Philosophy() {
                     className="mb-24"
                 >
                     <h2 className="display-xl text-[--text] max-w-full sm:max-w-[12ch] break-words">
-                        GOOD <span className="text-[--muted] italic font-thin">SOFTWARE</span><br />
+                        GOOD SOFTWARE<br />
                         SHOULD <span className="text-[--lime]">FEEL</span><br />
-                        <span className="italic font-thin text-[--muted]">SIMPLE.</span>
+                        SIMPLE.
                     </h2>
                     <p className="mt-8 max-w-lg text-base text-[--muted] leading-relaxed">
                         Behind every simple experience is thoughtful design, careful engineering, and consistent iteration.

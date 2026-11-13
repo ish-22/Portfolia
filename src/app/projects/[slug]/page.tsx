@@ -94,6 +94,21 @@ export default async function CaseStudyPage({ params }: { params: CaseStudyParam
                         </h1>
                         <p className="text-xl font-mono text-[--lime]">{project.subtitle}</p>
 
+                        {/* Business Impact Banner */}
+                        {project.businessImpact && (
+                            <div className="mt-6 flex items-start gap-3 rounded-lg border border-[--lime]/30 bg-[--lime]/5 p-4">
+                                <span className="h-2 w-2 rounded-full bg-[--lime] mt-1.5 shrink-0" />
+                                <div>
+                                    <span className="font-mono text-xs font-bold uppercase tracking-widest text-[--lime] block mb-1">
+                                        Real-World Business Impact
+                                    </span>
+                                    <p className="text-sm text-[--text] leading-relaxed">
+                                        {project.businessImpact}
+                                    </p>
+                                </div>
+                            </div>
+                        )}
+
                         <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-6 font-mono text-xs border-t border-[--border] pt-6">
                             <div>
                                 <p className="text-[--muted] text-[10px] mb-1">ROLE</p>
