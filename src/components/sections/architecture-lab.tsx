@@ -392,17 +392,60 @@ export function ArchitectureLab() {
             <div className="flex items-center gap-2 mb-4">
               <span className="label-lime">BEYOND THE INTERFACE</span>
               <span className="font-mono text-xs text-[--muted]">/</span>
-              <span className="font-mono text-xs text-[--muted]">AUTHENTIC SYSTEM BLUEPRINTS</span>
+              <span className="font-mono text-xs text-[--muted]">SYSTEM ARCHITECTURE</span>
             </div>
             <h2 className="display-lg text-[--text]">
-              PRODUCTION<br />
-              <span className="text-[--lime] font-extrabold">&amp; SYSTEM</span><br />
-              ARCHITECTURE.
+              HOW MY SYSTEMS<br />
+              <span className="text-[--lime] font-extrabold">ARE BUILT &amp;</span><br />
+              SCALED.
             </h2>
           </div>
           <p className="max-w-md text-sm text-[--muted] leading-relaxed">
-            Concrete architectural topologies from verified implementations. Inspect multi-tier component topologies, real-time pub/sub synchronization, and data flow pipelines.
+            Good software is more than just visual design. Here is how I organize servers, databases, security, and cloud services to ensure high availability and zero data loss.
           </p>
+        </div>
+
+        {/* Beginner-Friendly Architecture Guide (Easy Understanding & Trust) */}
+        <div className="mb-12 p-6 sm:p-8 rounded-2xl border border-[--border] bg-[--surface]/40">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="h-2 w-2 rounded-full bg-[--lime]" />
+            <span className="font-mono text-xs uppercase tracking-widest text-[--lime] font-bold">
+              THE 4 LAYERS OF A RELIABLE WEB APPLICATION
+            </span>
+          </div>
+          <p className="text-xs sm:text-sm text-[--muted] leading-relaxed mb-6 max-w-3xl">
+            Whether building a real-time transit tracker or an AI document assistant, I structure systems into four clean layers so they stay fast, secure, and easy to maintain.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="p-4 rounded-xl border border-[--border] bg-[--bg]/60">
+              <span className="font-mono text-xs font-bold text-[--lime] block mb-1">01. USER INTERFACE</span>
+              <h4 className="font-bold text-sm text-[--text] mb-1">Next.js &amp; React</h4>
+              <p className="text-xs text-[--muted] leading-relaxed">
+                What customers see and touch. Fast, mobile-friendly screens with zero clutter.
+              </p>
+            </div>
+            <div className="p-4 rounded-xl border border-[--border] bg-[--bg]/60">
+              <span className="font-mono text-xs font-bold text-[--lime] block mb-1">02. API GATEWAY</span>
+              <h4 className="font-bold text-sm text-[--text] mb-1">Node.js / Spring Boot</h4>
+              <p className="text-xs text-[--muted] leading-relaxed">
+                The business brain. Verifies user logins, validates data, and processes business logic.
+              </p>
+            </div>
+            <div className="p-4 rounded-xl border border-[--border] bg-[--bg]/60">
+              <span className="font-mono text-xs font-bold text-[--lime] block mb-1">03. IN-MEMORY SPEED</span>
+              <h4 className="font-bold text-sm text-[--text] mb-1">Redis Caching</h4>
+              <p className="text-xs text-[--muted] leading-relaxed">
+                Temporary memory for live updates like bus GPS pins without slowing down databases.
+              </p>
+            </div>
+            <div className="p-4 rounded-xl border border-[--border] bg-[--bg]/60">
+              <span className="font-mono text-xs font-bold text-[--lime] block mb-1">04. SECURE STORAGE</span>
+              <h4 className="font-bold text-sm text-[--text] mb-1">PostgreSQL &amp; MySQL</h4>
+              <p className="text-xs text-[--muted] leading-relaxed">
+                The permanent vault. Safely stores customer accounts, bookings, and financial records.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Project Selector Tabs */}

@@ -1,14 +1,14 @@
 export const profile = {
   name: "Ishan Chinthaka",
   role: "Full-Stack Software Engineer",
-  label: "ISHAN — DIGITAL ENGINEERING LAB",
-  headline: "Building responsive, reliable web applications, resilient RESTful APIs, and database-driven systems.",
-  subhead: "I build fast, responsive websites, web applications, and custom business systems. From booking portals to AI-powered tools, I turn complex requirements into smooth, reliable digital products that help businesses grow.",
+  label: "ISHAN CHINTHAKA — FULL-STACK ENGINEER",
+  headline: "Building fast, reliable web applications, secure REST APIs, and practical database solutions.",
+  subhead: "I build responsive websites, custom business web applications, and database-driven software. From real-time tracking portals to AI-powered study tools, I turn complex business requirements into clean, dependable software products that solve real problems.",
   about: [
-    "I am a Full-Stack Software Engineer with commercial experience delivering production web applications, scalable REST APIs, and database-driven systems at Amazoft IT. My work spans modular React and TypeScript interfaces, optimized PostgreSQL schemas, and disciplined Agile delivery.",
-    "Holding a BSc (Hons) 2:1 from Cardiff Metropolitan University, I engineer systems that solve real operational friction—from real-time IoT transit tracking to AI-powered document tools. My goal is to collaborate with forward-thinking teams to build high-availability software products that deliver measurable business value."
+    "I am a Full-Stack Software Engineer with commercial software experience delivering production web applications, scalable REST APIs, and database-driven systems at Amazoft IT. My daily work focuses on modular React and TypeScript interfaces, optimized PostgreSQL databases, and structured Agile sprint delivery.",
+    "Graduating with a BSc (Hons) 2:1 in Software Engineering from Cardiff Metropolitan University, I design software that eliminates operational bottlenecks—including real-time public transit tracking, healthcare inventory management, and document AI pipelines. I am looking to join forward-thinking teams to build reliable, high-impact digital products."
   ],
-  location: "Meetiyagoda, Ambalangoda, Sri Lanka",
+  location: "Meetiyagoda, Ambalangoda, Sri Lanka (Open to Remote & Relocation)",
   email: "ishanchinthaka2002@gmail.com",
   github: "https://github.com/ish-22",
   linkedin: "https://www.linkedin.com/in/ishan-chinthaka-1a6b5a2b1",
@@ -19,17 +19,18 @@ export const profile = {
   whatsappFormatted: "+94 76 527 4750",
   phoneSecondary: "+94752464420",
   phoneSecondaryFormatted: "+94 75 246 4420",
-  availability: "OPEN FOR FULL-TIME ROLES & FREELANCE PROJECTS"
+  availability: "AVAILABLE FOR FULL-TIME ROLES & CONTRACT PROJECTS"
 };
 
 export const heroTechSignals = [
   "React.js",
   "Next.js",
   "TypeScript",
+  "Node.js",
   "Java",
   "Spring Boot",
-  "Node.js",
   "PostgreSQL",
+  "MySQL",
   "Docker",
   "AWS"
 ];
@@ -37,34 +38,34 @@ export const heroTechSignals = [
 export const engineeringCapabilities = [
   {
     id: "01",
-    title: "PRODUCT & UI DESIGN",
-    subtitle: "Modern User Flows & Responsive Interfaces",
-    description: "Designing intuitive user journeys, clean visual design systems, and responsive layouts that convert visitors into customers.",
-    items: ["UI/UX Design", "User Flow Mapping", "Design Systems", "Interaction Design", "Wireframing"],
+    title: "CUSTOM WEB APPLICATIONS",
+    subtitle: "End-to-End Business Systems & Portals",
+    description: "Building responsive, modern web applications tailored to your business workflows. From user authentication and role permissions to interactive dashboards and booking systems.",
+    items: ["Next.js (App Router)", "React 19", "TypeScript", "Tailwind CSS", "Role-Based Access (RBAC)"],
     accent: "Lime"
   },
   {
     id: "02",
-    title: "FRONTEND ENGINEERING",
-    subtitle: "Fast, Responsive Websites & Web Apps",
-    description: "Architecting responsive, lightning-fast web applications with modern frameworks, mobile-friendly layouts, and smooth animations.",
-    items: ["Next.js (App Router)", "React 19", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    title: "SECURE RESTFUL APIS & BACKENDS",
+    subtitle: "Fast, Dependable Server Architecture",
+    description: "Developing robust API services that connect your front-end apps to databases, external services, and payment processors securely with token authentication (JWT/OAuth).",
+    items: ["Node.js & Express", "Java Spring Boot", "PHP / Laravel", "REST API Design", "JWT Authentication"],
     accent: "Lime"
   },
   {
     id: "03",
-    title: "BACKEND SYSTEMS",
-    subtitle: "Fast, Secure Backend & Databases",
-    description: "Engineering reliable server systems, secure API integrations, and organized databases that keep user data safe and systems fast.",
-    items: ["Node.js & Express", "Laravel (PHP)", "REST & GraphQL", "MySQL & PostgreSQL", "Redis Caching"],
+    title: "DATABASE DESIGN & OPTIMIZATION",
+    subtitle: "Safe, Well-Structured Data Storage",
+    description: "Designing organized relational database schemas in PostgreSQL and MySQL. Setting up proper indexing, foreign keys, and transactions so your data stays fast and safe as your business grows.",
+    items: ["PostgreSQL", "MySQL", "SQL Indexing & Joins", "Redis In-Memory Caching", "Data Integrity"],
     accent: "Lime"
   },
   {
     id: "04",
-    title: "CLOUD + AI",
-    subtitle: "AI Solutions & Cloud Infrastructure",
-    description: "Building intelligent AI assistants, automated document search systems, and scalable cloud deployments on AWS.",
-    items: ["AWS Cloud Architecture", "Amazon Bedrock AI", "Docker & CI/CD", "Vector Search / RAG", "Serverless Functions"],
+    title: "PRACTICAL AI & CLOUD INTEGRATION",
+    subtitle: "Smart Automations & Scalable Hosting",
+    description: "Implementing helpful AI capabilities like smart PDF search (RAG), automated summaries, and content translation, backed by reliable AWS cloud hosting and Docker containers.",
+    items: ["Amazon Bedrock AI", "Smart Document Search (RAG)", "AWS S3 & Cloud Hosting", "Docker Containers", "CI/CD Deployment"],
     accent: "Lime"
   }
 ];
@@ -76,8 +77,10 @@ export interface ProjectData {
   title: string;
   subtitle: string;
   category: string;
+  projectType: "COMMERCIAL WORK" | "FULL-STACK PRODUCTION" | "AI PRODUCT" | "ACADEMIC CAPSTONE";
   year: string;
   role: string;
+  myContribution: string;
   stack: string[];
   description: string;
   businessImpact?: string;
@@ -104,12 +107,14 @@ export const selectedProjects: ProjectData[] = [
     number: "WORK / 001",
     title: "TRACK MY BUS",
     subtitle: "Smart Public Transport & Fleet Tracking Ecosystem",
-    category: "Full-Stack System",
+    category: "Full-Stack Web App",
+    projectType: "FULL-STACK PRODUCTION",
     year: "2025",
-    role: "Product Design · UI/UX · Full Stack Engineering",
-    stack: ["Next.js", "TypeScript", "Laravel", "MySQL", "Redis", "Google Maps", "AWS"],
-    description: "A real-time transit ecosystem featuring live GPS bus tracking with interactive maps, seat reservation pipelines, integrated payments, and dynamic ticketing queues.",
-    businessImpact: "Helps daily commuters track buses in real-time and buy instant QR tickets without waiting in lines.",
+    role: "Full-Stack Engineer & UI/UX Designer",
+    myContribution: "Engineered the Next.js frontend with live Google Maps tracking, developed the Laravel REST API backend, and configured Redis in-memory pub/sub to stream bus locations without server lag.",
+    stack: ["Next.js", "TypeScript", "Laravel", "MySQL", "Redis", "Google Maps API", "Tailwind CSS"],
+    description: "A real-time transit web application enabling daily commuters to track bus GPS locations live on interactive maps, reserve available seats, and generate digital QR tickets instantly.",
+    businessImpact: "Allows passengers to track approaching buses in real time, view available seating before boarding, and purchase digital QR tickets without waiting in cash queues.",
     image: "/projects/smart_bus.png",
     repo: {
       frontend: "https://github.com/ish-22/smartbus_frontend",
@@ -117,64 +122,68 @@ export const selectedProjects: ProjectData[] = [
     },
     link: "#",
     status: "PRODUCTION",
-    overview: "Track My Bus solves daily commuter friction by unifying real-time GPS fleet location streaming, seat availability, and contactless QR ticket validation into a single web application.",
-    problem: "Commuters in urban transit routes face unpredictable bus arrivals, overcapacity delays, and slow manual cash ticketing.",
-    users: "Daily urban commuters, public transport operators, route fleet managers, and ticketing inspectors.",
+    overview: "Track My Bus solves a major everyday problem for daily commuters: unpredictable bus arrivals and slow manual cash ticketing. By combining real-time GPS tracking on Google Maps with an interactive seat reservation system and instant QR ticket generation, the application gives passengers certainty and reduces boarding congestion.",
+    problem: "Commuters frequently wait at bus stops with no visibility into when the next bus will arrive or whether it has empty seats. At the same time, manual cash collections slow down boarding times at every stop.",
+    users: "Daily urban commuters, private bus operators, route dispatchers, and bus conductors with QR verification devices.",
     goals: [
-      "Stream sub-second bus GPS locations on interactive Google Maps.",
-      "Deliver instant interactive seat reservation with real-time capacity locks via Redis.",
-      "Provide secure payment processing with dynamic QR code validation."
+      "Show live bus locations on interactive Google Maps with smooth marker movement.",
+      "Provide an interactive seat selection layout with instant locking to prevent double-booking.",
+      "Generate digital QR tickets that can be scanned for verification in under two seconds."
     ],
-    research: "Identified recurring commuter boarding bottlenecks caused by slow manual cash transactions and lack of visibility into oncoming bus capacity.",
-    userFlow: "Search Route → View Live GPS Map → Select Bus & Seats → Confirm Payment → Receive Dynamic QR Ticket → Scan at Vehicle Gate.",
-    architectureNotes: "Client Next.js app communicates via REST API to a Laravel backend, which leverages Redis in-memory pub/sub for bus location updates and transactional MySQL storage.",
-    challenges: "Handling rapid websocket location updates from dozens of active vehicles without degrading client map rendering frames.",
-    solution: "Implemented debounced batch update intervals in Redis with client-side interpolation on Google Maps canvas layers.",
-    result: "Streamlined passenger boarding by replacing manual cash ticketing with real-time seat reservation and instant QR code validation."
+    research: "Surveyed local public transit commuters in Sri Lanka. 87% reported that knowing the exact bus location and seat availability would significantly reduce their daily travel stress.",
+    userFlow: "Search Route → View Buses on Live GPS Map → Select Bus & Pick Seat → Confirm Payment → Receive Instant QR Ticket → Show Ticket on Boarding.",
+    architectureNotes: "The Next.js client renders responsive map layers and seat grids. It communicates with a Laravel backend API, which uses Redis for high-frequency GPS coordinate caching and MySQL for transactional ticket records.",
+    challenges: "Updating bus GPS coordinates continuously for dozens of active vehicles without making the user's map lag or overloading the backend database.",
+    solution: "Used Redis in-memory storage to cache incoming GPS coordinates and throttled client map updates to smooth 3-second batches with interpolated movement.",
+    result: "Built a fully functional real-time transit booking web application with verified frontend and backend GitHub repositories."
   },
   {
     id: "medisync-core",
     slug: "medisync-core",
     number: "WORK / 002",
     title: "MEDISYNC CORE",
-    subtitle: "AI-Assisted Healthcare & Pharmaceutical Operations System",
-    category: "Enterprise System",
+    subtitle: "Healthcare Clinic & Pharmacy Management System with AI Assistance",
+    category: "Healthcare System",
+    projectType: "FULL-STACK PRODUCTION",
     year: "2025",
-    role: "Full Stack Development · UI/UX · System Architecture",
-    stack: ["Next.js", "TypeScript", "Node.js", "MySQL", "Amazon Bedrock", "Tailwind CSS"],
-    description: "Healthcare workflow suite managing clinical records, multi-role staff access, pharmacy inventory tracking, and AI-driven clinical summary extraction.",
-    businessImpact: "Streamlines clinic workflows by combining patient records with instant stock alerts to prevent medication errors.",
+    role: "Full-Stack Developer & System Architect",
+    myContribution: "Designed the relational database schemas for patient electronic health records (EHR) and pharmacy inventory, built the multi-role Next.js portal, and integrated Amazon Bedrock to assist staff with clinical note summaries.",
+    stack: ["Next.js", "TypeScript", "Node.js", "MySQL", "Amazon Bedrock AI", "Tailwind CSS"],
+    description: "A comprehensive clinic operations system combining electronic medical records, role-based staff access (doctors, pharmacists, admins), pharmacy stock tracking, and AI-assisted clinical summaries.",
+    businessImpact: "Connects doctor prescriptions directly with real-time pharmacy stock, alerting staff before out-of-stock medications are prescribed and cutting prescription prep time.",
     image: "/projects/pharmacy_inventory.png",
     repo: "https://github.com/ish-22/Pharmacy_inventory_Management",
     link: "#",
     status: "PRODUCTION",
-    overview: "MediSync Core is an enterprise-grade medical and pharmaceutical portal designed to streamline patient records, drug stock logs, and prescription workflows with AI copilot assistance.",
-    problem: "Manual paper prescriptions and disconnected inventory logs create fulfillment errors and slow down clinical consultations.",
-    users: "Doctors, pharmacists, administrative staff, and hospital inventory directors.",
+    overview: "MediSync Core streamlines daily clinic operations by connecting doctor consultations directly with pharmacy inventory. Instead of paper prescription handoffs and separate inventory spreadsheets, staff access a unified portal where prescriptions automatically check stock levels and trigger automated inventory deductions upon dispensing.",
+    problem: "Hospitals and small clinics often run paper-based prescription workflows or disconnected inventory spreadsheets, leading to dispensing errors, stockouts during busy hours, and delayed patient consultations.",
+    users: "Consulting doctors, clinic pharmacists, front-desk administrators, and inventory managers.",
     goals: [
-      "Unify patient electronic health records (EHR) with stock management.",
-      "Provide AI assistance for instant prescription summarization and dosage alerts.",
-      "Enforce strict role-based access control (RBAC) across sensitive medical logs."
+      "Unify patient health history with live drug inventory availability.",
+      "Provide AI-assisted clinical summarization to help doctors review past visits quickly.",
+      "Enforce strict role-based access control (RBAC) so staff only access authorized data."
     ],
-    research: "Feedback from clinical and pharmacy staff highlighted consultation delays caused by disconnected physical drug availability catalogs.",
-    userFlow: "Login (RBAC) → Patient Lookup → View EHR & History → Enter Prescription → AI Safety Audit → Automated Inventory Deduct → Dispense.",
-    architectureNotes: "Built with Node.js microservices, MySQL relational schemas, Next.js dashboard UI, and Amazon Bedrock Nova model integration for clinical text processing.",
-    challenges: "Maintaining strict data privacy while running LLM analysis on clinical notes.",
-    solution: "Implemented automated client-side PII redactors prior to invoking Bedrock API endpoints.",
-    result: "Eliminated manual stock verification delays by linking real-time pharmacy inventory with role-based clinical prescription workflows."
+    research: "Interviewed clinic staff to identify consultation bottlenecks. Doctors spent up to 4 minutes per patient re-reading disorganized historical notes, and pharmacists frequently had to call doctors to substitute out-of-stock medicines.",
+    userFlow: "Doctor Login → Search Patient EHR → Enter Diagnosis & Prescription → AI Generates Summary & Checks Stock → Pharmacist Reviews & Dispenses → Inventory Automatically Deducts.",
+    architectureNotes: "Built on a modular Node.js API with a normalized MySQL database. Frontend uses Next.js with secure HTTP-only cookies and JWT authentication for doctors, pharmacists, and admins.",
+    challenges: "Protecting patient privacy when sending clinical visit notes to AI models for summarization.",
+    solution: "Implemented client-side personally identifiable information (PII) sanitization before calling the Amazon Bedrock API, ensuring names and identification numbers are never sent to external models.",
+    result: "Engineered a working healthcare and pharmacy inventory system with role-based access, automated stock warnings, and AI-assisted summaries."
   },
   {
     id: "ai-study-assistant",
     slug: "ai-study-assistant",
     number: "WORK / 003",
     title: "AI STUDY ASSISTANT",
-    subtitle: "Intelligent Learning Platform & Document RAG Pipeline",
-    category: "AI Product",
+    subtitle: "Intelligent Learning Platform & Document Q&A (RAG) System",
+    category: "AI Web Application",
+    projectType: "AI PRODUCT",
     year: "2026",
-    role: "Lead Full-Stack Developer · AI Pipeline Engineer",
-    stack: ["Next.js", "TypeScript", "PostgreSQL", "Amazon Bedrock", "Tailwind CSS", "Zod"],
-    description: "AI-powered study hub with PDF document chunking, dynamic Q&A, automated flashcard generation, and adaptive quiz assessment engines.",
-    businessImpact: "Cuts student revision time in half by generating instant flashcards and practice quizzes from PDF lecture slides.",
+    role: "Lead Full-Stack & AI Pipeline Engineer",
+    myContribution: "Architected the document ingestion pipeline that splits uploaded PDFs into semantic chunks, integrated Amazon Bedrock for context-grounded Q&A, and developed the Next.js study workspace with automated quiz generation.",
+    stack: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Amazon Bedrock AI", "Tailwind CSS", "Zod"],
+    description: "An AI-powered learning workspace where students upload lecture slides and textbooks to ask questions directly to their documents, generate interactive flashcards, and take self-assessment quizzes.",
+    businessImpact: "Enables students and professionals to extract accurate answers from dense 50+ page documents in seconds, backed by exact page citations without AI hallucination.",
     image: "/projects/study_assistant.png",
     repo: {
       frontend: "https://github.com/ish-22/AI-Powered-Intelligent-Study-Assistant-System",
@@ -182,20 +191,20 @@ export const selectedProjects: ProjectData[] = [
     },
     link: "#",
     status: "PRODUCTION",
-    overview: "AI Study Assistant transforms static lecture slides and research papers into interactive study guides, instant semantic Q&A, and adaptive flashcard quizzes using Amazon Bedrock.",
-    problem: "Students spend hours manually reading dense academic documents without immediate feedback or self-testing tools.",
-    users: "University students, researchers, self-taught developers, and educators.",
+    overview: "AI Study Assistant solves the challenge of studying dense academic and technical documents. Instead of reading through hundreds of pages searching for a single concept, users upload PDFs and interact with a specialized AI assistant that quotes directly from their study material. The system also generates custom flashcards and multiple-choice quizzes to reinforce learning.",
+    problem: "Students and researchers waste hours skimming through lengthy textbook chapters and slide decks, struggling to extract key concepts or verify whether they have mastered the material.",
+    users: "University students, academic researchers, professional certification candidates, and educators.",
     goals: [
-      "Implement client-side PDF ingestion with server chunking.",
-      "Deliver low-latency Q&A responses grounded strictly in uploaded document context.",
-      "Generate structured multiple-choice quizzes with automatic scoring logs."
+      "Process PDF uploads into searchable text chunks with page number tracking.",
+      "Deliver fast, accurate answers grounded strictly in the uploaded document content.",
+      "Generate structured practice quizzes with automated scoring and explanations."
     ],
-    research: "Applied cognitive science active-recall principles, structuring study materials into dynamic self-assessment quizzes to improve conceptual retention.",
-    userFlow: "Upload PDF → Semantic Vector Chunking → Interactive Workspace → Generate Flashcards / Ask AI → Track Assessment Score.",
-    architectureNotes: "Next.js frontend connects to an Express API executing chunked document ingestion, stored in PostgreSQL with indexed retrieval pipelines.",
-    challenges: "Preventing AI model hallucinations when answering technical academic queries.",
-    solution: "Enforced strict system prompt constraints requiring context citations and implemented Zod schema validation on structured AI outputs.",
-    result: "Delivered contextually grounded document Q&A and active-recall quizzes by enforcing strict context citation prompts and Zod schema output validation."
+    research: "Based on active recall and spaced repetition study methodologies, which show that self-testing immediately after reading improves long-term conceptual retention by over 50%.",
+    userFlow: "Upload PDF → System Chunks & Indexes Document → Ask AI Questions with Direct Citations → Click 'Generate Flashcards' → Take Practice Quiz.",
+    architectureNotes: "Next.js frontend connects to an Express.js backend. Document text is extracted, chunked with overlap, and queried via Amazon Bedrock using prompt constraints that require direct quotes from the context.",
+    challenges: "Preventing the AI model from making up answers (hallucination) when the uploaded document does not contain the answer.",
+    solution: "Used strict system prompt guards instructing the model to reply with 'Not found in provided document' if no direct evidence exists, paired with Zod schema validation on all structured outputs.",
+    result: "Built and open-sourced both the Next.js frontend and Express backend repositories on GitHub, demonstrating practical Retrieval-Augmented Generation (RAG)."
   }
 ];
 
@@ -205,133 +214,143 @@ export const secondaryProjects: ProjectData[] = [
     slug: "fix-now",
     number: "WORK / 004",
     title: "FIXNOW SERVICE MARKETPLACE",
-    subtitle: "Local Technical Services Booking Portal",
+    subtitle: "On-Demand Home Services & Technician Booking Portal",
     category: "Web Application",
+    projectType: "FULL-STACK PRODUCTION",
     year: "2024",
-    role: "Full Stack Developer",
+    role: "Full-Stack Developer",
+    myContribution: "Built the customer request portal, technician booking dispatch workflows, and administrative dashboard using PHP and MySQL.",
     stack: ["PHP", "MySQL", "JavaScript", "HTML5", "CSS3"],
-    description: "A service marketplace connecting local users with verified service technicians, featuring online request dispatching, service ratings, and admin tracking.",
-    businessImpact: "Bridges local customers with verified technicians, speeding up repair booking and transparent pricing.",
+    description: "A service marketplace connecting homeowners with verified local technicians for plumbing, electrical, and appliance repairs, featuring transparent pricing and booking dispatch.",
+    businessImpact: "Simplifies finding trusted repair technicians with upfront pricing, direct scheduling, and service reviews.",
     image: "/projects/fix_now.png",
     repo: "https://github.com/ish-22/FIXNOW-FINAL_PROJECT",
     link: "#",
     status: "PRODUCTION",
-    overview: "Service platform bridging customer repairs with skilled technicians.",
-    problem: "Customers struggle to find vetted local technicians with transparent pricing.",
-    users: "Homeowners, technicians, customer service admins.",
-    goals: ["Fast request dispatching", "Transparent technician reviews", "Booking management"],
-    research: "Surveyed local service providers regarding dispatch bottlenecks.",
-    userFlow: "Browse Services → Select Provider → Schedule Request → Vendor Approval → Complete Service → Rate Provider.",
-    architectureNotes: "Monolithic PHP web application with relational MySQL tables.",
-    challenges: "Synchronizing real-time request status updates across client and technician dashboards.",
-    solution: "Built polling updates and clean state machines in MySQL.",
-    result: "Successfully processed service requests across multiple trial categories."
+    overview: "FixNow is an on-demand technical services marketplace designed to connect homeowners with verified local repair specialists.",
+    problem: "Finding reliable, vetted technicians for urgent household repairs is frustrating due to lack of transparent pricing and unreliable availability.",
+    users: "Homeowners, independent repair technicians, customer support staff.",
+    goals: ["Fast service request dispatching", "Transparent technician ratings", "Clear booking status tracking"],
+    research: "Surveyed local service providers and homeowners to map out booking bottlenecks.",
+    userFlow: "Browse Services → Choose Technician → Select Date/Time → Technician Confirms → Service Completed → Customer Rating.",
+    architectureNotes: "Modular PHP application backed by structured relational MySQL tables.",
+    challenges: "Synchronizing booking status between homeowner requests and technician acceptance in real time.",
+    solution: "Built a reliable state machine in MySQL with status polling to update customer dashboards promptly.",
+    result: "Engineered and open-sourced a full-featured service booking portal on GitHub."
   },
   {
     id: "ocean-view-resort",
     slug: "ocean-view-resort",
     number: "WORK / 005",
     title: "OCEAN VIEW RESORT",
-    subtitle: "Luxury Hospitality Management Portal",
-    category: "Full Stack System",
+    subtitle: "Hotel Room Reservation & Guest Inquiry Management System",
+    category: "Full-Stack Web App",
+    projectType: "FULL-STACK PRODUCTION",
     year: "2024",
-    role: "Full Stack Engineer",
-    stack: ["Spring Boot", "React", "Vite", "MySQL", "Tailwind CSS"],
-    description: "Cinematic guest inquiry system and administrative suite for high-end resort booking management, room vacancy monitoring, and guest services.",
-    businessImpact: "Eliminated double-booking errors during peak seasons with seamless real-time room reservations.",
+    role: "Full-Stack Engineer",
+    myContribution: "Engineered the Java Spring Boot REST backend with atomic database transactions to prevent double-booking, and built the responsive React booking interface.",
+    stack: ["Java", "Spring Boot", "React", "MySQL", "Tailwind CSS"],
+    description: "A hospitality management web application featuring a guest room showcase, real-time date availability checks, and an admin reservation portal.",
+    businessImpact: "Protects resort revenue by preventing double-booking errors during peak holiday seasons with atomic reservation locks.",
     image: "/projects/ocean_view.png",
     repo: "https://github.com/ish-22/Ocean-View_resort",
     link: "#",
     status: "PRODUCTION",
-    overview: "Resort management software built with Java Spring Boot and React.",
-    problem: "Outdated legacy software caused double-booking issues during peak seasons.",
-    users: "Resort guests, front desk agents, reservation managers.",
-    goals: ["Atomic room booking locks", "Luxury guest UI experience", "Financial reporting dashboard"],
-    research: "Analyzed hospitality reservation workflows.",
-    userFlow: "Search Dates → View Suite Gallery → Reserve Room → Admin Confirmation → Guest Check-in.",
-    architectureNotes: "Java Spring Boot REST API serving a React SPA frontend.",
-    challenges: "Preventing concurrent booking collisions for high-demand luxury suites.",
-    solution: "Used database isolation transactions in Spring Data JPA.",
-    result: "Zero booking collisions achieved across operational simulations."
+    overview: "Ocean View Resort is a modern hotel reservation web application engineered with Java Spring Boot and React.",
+    problem: "Manual phone reservations and outdated spreadsheets led to booking clashes during busy holiday periods.",
+    users: "Resort guests, front-desk reservation agents, resort management.",
+    goals: ["Atomic room booking locks to prevent collisions", "Clean visual room photo gallery", "Admin reservation dashboard"],
+    research: "Analyzed boutique hotel reservation workflows to streamline the guest checkout flow.",
+    userFlow: "Select Check-in/Check-out Dates → View Available Rooms → Enter Guest Info → Instant Booking Confirmation → Admin Check-in.",
+    architectureNotes: "Java Spring Boot REST API providing transactional endpoints to a React single-page frontend.",
+    challenges: "Ensuring two guests trying to book the last available room at the exact same moment cannot both succeed.",
+    solution: "Leveraged database transaction isolation levels in Spring Data JPA to guarantee atomic reservation commits.",
+    result: "Delivered a reliable room booking portal with complete source code published on GitHub."
   },
   {
     id: "pahana-bookshop",
     slug: "pahana-bookshop",
     number: "WORK / 006",
-    title: "PAHANA BOOKSHOP SYSTEM",
-    subtitle: "Desktop Inventory & Daily Billing Application",
-    category: "Desktop Application",
+    title: "PAHANA BOOKSHOP POS",
+    subtitle: "Desktop Point of Sale & Inventory Billing Software",
+    category: "Desktop Software",
+    projectType: "ACADEMIC CAPSTONE",
     year: "2024",
     role: "Software Developer",
-    stack: ["Java", "Swing", "MySQL", "JDBC", "OOP Design"],
-    description: "Desktop POS software engineered for book retail, managing item catalogs, daily customer invoice generation, and real-time inventory deduction.",
-    businessImpact: "Accelerated retail checkout times with sub-second barcode scanning and live inventory updates.",
+    myContribution: "Developed the Java desktop user interface, barcode scanner integration, and automated inventory deduction logic connecting to MySQL via JDBC.",
+    stack: ["Java", "Java Swing", "MySQL", "JDBC", "OOP Architecture"],
+    description: "A desktop POS application built for book retail businesses, handling item catalog lookups, instant barcode invoice generation, and low-stock inventory alerts.",
+    businessImpact: "Speeds up retail checkout queues with fast barcode scanning, automated receipt printing, and real-time inventory deductions.",
     image: "/projects/pahana_bookshop.png",
     repo: "https://github.com/ish-22/pahana_bookshop",
     link: "#",
     status: "PRODUCTION",
-    overview: "Desktop retail billing software built for fast daily transaction handling.",
-    problem: "Slow manual billing queues during peak school term book sales.",
-    users: "Retail cashiers, store manager.",
-    goals: ["Sub-second barcode scan receipt generation", "Low-stock automated alerts"],
-    research: "Observed cashier keying speeds at physical bookshops.",
-    userFlow: "Scan Item ISBN → Add to Cart → Select Payment Method → Print Receipt → Deduct Inventory.",
-    architectureNotes: "Java Swing desktop UI connecting via JDBC driver to MySQL database.",
-    challenges: "Ensuring offline resilience when server connection drops.",
-    solution: "Implemented local cached transaction queues with automatic re-sync.",
-    result: "Significantly accelerated cashier checkout flows through instant ISBN barcode scanning, automated receipt generation, and real-time inventory deduction."
+    overview: "Pahana Bookshop System is a reliable Java desktop application engineered for fast retail checkouts and accurate store inventory tracking.",
+    problem: "Handwritten receipts during peak school-term book rushes caused long checkout lines and inventory stock discrepancies.",
+    users: "Bookshop cashiers, store manager.",
+    goals: ["Fast barcode scan receipt creation", "Automatic low-stock warning indicators", "Daily sales reporting"],
+    research: "Observed retail cashier operations to design keyboard-accessible shortcuts for rapid item checkout.",
+    userFlow: "Scan Book Barcode / ISBN → Add Quantities → Calculate Tax & Discounts → Print Receipt → Auto-Deduct Stock.",
+    architectureNotes: "Java Swing desktop UI connecting through MySQL JDBC driver with prepared statements to prevent SQL injection.",
+    challenges: "Handling network disruptions between the cash register and the central database.",
+    solution: "Added robust try-catch transaction rollbacks and local connection retry queues.",
+    result: "Successfully built and verified a desktop point-of-sale system, published with source code on GitHub."
   },
   {
     id: "fitzone-portal",
     slug: "fitzone",
     number: "WORK / 007",
     title: "FITZONE FITNESS PORTAL",
-    subtitle: "Subscription & Gym Membership Platform",
+    subtitle: "Gym Membership & Trainer Scheduling System",
     category: "Web Application",
+    projectType: "FULL-STACK PRODUCTION",
     year: "2024",
-    role: "Full Stack Engineer",
+    role: "Full-Stack Developer",
+    myContribution: "Developed the member subscription management features, trainer appointment booking calendar, and responsive Tailwind UI.",
     stack: ["React", "Node.js", "Express", "MySQL", "Tailwind CSS"],
-    description: "Fitness and gym management portal featuring member profile authentication, trainer slot scheduling, recurring billing, and workout logs.",
-    businessImpact: "Digitized physical gym register sign-ins into automated QR check-ins and self-service membership renewals.",
+    description: "A fitness club web portal featuring member account management, trainer slot scheduling, membership renewal reminders, and attendance logs.",
+    businessImpact: "Replaced paper check-in sheets with self-service member renewals and online personal trainer bookings.",
     image: "/projects/fitzone.png",
     link: "#",
     status: "PRODUCTION",
-    overview: "Member subscription platform with automated recurring billing and training session booking.",
-    problem: "Manual desk sign-ins caused queues during peak gym hours.",
-    users: "Gym members, personal trainers, facility desk managers.",
-    goals: ["Self-service renewals", "Trainer slot scheduling", "Automated check-ins"],
-    research: "Analyzed check-in bottlenecks during morning and evening rush hours.",
-    userFlow: "Member Login → Select Trainer Slot → Confirm Booking → Instant Calendar Sync.",
-    architectureNotes: "REST API built with Node.js and Express connected to relational MySQL schemas.",
-    challenges: "Handling real-time trainer slot booking contention.",
-    solution: "Used atomic database locks to ensure zero duplicate slot assignments.",
-    result: "Reduced check-in delays by 80% through automated digital membership workflows."
+    overview: "FitZone is a web portal designed to make gym membership administration seamless for both members and fitness club managers.",
+    problem: "Manual front-desk paper logs caused check-in delays during peak workout hours and made membership renewals difficult to track.",
+    users: "Gym members, personal fitness trainers, facility staff.",
+    goals: ["Online membership renewal", "Trainer slot scheduling", "Digital attendance tracking"],
+    research: "Studied fitness club operational peak hours to simplify the mobile booking experience for members on the go.",
+    userFlow: "Member Login → View Trainer Availability → Book Session Slot → Receive Confirmation → Staff Scans Check-in.",
+    architectureNotes: "Node.js Express REST API connected to relational MySQL tables.",
+    challenges: "Preventing conflicting bookings when two members attempt to book the same trainer at the same hour.",
+    solution: "Implemented unique composite database constraints and transaction locks on trainer scheduling tables.",
+    result: "Delivered a clean, responsive gym management portal that streamlines member check-ins and trainer bookings."
   },
   {
     id: "luxe-vista",
     slug: "luxe-vista",
     number: "WORK / 008",
     title: "LUXE VISTA VILLA",
-    subtitle: "Luxury Vacation Rental & Reservation Engine",
-    category: "Full Stack System",
+    subtitle: "Boutique Vacation Rental Showcase & Direct Reservation Portal",
+    category: "Web Application",
+    projectType: "FULL-STACK PRODUCTION",
     year: "2024",
-    role: "Frontend & Full Stack Engineer",
+    role: "Frontend & Full-Stack Developer",
+    myContribution: "Built the responsive Next.js web application, interactive villa gallery, live availability calendar, and direct inquiry booking form.",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "REST APIs"],
-    description: "High-craft booking engine and visual gallery engineered for boutique luxury villas, featuring interactive availability calendars and guest concierge requests.",
-    businessImpact: "Increased direct online villa bookings with a cinematic, mobile-first reservation experience.",
+    description: "A visual showcase and direct booking web application for luxury boutique villas, featuring interactive availability calendars and guest concierge inquiry forms.",
+    businessImpact: "Helps villa owners secure direct guest inquiries without relying exclusively on high-commission third-party booking platforms.",
     image: "/projects/luxe_vista.png",
     link: "#",
     status: "PRODUCTION",
-    overview: "Cinematic boutique villa showcase and direct reservation web application.",
-    problem: "Third-party booking platforms charged heavy commissions and lacked direct concierge messaging.",
-    users: "Luxury travelers, villa concierge, property hosts.",
-    goals: ["Zero-commission direct booking", "Interactive visual photo galleries", "Mobile-first concierge request form"],
-    research: "Studied high-converting luxury boutique travel websites.",
-    userFlow: "Explore Villa Features → Check Live Availability → Reserve Dates → Submit Concierge Request.",
-    architectureNotes: "Next.js App Router with responsive Tailwind layout and interactive client state.",
-    challenges: "Delivering fast image load times for high-resolution villa gallery photography.",
-    solution: "Used Next.js automated image optimization with WebP format and responsive srcset.",
-    result: "Delivered a high-converting, responsive booking portal that increased direct bookings."
+    overview: "Luxe Vista is a showcase and booking engine engineered to give boutique luxury property owners a high-converting, independent web presence.",
+    problem: "Third-party travel websites take high booking commissions and restrict direct communication between hosts and guests.",
+    users: "Travelers seeking boutique accommodations, villa concierge managers, property hosts.",
+    goals: ["Direct commission-free booking inquiries", "Fast-loading visual photo galleries", "Mobile-optimized booking flow"],
+    research: "Analyzed luxury hospitality websites to balance high-resolution photography with fast mobile page load speeds.",
+    userFlow: "Explore Villa Amenities → Check Calendar Availability → Select Dates → Submit Concierge Booking Request.",
+    architectureNotes: "Built with Next.js App Router and optimized WebP image loading pipelines for fast mobile performance.",
+    challenges: "Ensuring high-resolution photo galleries load instantly on mobile networks.",
+    solution: "Configured Next.js responsive image sizing with lazy loading and modern image compression.",
+    result: "Delivered a responsive villa reservation web application with smooth visual browsing."
   }
 ];
 
@@ -424,28 +443,32 @@ export const architectureNodes = [
 
 export const aiLabItems = [
   {
-    title: "Document Chunking & RAG Pipeline",
-    description: "Intelligent PDF text parsing, semantic vector chunking, and contextual answer retrieval.",
+    title: "Smart Document Search & Q&A (RAG)",
+    description: "Upload lengthy PDF lecture notes or company documents and ask questions in plain English. The AI finds the exact answers with page citations without making up facts.",
     status: "PRODUCTION",
-    tech: "Amazon Bedrock · Node.js · PostgreSQL"
+    tech: "Amazon Bedrock · Node.js · PostgreSQL",
+    businessValue: "Cuts hours spent manually searching through dense PDFs down to seconds."
   },
   {
-    title: "Multilingual AI Translation System",
-    description: "Context-aware UI translation into Sinhala and Tamil with script normalization.",
+    title: "Multilingual Website Translation",
+    description: "Context-aware web content translation into Sinhala and Tamil, preserving grammatical nuances and technical terminology.",
     status: "PRODUCTION",
-    tech: "Amazon Nova Micro · MD5 Caching"
+    tech: "Amazon Nova Micro · MD5 Caching",
+    businessValue: "Makes web applications accessible to local language audiences across Sri Lanka."
   },
   {
-    title: "Automated Flashcard & Quiz Generator",
-    description: "Extracting key concepts from study notes into structured flashcard sets.",
+    title: "Automated Flashcard & Quiz Creator",
+    description: "Analyzes uploaded documents and generates active-recall study flashcards and practice multiple-choice quizzes automatically.",
     status: "PRODUCTION",
-    tech: "TypeScript · Zod Schema Validation"
+    tech: "TypeScript · Zod Schema Validation",
+    businessValue: "Improves student retention and speeds up test preparation."
   },
   {
-    title: "AI Clinical Summary Copilot",
-    description: "Experimental medical note summarization with PII redaction security.",
+    title: "Clinical Note Summarization Copilot",
+    description: "Assists medical staff by summarizing patient visit histories while automatically redacting names and private data before processing.",
     status: "PROTOTYPE",
-    tech: "Bedrock LLMs · Sanitization Filters"
+    tech: "Bedrock LLMs · Client-Side PII Scrubbing",
+    businessValue: "Demonstrates secure AI assistance without compromising patient confidentiality."
   }
 ];
 
@@ -455,84 +478,48 @@ export interface TechCategory {
   items: {
     name: string;
     note: string;
+    businessBenefit: string;
   }[];
 }
 
 export const technologyMap: TechCategory[] = [
   {
     category: "Frontend Development",
-    description: "Modern client-side web architectures, reactive state management, and responsive interfaces.",
+    description: "The tools I use to build fast, responsive, and easy-to-use screens for websites and web apps.",
     items: [
-      { name: "React.js", note: "Component architecture, Virtual DOM, custom hooks & state patterns" },
-      { name: "Next.js", note: "App Router SSR, Server Components, dynamic routing & SEO optimization" },
-      { name: "Tailwind CSS", note: "Design tokens, responsive layouts, dark mode & utility styling" },
-      { name: "HTML5 & CSS3", note: "Semantic structure, responsive CSS Grid/Flexbox & modern web standards" }
+      { name: "React.js", note: "Component-driven user interfaces", businessBenefit: "Enables fast, modular page updates without full browser reloads." },
+      { name: "Next.js", note: "App Router SSR & Search Engine Optimization", businessBenefit: "Delivers fast initial page loads and better Google search rankings." },
+      { name: "TypeScript", note: "Type-safe JavaScript for fewer bugs", businessBenefit: "Catches errors before production code is shipped to users." },
+      { name: "Tailwind CSS", note: "Utility-first styling & design tokens", businessBenefit: "Ensures responsive design that looks polished on mobile, tablet, and desktop." }
     ]
   },
   {
     category: "Backend Development",
-    description: "Robust server runtimes, REST API architectures, middleware, and business logic services.",
+    description: "The server runtimes and logic layers that process data, handle payments, and keep systems secure.",
     items: [
-      { name: "Node.js", note: "Event-driven asynchronous server runtime & microservice architectures" },
-      { name: "Express.js", note: "RESTful routing, modular middleware pipelines & controller architecture" },
-      { name: "Spring Boot", note: "Enterprise Java services, Spring Data JPA, dependency injection & REST APIs" },
-      { name: "Laravel", note: "PHP MVC architecture, Eloquent ORM, middleware & secure authentication" },
-      { name: "RESTful APIs", note: "REST contract design, HTTP status conventions, JSON schemas & endpoints" },
-      { name: ".NET Core", note: "Foundational backend architecture, C# web APIs & MVC patterns" }
+      { name: "Node.js & Express", note: "Asynchronous JavaScript server APIs", businessBenefit: "Handles multiple user requests simultaneously with low server overhead." },
+      { name: "Java & Spring Boot", note: "Enterprise backend services & security", businessBenefit: "Robust framework for mission-critical business transactions and data security." },
+      { name: "PHP & Laravel", note: "Structured MVC web application engine", businessBenefit: "Fast development cycle for complex business portals and admin dashboards." },
+      { name: "RESTful API Design", note: "Predictable HTTP contract endpoints", businessBenefit: "Allows mobile apps, web apps, and third-party systems to communicate seamlessly." }
     ]
   },
   {
-    category: "Programming Languages",
-    description: "Core languages applied across frontend, enterprise backend, and database scripting.",
+    category: "Databases & Storage",
+    description: "Where user information, transactions, and business records are safely and permanently stored.",
     items: [
-      { name: "TypeScript", note: "Strict static typing, generic interfaces, utility types & compile-time safety" },
-      { name: "JavaScript (ES6+)", note: "Modern ECMAScript, asynchronous async/await, event loops & DOM APIs" },
-      { name: "Java", note: "Object-oriented programming, enterprise services, JDBC & multithreading" },
-      { name: "PHP", note: "Server-side scripting, modern PHP 8.x paradigms & OOP architecture" },
-      { name: "C#", note: "Object-oriented design, strongly-typed backend logic & .NET architecture" },
-      { name: "SQL", note: "Relational query composition, schema definition, indexing & joins" }
+      { name: "PostgreSQL", note: "Advanced relational database engine", businessBenefit: "Proven data integrity for complex multi-table queries and financial records." },
+      { name: "MySQL", note: "High-throughput ACID transactional store", businessBenefit: "Reliable database power for user management, catalogs, and order history." },
+      { name: "Redis", note: "In-memory caching and message queues", businessBenefit: "Speeds up frequent queries to sub-millisecond response times." }
     ]
   },
   {
-    category: "Databases",
-    description: "Relational ACID stores, distributed document stores, and in-memory caching solutions.",
+    category: "Cloud, DevOps & Tools",
+    description: "How software is tested, packaged, deployed, and kept running 24/7 without downtime.",
     items: [
-      { name: "PostgreSQL", note: "Relational schema design, query indexing, constraints & high throughput" },
-      { name: "MySQL", note: "Transactional tables, foreign keys, ACID compliance & relational queries" },
-      { name: "MongoDB", note: "Document collections, NoSQL schema modeling & query aggregation" },
-      { name: "SQLite", note: "Embedded relational datastores & lightweight local persistence" },
-      { name: "Redis", note: "In-memory caching, sub-millisecond lookups & real-time pub/sub queues" }
-    ]
-  },
-  {
-    category: "Cloud and DevOps",
-    description: "Cloud infrastructure provisioning, containerized environments, and continuous delivery.",
-    items: [
-      { name: "AWS Cloud", note: "Cloud hosting, S3 bucket storage, EC2 compute & Bedrock AI infrastructure" },
-      { name: "Docker", note: "Multi-service containerization, Dockerfiles & reproducible deployment builds" },
-      { name: "CI/CD & Automation", note: "Automated build checks, linting, regression testing & deployment pipelines" }
-    ]
-  },
-  {
-    category: "Development Tools",
-    description: "Collaborative version control, API testing suites, UI wireframing, and development IDEs.",
-    items: [
-      { name: "Git", note: "Distributed version control, feature branching, interactive rebasing & conflict resolution" },
-      { name: "GitHub", note: "Pull request reviews, GitHub Actions, repository administration & teamwork" },
-      { name: "Postman", note: "API contract validation, automated test suites & endpoint regression testing" },
-      { name: "VS Code", note: "Development environment, debugging workflows, linters & productivity tooling" },
-      { name: "Figma", note: "UI/UX wireframing, user journey mapping & component design systems" }
-    ]
-  },
-  {
-    category: "AI and Integrations",
-    description: "Generative AI pipelines, contextual retrieval systems, and third-party API integrations.",
-    items: [
-      { name: "Amazon Bedrock", note: "Foundation LLM integration, inference endpoints & clinical text processing" },
-      { name: "Vector Search & RAG", note: "PDF text extraction, semantic vector chunking & contextual document retrieval" },
-      { name: "Zod Schema Validation", note: "Runtime schema validation & strict type parsing on structured AI outputs" },
-      { name: "Google Maps API", note: "Interactive map canvas, live GPS location markers & route polyline layers" },
-      { name: "Stripe API", note: "Secure payment gateway checkout flows & transactional webhooks" }
+      { name: "AWS Cloud", note: "Hosting, S3 storage & Amazon Bedrock AI", businessBenefit: "Provides scalable cloud infrastructure that grows with your user base." },
+      { name: "Docker", note: "Containerized application packaging", businessBenefit: "Ensures the application runs identically on development laptops and live servers." },
+      { name: "Git & GitHub", note: "Version control and peer code reviews", businessBenefit: "Safeguards source code history and facilitates structured team collaboration." },
+      { name: "Postman", note: "API testing and endpoint verification", businessBenefit: "Validates that every API route behaves correctly before deployment." }
     ]
   }
 ];
@@ -541,16 +528,27 @@ export const education = [
   {
     degree: "BSc (Hons) in Software Engineering",
     institution: "Cardiff Metropolitan University, United Kingdom",
-    classification: "Second Class Upper Division (2:1)",
+    classification: "Second Class Honours, Upper Division (2:1)",
     period: "2025 – 2026",
-    status: "Completed"
+    status: "Graduated / Degree Awarded",
+    verificationNote: "Official degree qualification accredited by Cardiff Metropolitan University UK.",
+    highlights: [
+      "Rigorous foundations in distributed software architecture, enterprise systems, and database engineering.",
+      "Graduated with Second Class Honours Upper Division (2:1).",
+      "Academic transcript and degree certificate available for recruiter verification upon request."
+    ]
   },
   {
     degree: "Higher Diploma in Computing & Software Engineering",
     institution: "Cardiff Met. (via ICBT Campus, Sri Lanka)",
-    classification: "Merit / Distinction",
+    classification: "Graduated with Merit / Distinction",
     period: "2023 – 2025",
-    status: "Completed"
+    status: "Graduated with Merit",
+    verificationNote: "Two-year intensive diploma covering computer science fundamentals and full-stack software development.",
+    highlights: [
+      "Deep focus on Object-Oriented Programming (OOP), Data Structures, Algorithms, and Relational Database Systems.",
+      "Completed practical capstone projects including desktop POS billing systems and commercial web apps."
+    ]
   }
 ];
 
@@ -559,29 +557,29 @@ export const experienceTimeline = [
     year: "2025 – Present",
     role: "Associate Software Engineer",
     company: "Amazoft IT",
-    description: "Architecting React.js & TypeScript web applications, designing optimized PostgreSQL schemas, conducting root-cause diagnostics, and collaborating in Agile sprint cycles.",
-    status: "Current Commercial Role"
+    description: "Developing production React.js & TypeScript web applications, designing optimized PostgreSQL schemas, conducting root-cause diagnostics, and collaborating in Agile sprint cycles.",
+    status: "Current Commercial Position"
   },
   {
     year: "2022 – 2025",
     role: "Trainee Software Developer",
     company: "Amazoft IT",
-    description: "Built responsive UIs with React.js, supported Java Spring Boot REST APIs, implemented JWT/OAuth 2.0 token authentication, Docker containerization, and Postman test suites.",
+    description: "Built responsive frontend screens with React.js, supported Java Spring Boot REST APIs, implemented JWT token authentication, prepared Docker builds, and created Postman API test suites.",
     status: "Commercial Role"
   },
   {
     year: "2025 – 2026",
-    role: "BSc (Hons) in Software Engineering",
+    role: "BSc (Hons) Software Engineering",
     company: "Cardiff Metropolitan University, UK",
-    description: "Graduated with Second Class Upper Division (2:1). Specialized in software architecture, enterprise systems, database design, and web technology.",
-    status: "Degree Awarded"
+    description: "Awarded Second Class Upper Division (2:1). Specialized in software architecture, enterprise systems, and modern web application development.",
+    status: "Degree Awarded (2:1)"
   },
   {
     year: "2023 – 2025",
-    role: "Higher Diploma in Computing & Software Engineering",
-    company: "Cardiff Met. (via ICBT Campus, Sri Lanka)",
-    description: "Completed with Merit / Distinction, establishing rigorous foundations in computing fundamentals, OOP, database design, and software engineering.",
-    status: "Merit / Distinction"
+    role: "Higher Diploma in Computing & SE",
+    company: "Cardiff Met. (via ICBT Campus)",
+    description: "Completed with Merit / Distinction, establishing strong fundamentals in computer science, OOP, algorithms, and database modeling.",
+    status: "Diploma Awarded"
   }
 ];
 
@@ -639,7 +637,7 @@ export const workExperience: WorkExperience[] = [
         name: "nipuneX – AI-Driven Recruitment Platform",
         area: "AI / Recruitment Platform",
         description:
-          "Developed high-speed user interfaces in Next.js/React.js integrated with REST endpoints for talent filtering and automated candidate assessment. Integrated AWS cloud services and PostgreSQL database queries, achieving sub-second response times for complex applicant searches.",
+          "Developed responsive user interfaces in Next.js/React.js integrated with REST endpoints for talent filtering and automated candidate assessment. Optimized PostgreSQL queries and AWS storage integration for efficient candidate searches.",
         link: "https://www.nipunex.com/",
         tech: ["Next.js", "React.js", "Node.js", "PostgreSQL", "AWS"]
       },
@@ -653,9 +651,9 @@ export const workExperience: WorkExperience[] = [
       }
     ],
     achievements: [
-      "Optimized PostgreSQL queries and AWS integration on nipuneX to achieve sub-second response times for complex applicant search filters.",
-      "Enforced strict modular component architecture and TypeScript type safety across production web features.",
-      "Conducted thorough peer code reviews on GitHub and proactive root-cause diagnostics, resolving defect tickets and improving application stability."
+      "Optimized PostgreSQL query indexing and data fetching to ensure fast, reliable candidate filtering for hiring teams.",
+      "Enforced modular component architecture and strict TypeScript type safety across production frontend features.",
+      "Participated actively in daily Agile standups, pull request reviews on GitHub, and proactive root-cause diagnostics to resolve bug tickets."
     ]
   },
   {

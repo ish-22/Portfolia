@@ -286,10 +286,15 @@ export function Contact() {
             <form onSubmit={handleSubmit} noValidate className="border border-[--border] bg-[--surface]/20">
               {/* Form Header */}
               <div className="p-6 sm:p-8 border-b border-[--border] bg-[--surface]/40">
-                <span className="label-lime block mb-1">INQUIRY FORM</span>
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <span className="label-lime">INQUIRY FORM</span>
+                  <span className="font-mono text-[10px] text-[--lime] bg-[--lime]/10 border border-[--lime]/30 px-2 py-0.5 rounded">
+                    ⚡ &lt;24H RESPONSE TIME
+                  </span>
+                </div>
                 <h3 className="text-xl font-bold text-[--text]">Send a Direct Message</h3>
                 <p className="text-xs text-[--muted] mt-1 font-mono">
-                  Messages are delivered directly to Ishan&apos;s verified inbox with duplicate submission protection.
+                  Delivered directly to Ishan&apos;s verified inbox. I review and respond to every message within 24 hours.
                 </p>
               </div>
 

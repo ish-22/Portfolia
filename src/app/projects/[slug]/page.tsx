@@ -99,8 +99,8 @@ export default async function CaseStudyPage({ params }: { params: CaseStudyParam
                             <span className="opacity-50">/</span>
                             <span>{project.year}</span>
                             <span className="opacity-50">/</span>
-                            <span className="text-[--lime] border border-[--lime]/30 bg-[--lime]/5 px-2.5 py-1">
-                                {project.status}
+                            <span className="text-[--lime] border border-[--lime]/30 bg-[--lime]/10 px-2.5 py-1 font-bold">
+                                {project.projectType || project.status}
                             </span>
                         </div>
 
@@ -109,12 +109,24 @@ export default async function CaseStudyPage({ params }: { params: CaseStudyParam
                         </h1>
                         <p className="text-xl font-mono text-[--lime]">{project.subtitle}</p>
 
+                        {/* My Individual Contribution Banner */}
+                        {project.myContribution && (
+                            <div className="mt-6 p-4 sm:p-5 rounded-xl border border-[--lime]/30 bg-[--lime]/5">
+                                <span className="font-mono text-xs font-bold uppercase tracking-widest text-[--lime] block mb-1">
+                                    My Role &amp; Engineering Contribution
+                                </span>
+                                <p className="text-sm text-[--text] leading-relaxed">
+                                    {project.myContribution}
+                                </p>
+                            </div>
+                        )}
+
                         {/* Business Impact Banner */}
                         {project.businessImpact && (
-                            <div className="mt-6 flex items-start gap-3 rounded-lg border border-[--lime]/30 bg-[--lime]/5 p-4">
-                                <span className="h-2 w-2 rounded-full bg-[--lime] mt-1.5 shrink-0" />
+                            <div className="mt-4 flex items-start gap-3 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-4">
+                                <span className="h-2 w-2 rounded-full bg-emerald-500 mt-1.5 shrink-0 animate-pulse" />
                                 <div>
-                                    <span className="font-mono text-xs font-bold uppercase tracking-widest text-[--lime] block mb-1">
+                                    <span className="font-mono text-xs font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400 block mb-1">
                                         Real-World Business Impact
                                     </span>
                                     <p className="text-sm text-[--text] leading-relaxed">
@@ -138,22 +150,25 @@ export default async function CaseStudyPage({ params }: { params: CaseStudyParam
                                 <p className="text-[--text] font-semibold">{project.year}</p>
                             </div>
                             <div>
-                                <p className="text-[--muted] text-[10px] mb-1">STACK</p>
-                                <p className="text-[--lime] font-semibold">{project.stack.slice(0, 3).join(" · ")}</p>
+                                <p className="text-[--muted] text-[10px] mb-1">TECH STACK</p>
+                                <p className="text-[--lime] font-semibold">{project.stack.slice(0, 4).join(" · ")}</p>
                             </div>
                         </div>
                     </div>
 
                     {/* Hero Visual Image */}
-                    <div className="relative mt-12 aspect-[16/9] w-full overflow-hidden border border-[--border] bg-[--surface]">
+                    <div className="relative mt-12 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-[--border] bg-[--surface] shadow-xl">
                         <Image
                             src={project.image}
-                            alt={`${project.title} - ${project.subtitle} system architecture interface`}
+                            alt={`${project.title} - ${project.subtitle} user interface screenshot`}
                             fill
                             priority
                             sizes="(max-width: 1024px) 100vw, 1024px"
                             className="object-cover"
                         />
+                        <div className="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md border border-white/10 px-3 py-1 rounded font-mono text-[10px] text-[--lime]">
+                            PRODUCTION USER INTERFACE PREVIEW
+                        </div>
                     </div>
 
                     {/* Chapter-by-Chapter Technical Case Study Presentation */}

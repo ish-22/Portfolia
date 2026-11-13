@@ -7,18 +7,18 @@ import { ArrowUpRight } from "lucide-react";
 const principles = [
   {
     number: "01",
-    title: "Performance by Default",
-    desc: "Sub-second load times, optimized PostgreSQL schemas, lightweight client hydration, and clean bundle footprints."
+    title: "Fast & Dependable Web Apps",
+    desc: "Lightweight, responsive pages in React and Next.js that load quickly on any device, keeping visitors engaged and reducing bounce rates."
   },
   {
     number: "02",
-    title: "Scalable Architecture",
-    desc: "Modular component hierarchies, secure RESTful APIs, resilient ACID database transactions, and cloud-ready Docker containers."
+    title: "Clean, Maintainable Architecture",
+    desc: "Type-safe TypeScript, structured REST APIs, and normalized SQL databases that your engineering team can easily understand, test, and build upon."
   },
   {
     number: "03",
-    title: "Human-Centered UX",
-    desc: "Intuitive workflows that transform dense operational requirements into smooth, pleasant, and friction-free user experiences."
+    title: "Clear Communication & Agile Delivery",
+    desc: "Regular sprint progress demos, documented Git pull requests, and transparent timelines so clients and managers always know what is being shipped."
   }
 ];
 
@@ -29,9 +29,9 @@ export function About() {
         {/* Top Eyebrow Tag */}
         <div className="flex items-center gap-3 mb-10 sm:mb-16">
           <span className="h-px w-8 bg-[--lime]" />
-          <span className="label-muted">WHO I AM &amp; PHILOSOPHY</span>
+          <span className="label-muted">ABOUT ME &amp; APPROACH</span>
           <span className="font-mono text-xs text-[--muted]">/</span>
-          <span className="label-lime">MANIFESTO</span>
+          <span className="label-lime">BACKGROUND</span>
         </div>
 
         {/* Large Editorial Manifesto (Savindu / Creative Developer style) */}
@@ -44,16 +44,16 @@ export function About() {
               transition={{ duration: 0.7 }}
               className="text-[clamp(1.85rem,4.5vw,3.85rem)] font-bold tracking-tight text-[--text] leading-[1.22] sm:leading-[1.18]"
             >
-              Engineering <span className="text-[--lime]">high-performance web products</span> and resilient systems that solve real operational friction.{" "}
+              Building <span className="text-[--lime]">reliable web software</span> that turns complicated business workflows into smooth, simple experiences.{" "}
               <span className="text-[--muted] font-normal">
-                Commercial precision, clean code, and disciplined Agile delivery grounded in Cardiff Metropolitan software engineering rigor.
+                Combining commercial software experience at Amazoft IT with a Cardiff Metropolitan honours degree in software engineering.
               </span>
             </motion.h2>
           </div>
 
-          <div className="lg:col-span-4 flex flex-col gap-8 items-start lg:items-end">
+          <div className="lg:col-span-4 flex flex-col gap-6 items-start lg:items-end">
             <p className="text-sm sm:text-base text-[--text] opacity-85 leading-relaxed max-w-md text-left lg:text-right">
-              The combination of my commercial engineering at Amazoft IT, full-stack database architectures, and UI/UX design discipline positions me to turn complex requirements into smooth, scalable software.
+              Whether it&apos;s helping passengers track buses live on a map, connecting a clinic&apos;s prescriptions with pharmacy stock, or automating document Q&amp;A with AI, I build clean, dependable software that solves everyday problems.
             </p>
 
             {/* Circular CTA Button (Dennis Snellenberg / Savindu inspired) */}
@@ -67,30 +67,34 @@ export function About() {
                   <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </span>
                 <span className="relative z-10 text-[10px] text-[--muted] font-normal mt-1">
-                  Let&apos;s build
+                  Start a project
                 </span>
               </Link>
             </div>
           </div>
         </div>
 
-        {/* Stats & Verified Credentials Bar */}
+        {/* Stats & Verified Credentials Bar — 100% Grounded and Authentic */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 sm:p-8 rounded-2xl border border-[--border] bg-[--surface] mb-16 shadow-xs font-mono">
           <div>
             <span className="text-3xl sm:text-4xl font-black text-[--text]">3+</span>
-            <p className="text-xs text-[--muted] uppercase tracking-wider mt-1">Years Commercial Experience</p>
+            <p className="text-xs text-[--muted] uppercase tracking-wider mt-1">Years Commercial Work</p>
+            <span className="text-[10px] text-[--lime] block mt-0.5 font-normal">Amazoft IT (2022–Present)</span>
           </div>
           <div>
             <span className="text-3xl sm:text-4xl font-black text-[--lime]">2:1</span>
             <p className="text-xs text-[--muted] uppercase tracking-wider mt-1">Cardiff Met. BSc (Hons)</p>
+            <span className="text-[10px] text-[--muted] block mt-0.5 font-normal">Software Engineering</span>
           </div>
           <div>
-            <span className="text-3xl sm:text-4xl font-black text-[--text]">100%</span>
-            <p className="text-xs text-[--muted] uppercase tracking-wider mt-1">Agile Sprint Delivery</p>
+            <span className="text-3xl sm:text-4xl font-black text-[--text]">8+</span>
+            <p className="text-xs text-[--muted] uppercase tracking-wider mt-1">Software Systems Built</p>
+            <span className="text-[10px] text-[--muted] block mt-0.5 font-normal">Commercial &amp; Full-Stack</span>
           </div>
           <div>
-            <span className="text-3xl sm:text-4xl font-black text-[--lime]">6+</span>
-            <p className="text-xs text-[--muted] uppercase tracking-wider mt-1">Production Platforms Shipped</p>
+            <span className="text-3xl sm:text-4xl font-black text-[--lime]">&lt;24h</span>
+            <p className="text-xs text-[--muted] uppercase tracking-wider mt-1">Direct Response Time</p>
+            <span className="text-[10px] text-[--lime] block mt-0.5 font-normal">Email &amp; WhatsApp Direct</span>
           </div>
         </div>
 

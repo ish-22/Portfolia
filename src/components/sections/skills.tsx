@@ -31,7 +31,7 @@ const categoryIcons: Record<string, React.ReactNode> = {
 
 export function TechnologyUniverse() {
   const [selectedCategory, setSelectedCategory] = useState<string>("ALL");
-  const [activeTech, setActiveTech] = useState<{ name: string; note: string; category: string } | null>(null);
+  const [activeTech, setActiveTech] = useState<{ name: string; note: string; category: string; businessBenefit?: string } | null>(null);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   const baseCategories =
@@ -149,14 +149,15 @@ export function TechnologyUniverse() {
                             setActiveTech(
                               isSelected
                                 ? null
-                                : { name: item.name, note: item.note, category: cat.category }
+                                : { name: item.name, note: item.note, category: cat.category, businessBenefit: item.businessBenefit }
                             )
                           }
                           onMouseEnter={() =>
                             setActiveTech({
                               name: item.name,
                               note: item.note,
-                              category: cat.category
+                              category: cat.category,
+                              businessBenefit: item.businessBenefit
                             })
                           }
                           className={`group/item p-2.5 border transition-all cursor-pointer ${
@@ -219,13 +220,21 @@ export function TechnologyUniverse() {
             <Info size={18} className="text-[--lime] shrink-0 mt-0.5 sm:mt-0" />
             <div>
               {activeTech ? (
-                <span>
-                  <strong className="text-[--lime] uppercase tracking-wider">{activeTech.category} {" / "} {activeTech.name}:</strong>{" "}
-                  <span className="text-[--text]">{activeTech.note}</span>
-                </span>
+                <div>
+                  <span className="block">
+                    <strong className="text-[--lime] uppercase tracking-wider">{activeTech.category} {" / "} {activeTech.name}:</strong>{" "}
+                    <span className="text-[--text] font-medium">{activeTech.note}</span>
+                  </span>
+                  {activeTech.businessBenefit && (
+                    <span className="block mt-1 text-xs text-[--muted]">
+                      <span className="text-[--lime] font-bold">Why it matters: </span>
+                      {activeTech.businessBenefit}
+                    </span>
+                  )}
+                </div>
               ) : (
                 <span className="text-[--muted]">
-                  Hover over or tap any technology node above to inspect its real-world architectural usage context.
+                  Hover over or tap any technology node above to inspect its real-world architectural usage and business value.
                 </span>
               )}
             </div>

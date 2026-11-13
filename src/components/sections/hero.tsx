@@ -65,7 +65,7 @@ export function Hero() {
           <h2 className="text-xs sm:text-base md:text-lg font-bold tracking-tight text-[--text] leading-snug">
             Full-Stack Software Engineer
             <span className="block text-[11px] font-mono text-[--lime] font-normal">
-              @ Amazoft IT
+              @ Amazoft IT · Cardiff Met. 2:1
             </span>
           </h2>
         </motion.div>
@@ -119,14 +119,20 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[--border] pt-4"
         >
-          {/* Availability Beacon */}
-          <div className="flex items-center gap-2.5 font-mono text-xs">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[--lime] opacity-75" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[--lime]" />
-            </span>
-            <span className="font-bold text-[--text] tracking-wider text-[11px] sm:text-xs uppercase">
-              {profile.availability}
+          {/* Availability Beacon & Role Summary */}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 font-mono text-xs">
+            <div className="flex items-center gap-2">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[--lime] opacity-75" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[--lime]" />
+              </span>
+              <span className="font-bold text-[--text] tracking-wider text-[11px] sm:text-xs uppercase">
+                {profile.availability}
+              </span>
+            </div>
+            <span className="hidden sm:inline text-[--muted]">·</span>
+            <span className="text-[11px] text-[--muted] font-normal">
+              React · Next.js · Node.js · Spring Boot · PostgreSQL
             </span>
           </div>
 

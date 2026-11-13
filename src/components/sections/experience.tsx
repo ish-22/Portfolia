@@ -325,17 +325,39 @@ export function ProfessionalExperience() {
                     <p className="text-sm font-medium text-[--lime] mb-4">
                       {edu.institution}
                     </p>
-                    <p className="text-xs sm:text-sm text-[--text] opacity-80 leading-relaxed">
-                      Specialized in software architecture, enterprise systems, database design, modern web technologies, and scalable software design patterns.
-                    </p>
+                    
+                    {/* Education Highlights & Rigor */}
+                    {edu.highlights && edu.highlights.length > 0 ? (
+                      <ul className="space-y-2 mb-4 font-mono text-xs text-[--text] opacity-85">
+                        {edu.highlights.map((h, hIdx) => (
+                          <li key={hIdx} className="flex items-start gap-2">
+                            <span className="text-[--lime] font-bold">✓</span>
+                            <span>{h}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-xs sm:text-sm text-[--text] opacity-80 leading-relaxed mb-4">
+                        Specialized in software architecture, enterprise systems, database design, modern web technologies, and scalable software design patterns.
+                      </p>
+                    )}
+
+                    {edu.verificationNote && (
+                      <div className="p-3 rounded-lg border border-[--border] bg-[--elevated]/40 font-mono text-[11px] text-[--muted]">
+                        <span className="text-[--lime] font-bold">Verification Note: </span>
+                        {edu.verificationNote}
+                      </div>
+                    )}
                   </div>
 
                   <div className="mt-6 pt-4 border-t border-[--border] flex items-center justify-between text-xs font-mono text-[--muted]">
-                    <span className="inline-flex items-center gap-1.5 text-[--lime]">
+                    <span className="inline-flex items-center gap-1.5 text-[--lime] font-bold">
                       <Award className="h-3.5 w-3.5" />
                       <span>{edu.status}</span>
                     </span>
-                    <span>United Kingdom</span>
+                    <span className="border border-[--border] px-2 py-0.5 rounded text-[10px]">
+                      Official Degree
+                    </span>
                   </div>
                 </motion.div>
               ))}

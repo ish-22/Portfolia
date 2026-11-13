@@ -175,15 +175,15 @@ function ProjectEditorialCard({
       <div className="relative z-10 p-6 sm:p-10 lg:p-12">
         {/* Top Meta Bar */}
         <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[--border] mb-8 font-mono text-xs">
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <span className="font-bold text-[--lime] tracking-wider">{project.number}</span>
             <span className="text-[--border]">/</span>
             <span className="text-[--text] font-semibold">{project.role}</span>
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="px-2.5 py-0.5 border border-[--lime]/30 bg-[--lime-dim] text-[--lime] font-semibold text-[10px] rounded">
-              {project.status}
+            <span className="px-2.5 py-0.5 border border-[--lime]/30 bg-[--lime-dim] text-[--lime] font-bold text-[10px] rounded tracking-wider uppercase">
+              {project.projectType || project.status}
             </span>
             <span className="text-[--muted]">{project.year}</span>
           </div>
@@ -203,13 +203,45 @@ function ProjectEditorialCard({
         </div>
 
         {/* Narrative Description */}
-        <p className="text-sm sm:text-base text-[--text] opacity-85 leading-relaxed max-w-4xl mb-8">
+        <p className="text-sm sm:text-base text-[--text] opacity-85 leading-relaxed max-w-4xl mb-6">
           {project.description}
         </p>
 
+        {/* Problem vs Solution 2-Column Grid */}
+        <div className="grid md:grid-cols-2 gap-4 mb-6">
+          <div className="p-4 rounded-xl border border-[--border] bg-[--elevated]/30">
+            <span className="font-mono text-[10px] uppercase font-bold text-[--muted] tracking-wider block mb-1.5">
+              The Real-World Problem
+            </span>
+            <p className="text-xs sm:text-sm text-[--text] opacity-80 leading-relaxed">
+              {project.problem}
+            </p>
+          </div>
+          <div className="p-4 rounded-xl border border-[--lime]/30 bg-[--lime]/5">
+            <span className="font-mono text-[10px] uppercase font-bold text-[--lime] tracking-wider block mb-1.5">
+              Engineered Solution
+            </span>
+            <p className="text-xs sm:text-sm text-[--text] opacity-90 leading-relaxed font-medium">
+              {project.solution}
+            </p>
+          </div>
+        </div>
+
+        {/* My Individual Contribution */}
+        {project.myContribution && (
+          <div className="mb-6 p-4 rounded-xl border border-[--border] bg-[--surface]">
+            <span className="font-mono text-[10px] uppercase font-bold text-[--lime] tracking-wider block mb-1">
+              My Specific Role &amp; Contribution
+            </span>
+            <p className="text-xs sm:text-sm text-[--text] opacity-85 leading-relaxed">
+              {project.myContribution}
+            </p>
+          </div>
+        )}
+
         {/* Real-World Business Impact Banner */}
         {project.businessImpact && (
-          <div className="mb-8 flex items-start gap-3 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-4 sm:p-5 max-w-3xl transition-transform duration-300 group-hover:scale-[1.01]">
+          <div className="mb-6 flex items-start gap-3 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-4 sm:p-5 max-w-3xl transition-transform duration-300 group-hover:scale-[1.01]">
             <span className="h-2 w-2 rounded-full bg-emerald-500 mt-1.5 shrink-0 animate-pulse" />
             <div>
               <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400 block mb-1">
@@ -227,7 +259,7 @@ function ProjectEditorialCard({
           <div className="mb-8 p-5 sm:p-6 rounded-xl border border-[--border] bg-[--elevated]/40">
             <div className="flex items-center gap-2 mb-4 font-mono text-xs text-[--lime]">
               <Layers size={14} />
-              <span className="font-bold tracking-wider uppercase">CORE ENGINEERING DELIVERABLES</span>
+              <span className="font-bold tracking-wider uppercase">KEY FEATURES &amp; DELIVERABLES</span>
             </div>
             <div className="grid sm:grid-cols-3 gap-3 font-mono text-xs">
               {project.goals.map((goal, gIdx) => (

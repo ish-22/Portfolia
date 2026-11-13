@@ -8,22 +8,28 @@ export function AILab() {
         <section className="section bg-[--bg] border-t border-[--border]" aria-label="AI Lab">
             <div className="container-xl">
                 {/* Header */}
-                <div className="grid gap-10 md:grid-cols-12 mb-20">
+                <div className="grid gap-10 md:grid-cols-12 mb-16">
                     <div className="md:col-span-7">
-                        <span className="label-muted block mb-4">BUILDING WITH AI</span>
+                        <div className="flex items-center gap-2 mb-4">
+                            <span className="h-px w-8 bg-[--lime]" />
+                            <span className="label-muted">PRACTICAL AI INTEGRATIONS</span>
+                            <span className="font-mono text-xs text-[--muted]">/</span>
+                            <span className="label-lime">USEFUL AUTOMATION</span>
+                        </div>
                         <h2 className="display-lg text-[--text]">
-                            INTELLIGENT<br />
-                            <span className="text-[--lime] font-extrabold">SYSTEMS.</span>
+                          PRACTICAL<br />
+                          <span className="text-[--lime] font-extrabold">AI TOOLS</span><br />
+                          FOR WORK.
                         </h2>
                     </div>
                     <div className="md:col-span-5 flex items-end">
                         <p className="text-sm text-[--muted] leading-relaxed">
-                            Exploring how intelligent systems can become useful product experiences. Every item here is grounded in real implementation.
+                            Rather than using AI as a gimmick, I build practical tools that solve real time-wasting problems: extracting facts from large PDFs, translating content, and generating practice quizzes.
                         </p>
                     </div>
                 </div>
 
-                {/* AI items — horizontal row layout */}
+                {/* AI items — clear, accessible card layout */}
                 <div className="divide-y divide-[--border]">
                     {aiLabItems.map((item, i) => (
                         <motion.div
@@ -32,28 +38,36 @@ export function AILab() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.08 }}
-                            className="group flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-0 py-7"
+                            className="group flex flex-col md:flex-row md:items-center justify-between gap-4 py-8 hover:bg-[--surface]/40 transition-colors px-4 rounded-xl"
                         >
-                            <span className="font-mono text-xs text-[--muted] shrink-0 w-10">
-                                {String(i + 1).padStart(2, "0")}
-                            </span>
+                            <div className="flex items-start gap-4 flex-1">
+                                <span className="font-mono text-xs text-[--lime] font-bold shrink-0 pt-1">
+                                    {String(i + 1).padStart(2, "0")}
+                                </span>
 
-                            <h3 className="flex-1 font-bold text-[--text] group-hover:text-[--lime] transition-colors">
-                                {item.title}
-                            </h3>
+                                <div className="space-y-1.5 max-w-xl">
+                                    <h3 className="font-bold text-base sm:text-lg text-[--text] group-hover:text-[--lime] transition-colors">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-xs sm:text-sm text-[--muted] leading-relaxed">
+                                        {item.description}
+                                    </p>
+                                    {"businessValue" in item && item.businessValue && (
+                                        <p className="font-mono text-xs text-[--lime] pt-1">
+                                            ↳ <span className="text-[--text] opacity-80">{item.businessValue}</span>
+                                        </p>
+                                    )}
+                                </div>
+                            </div>
 
-                            <p className="sm:w-64 text-sm text-[--muted] leading-relaxed">
-                                {item.description}
-                            </p>
-
-                            <div className="sm:w-48 sm:text-right flex sm:block items-center gap-3">
-                                <span className={`inline-block border px-2.5 py-1 font-mono text-[10px] font-bold ${item.status === "PRODUCTION"
-                                        ? "border-[--lime]/30 text-[--lime]"
-                                        : "border-amber-600/40 dark:border-amber-500/30 text-amber-700 dark:text-amber-400 bg-amber-500/10"
+                            <div className="md:text-right shrink-0 flex md:flex-col items-center md:items-end justify-between gap-2 border-t md:border-t-0 pt-3 md:pt-0 border-[--border]">
+                                <span className={`inline-block border px-3 py-1 font-mono text-[10px] font-bold uppercase rounded ${item.status === "PRODUCTION"
+                                        ? "border-[--lime]/30 text-[--lime] bg-[--lime]/5"
+                                        : "border-amber-600/40 text-amber-500 bg-amber-500/10"
                                     }`}>
                                     {item.status}
                                 </span>
-                                <span className="block mt-1 font-mono text-[10px] text-[--muted]">{item.tech}</span>
+                                <span className="font-mono text-[11px] text-[--muted]">{item.tech}</span>
                             </div>
                         </motion.div>
                     ))}
