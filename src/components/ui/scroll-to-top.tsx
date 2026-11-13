@@ -89,3 +89,5 @@ export function ScrollToTop() {
         </button>
     );
 }
+
+export default ScrollToTop;

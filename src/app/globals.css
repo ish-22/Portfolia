@@ -8,23 +8,30 @@
   --surface: #101216;
   --elevated: #15181d;
   --text: #f5f5f5;
-  --muted: #8b919c;
+  --muted: #94a3b8;
   --border: rgba(255, 255, 255, 0.1);
   --lime: #a3e635;
   --lime-dim: rgba(163, 230, 53, 0.12);
   --lime-glow: 0 0 40px rgba(163, 230, 53, 0.15);
+  --btn-text: #000000;
+  --numeral: rgba(255, 255, 255, 0.1);
   color-scheme: dark;
 }
 
-.light {
-  --bg: #fafafa;
+.light,
+html.light,
+[data-theme="light"] {
+  --bg: #f8fafc;
   --surface: #ffffff;
-  --elevated: #f4f4f5;
+  --elevated: #f1f5f9;
   --text: #09090b;
-  --muted: #52525b;
-  --border: rgba(0, 0, 0, 0.08);
-  --lime: #65a30d;
-  --lime-dim: rgba(101, 163, 13, 0.1);
+  --muted: #334155;
+  --border: rgba(15, 23, 42, 0.12);
+  --lime: #15803d;
+  --lime-dim: rgba(21, 128, 61, 0.12);
+  --lime-glow: 0 0 24px rgba(21, 128, 61, 0.2);
+  --btn-text: #ffffff;
+  --numeral: rgba(15, 23, 42, 0.14);
   color-scheme: light;
 }
 
@@ -98,10 +105,10 @@ body {
     @apply font-black leading-[0.9] tracking-tighter uppercase break-words;
   }
   .display-xl {
-    @apply text-[clamp(2.1rem,7.5vw,8.5rem)] font-black leading-[0.92] tracking-tighter uppercase break-words;
+    @apply text-[clamp(2.1rem,7.5vw,8.5rem)] font-black leading-[1.06] sm:leading-[0.96] tracking-tight uppercase break-words;
   }
   .display-lg {
-    @apply text-[clamp(1.75rem,5.5vw,5.5rem)] font-black leading-[0.94] tracking-tighter uppercase break-words;
+    @apply text-[clamp(1.75rem,5.5vw,5.5rem)] font-black leading-[1.06] sm:leading-[0.96] tracking-tight uppercase break-words;
   }
   .display-md {
     @apply text-[clamp(1.35rem,3.8vw,3rem)] font-extrabold leading-[1.05] tracking-tight uppercase break-words;
@@ -139,7 +146,58 @@ body {
   /* Number display */
   .numeral {
     @apply font-mono font-black text-[clamp(3.5rem,12vw,14rem)]
-    leading-none tracking-tighter text-[--border] select-none;
+    leading-none tracking-tighter text-[--numeral] select-none;
+  }
+
+  /* ─── DESIGN SYSTEM: BUTTONS & CTAs ─────────────────────────── */
+  .btn-editorial-primary {
+    @apply inline-flex items-center justify-center gap-2.5 border border-[--lime] bg-[--lime]
+    px-6 sm:px-7 py-3.5 font-mono text-xs font-black tracking-widest text-[--btn-text]
+    transition-all duration-300 hover:bg-transparent hover:text-[--lime]
+    focus:outline-none focus:ring-2 focus:ring-[--lime] focus:ring-offset-2 focus:ring-offset-[--bg]
+    cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-editorial-secondary {
+    @apply inline-flex items-center justify-center gap-2 border border-[--border] bg-[--surface]
+    px-5 sm:px-6 py-3.5 font-mono text-xs font-semibold tracking-widest text-[--text]
+    transition-all duration-300 hover:border-[--lime] hover:text-[--lime] hover:bg-[--lime-dim]
+    focus:outline-none focus:ring-2 focus:ring-[--lime] focus:ring-offset-2 focus:ring-offset-[--bg]
+    cursor-pointer;
+  }
+
+  .btn-editorial-ghost {
+    @apply inline-flex items-center justify-center gap-2 border border-transparent bg-transparent
+    px-4 py-2 font-mono text-xs font-semibold tracking-wider text-[--muted]
+    transition-colors duration-200 hover:text-[--lime] cursor-pointer;
+  }
+
+  .btn-editorial-tab {
+    @apply px-4 py-2.5 font-mono text-xs font-semibold rounded-none border transition-all duration-200
+    flex items-center gap-2 cursor-pointer;
+  }
+
+  /* ─── DESIGN SYSTEM: BADGES & PILLS ─────────────────────────── */
+  .badge-impact {
+    @apply inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10
+    px-3.5 py-1 text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400;
+  }
+
+  .badge-status {
+    @apply inline-flex items-center gap-2 rounded-full border border-[--lime]/30 bg-[--lime-dim]
+    px-3.5 py-1 text-xs font-mono font-semibold tracking-wider text-[--lime];
+  }
+
+  .badge-tech {
+    @apply inline-flex items-center rounded-md border border-[--border] bg-[--surface]
+    px-2.5 py-1 font-mono text-xs text-[--text] transition-colors
+    hover:border-[--lime]/50 hover:text-[--lime];
+  }
+
+  /* ─── DESIGN SYSTEM: CARDS & SHOWCASE ───────────────────────── */
+  .card-showcase {
+    @apply rounded-2xl border border-[--border] bg-[--surface] overflow-hidden
+    transition-all duration-500 hover:border-[--lime]/50 shadow-xs;
   }
 }
 
@@ -201,5 +259,18 @@ body {
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  /* Magic Wand Cursor Active: hide default system cursor on mouse-capable devices */
+  @media (pointer: fine) {
+    html.magic-cursor-active,
+    html.magic-cursor-active *,
+    html.magic-cursor-active a,
+    html.magic-cursor-active button,
+    html.magic-cursor-active input,
+    html.magic-cursor-active textarea,
+    html.magic-cursor-active select {
+      cursor: none !important;
+    }
   }
 }

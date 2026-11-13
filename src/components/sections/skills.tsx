@@ -13,7 +13,10 @@ import {
   Cpu,
   Info,
   CheckCircle2,
-  Sparkles
+  Sparkles,
+  ChevronDown,
+  ChevronUp,
+  Layers
 } from "lucide-react";
 
 const categoryIcons: Record<string, React.ReactNode> = {
@@ -29,11 +32,18 @@ const categoryIcons: Record<string, React.ReactNode> = {
 export function TechnologyUniverse() {
   const [selectedCategory, setSelectedCategory] = useState<string>("ALL");
   const [activeTech, setActiveTech] = useState<{ name: string; note: string; category: string } | null>(null);
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
-  const displayedCategories =
+  const baseCategories =
     selectedCategory === "ALL"
       ? technologyMap
       : technologyMap.filter((c) => c.category === selectedCategory);
+
+  // When not expanded and looking at ALL, show top 4 core categories to prevent scroll fatigue
+  const displayedCategories =
+    !isExpanded && selectedCategory === "ALL"
+      ? baseCategories.slice(0, 4)
+      : baseCategories;
 
   const totalSkillsCount = technologyMap.reduce((acc, cat) => acc + cat.items.length, 0);
 
@@ -50,19 +60,21 @@ export function TechnologyUniverse() {
             </div>
             <h2 id="skills-heading" className="display-lg text-[--text]">
               ENGINEERING<br />
-              <span className="text-[--muted] italic font-thin">&amp; SYSTEM</span><br />
-              CAPABILITIES.
+              <span className="text-[--lime]">CAPABILITIES &amp;</span><br />
+              <span className="text-[--text] font-extrabold">CORE STACK.</span>
             </h2>
           </div>
-          <p className="max-w-md text-sm text-[--muted] leading-relaxed">
-            Organized into verified engineering specializations. Each node represents active production or prototype experience with documented architectural application.
+          <p className="max-w-md text-sm sm:text-base text-[--text] opacity-85 leading-relaxed font-normal">
+            Organized into verified engineering specializations. Each node represents active commercial or prototype experience with documented architectural application.
           </p>
         </div>
 
         {/* Filter Pills */}
         <div className="flex flex-wrap items-center gap-2 mb-10 pb-4 border-b border-[--border]">
           <button
-            onClick={() => setSelectedCategory("ALL")}
+            onClick={() => {
+              setSelectedCategory("ALL");
+            }}
             className={`px-3.5 py-2 font-mono text-xs font-semibold rounded-none border transition-all min-h-[40px] flex items-center ${
               selectedCategory === "ALL"
                 ? "border-[--lime] bg-[--lime]/10 text-[--lime]"
@@ -74,7 +86,10 @@ export function TechnologyUniverse() {
           {technologyMap.map((cat) => (
             <button
               key={cat.category}
-              onClick={() => setSelectedCategory(cat.category)}
+              onClick={() => {
+                setSelectedCategory(cat.category);
+                setIsExpanded(true);
+              }}
               className={`px-3.5 py-2 font-mono text-xs font-semibold rounded-none border transition-all min-h-[40px] flex items-center gap-2 ${
                 selectedCategory === cat.category
                   ? "border-[--lime] bg-[--lime]/10 text-[--lime]"
@@ -179,6 +194,24 @@ export function TechnologyUniverse() {
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {/* Expand/Collapse Full Tech Matrix for Tech Leads & Recruiters */}
+        {selectedCategory === "ALL" && (
+          <div className="mt-8 flex justify-center">
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="group inline-flex items-center gap-3 border border-[--lime]/40 bg-[--lime]/10 hover:bg-[--lime] hover:text-[--btn-text] px-6 py-3 font-mono text-xs font-bold tracking-widest text-[--lime] transition-all duration-300 shadow-[0_0_20px_rgba(21,128,61,0.15)] dark:shadow-[0_0_20px_rgba(163,230,53,0.15)]"
+            >
+              <Layers size={16} className="text-[--lime] group-hover:text-[--btn-text] transition-colors" />
+              <span>
+                {isExpanded
+                  ? "SHOW CONDENSED VIEW"
+                  : `VIEW FULL TECHNICAL MATRIX (${technologyMap.length} CATEGORIES, ${totalSkillsCount} TECHNOLOGIES) ↓`}
+              </span>
+              {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+            </button>
+          </div>
+        )}
 
         {/* Interactive Architectural Context Inspector */}
         <div className="mt-10 p-5 border border-[--lime]/30 bg-[--lime]/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs">
