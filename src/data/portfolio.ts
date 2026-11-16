@@ -553,7 +553,7 @@ export const experienceTimeline = [
     status: "Current Commercial Position"
   },
   {
-    year: "2022 – 2025",
+    year: "2025- JUNE – 2025 - DEC",
     role: "Trainee Software Developer",
     company: "Amazoft IT",
     description: "Built responsive frontend screens with React.js, supported Java Spring Boot REST APIs, implemented JWT token authentication, prepared Docker builds, and created Postman API test suites.",
