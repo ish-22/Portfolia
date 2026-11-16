@@ -27,15 +27,10 @@ export function Hero() {
       {/* Background ambient lighting */}
       <div className="pointer-events-none absolute top-1/4 left-1/2 h-[350px] w-[350px] sm:h-[600px] sm:w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[--lime] opacity-[0.05] blur-[140px]" />
 
-      {/* Top Floating Badges (Dennis Snellenberg / Savindu inspired) */}
+      {/* Top Floating Badges */}
       <div className="container-xl relative z-30 w-full flex items-start justify-between gap-4">
         {/* Left: Location & Globe Badge */}
-        <motion.div
-          initial={{ opacity: 0, x: -25 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="pointer-events-auto"
-        >
+        <div className="pointer-events-auto">
           <div className="inline-flex items-center gap-3 bg-[--surface] text-[--text] rounded-full py-2 pl-3.5 pr-2 sm:py-2.5 sm:pl-5 sm:pr-2.5 shadow-xl border border-[--border] group">
             <div className="leading-tight">
               <span className="text-[10px] font-mono tracking-widest text-[--lime] block uppercase font-bold">
@@ -49,15 +44,10 @@ export function Hero() {
               <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-[--lime] animate-spin-slow stroke-[1.5]" />
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Right: Specialty & Role Indicator */}
-        <motion.div
-          initial={{ opacity: 0, x: 25 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.05 }}
-          className="pointer-events-auto text-right flex flex-col items-end gap-1"
-        >
+        <div className="pointer-events-auto text-right flex flex-col items-end gap-1">
           <div className="text-xl sm:text-2xl font-light text-[--lime]">↘</div>
           <span className="text-[10px] font-mono tracking-widest text-[--muted] uppercase font-bold">
             SPECIALIZATION
@@ -68,15 +58,12 @@ export function Hero() {
               @ Amazoft IT · Cardiff Met. 2:1
             </span>
           </h1>
-        </motion.div>
+        </div>
       </div>
 
-      {/* Center Editorial Portrait Frame */}
+      {/* Center Editorial Portrait Frame - LCP Optimized (No initial opacity: 0 to paint immediately) */}
       <div className="relative inset-x-0 my-auto flex justify-center items-end pointer-events-none z-10 w-full px-4">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 30 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        <div
           className="relative w-full max-w-[300px] sm:max-w-[420px] md:max-w-[500px] lg:max-w-[560px] h-[48vh] sm:h-[58vh] md:h-[64vh] rounded-t-3xl sm:rounded-t-[48px] overflow-hidden border-t border-x border-[--border] bg-gradient-to-b from-transparent via-[--surface]/40 to-[--bg] shadow-2xl"
         >
           <Image
@@ -84,12 +71,13 @@ export function Hero() {
             alt="Ishan Chinthaka — Full-Stack Software Engineer in Sri Lanka"
             fill
             priority
+            fetchPriority="high"
             sizes="(max-width: 640px) 300px, (max-width: 1024px) 500px, 560px"
             className="object-cover object-top filter contrast-[1.02]"
           />
           {/* Subtle gradient vignette at bottom to seamlessly blend with background marquee */}
           <div className="absolute inset-x-0 bottom-0 h-32 sm:h-40 bg-gradient-to-t from-[--bg] via-[--bg]/70 to-transparent" />
-        </motion.div>
+        </div>
       </div>
 
       {/* Dennis Snellenberg / Savindu Signature Refined Typographic Marquee */}
