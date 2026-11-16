@@ -111,7 +111,7 @@ export const metadata: Metadata = {
     }
   },
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined
+    google: "f0JRFVeKNtv3mHGt-YSdEiffb5syykxJ8s603X_HpMY"
   }
 };
 
