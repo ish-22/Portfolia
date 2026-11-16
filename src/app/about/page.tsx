@@ -3,7 +3,7 @@ import { About } from "@/components/sections/about";
 import { SiteLayout } from "@/components/site-layout";
 
 export const metadata: Metadata = {
-  title: "About Ishan Chinthaka | Full-Stack Software Engineer — Sri Lanka",
+  title: "About Me — Software Engineer",
   description:
     "Learn about Ishan Chinthaka, a Full-Stack Software Engineer based in Sri Lanka with commercial experience at Amazoft IT and a BSc (Hons) 2:1 in Software Engineering from Cardiff Metropolitan University.",
   keywords: [
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     canonical: "/about"
   },
   openGraph: {
-    title: "About Ishan Chinthaka | Full-Stack Software Engineer",
+    title: "About Me — Software Engineer | Ishan Chinthaka",
     description:
       "Commercial experience building production web applications, scalable REST APIs, and database-driven solutions. Cardiff Metropolitan University BSc (Hons) 2:1.",
     url: "https://ishan-chinthaka.vercel.app/about",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Ishan Chinthaka | Full-Stack Software Engineer",
+    title: "About Me — Software Engineer | Ishan Chinthaka",
     description:
       "Full-Stack Software Engineer from Sri Lanka building reliable web software, scalable APIs, and database solutions.",
     creator: "@ish_22"

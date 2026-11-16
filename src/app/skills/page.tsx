@@ -3,7 +3,7 @@ import { TechnologyUniverse } from "@/components/sections/skills";
 import { SiteLayout } from "@/components/site-layout";
 
 export const metadata: Metadata = {
-  title: "Technical Skills & Engineering Stack | Ishan Chinthaka",
+  title: "Technical Skills & Tech Stack",
   description:
     "Explore Ishan Chinthaka's core technology competencies across Frontend, Backend, Databases, Cloud & DevOps: React.js, Next.js, TypeScript, Node.js, Spring Boot, PostgreSQL, and AWS.",
   keywords: [
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     canonical: "/skills"
   },
   openGraph: {
-    title: "Skills & Technical Capabilities | Ishan Chinthaka",
+    title: "Technical Skills & Tech Stack | Ishan Chinthaka",
     description:
       "Technical competencies in React, Next.js, TypeScript, Node.js, Spring Boot, PostgreSQL, AWS, and AI integrations.",
     url: "https://ishan-chinthaka.vercel.app/skills",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Technical Skills | Ishan Chinthaka — Software Engineer",
+    title: "Technical Skills & Tech Stack | Ishan Chinthaka",
     description:
       "Core technology competencies in React, Next.js, TypeScript, Node.js, Spring Boot, and PostgreSQL.",
     creator: "@ish_22"

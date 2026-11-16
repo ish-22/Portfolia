@@ -3,7 +3,7 @@ import { SelectedWork } from "@/components/sections/projects";
 import { SiteLayout } from "@/components/site-layout";
 
 export const metadata: Metadata = {
-  title: "Projects & Engineering Case Studies | Ishan Chinthaka",
+  title: "Projects & Case Studies",
   description:
     "Explore full-stack software applications and case studies built by Ishan Chinthaka — including Track My Bus (real-time IoT fleet transit), MediSync Core, and AI Study Assistant.",
   keywords: [
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     canonical: "/projects"
   },
   openGraph: {
-    title: "Projects & Case Studies | Ishan Chinthaka — Full-Stack Developer",
+    title: "Projects & Case Studies | Ishan Chinthaka",
     description:
       "Explore real-time transit tracking, healthcare management, and AI document search applications built by Ishan Chinthaka.",
     url: "https://ishan-chinthaka.vercel.app/projects",

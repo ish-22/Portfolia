@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: { params: CaseStudyParams }):
     const siteUrl = "https://ishan-chinthaka.vercel.app";
 
     return {
-        title: `${project.title} — Software Architecture & Case Study | Ishan Chinthaka`,
+        title: `${project.title} — Case Study`,
         description: project.overview || project.description,
         keywords: [
             project.title,

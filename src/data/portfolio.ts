@@ -603,7 +603,7 @@ export const workExperience: WorkExperience[] = [
     role: "Associate Software Engineer",
     period: "December 2025 – Present",
     status: "CURRENT",
-    location: "Meetiyagoda, Ambalangoda, Sri Lanka",
+    location: "No. 4,Dharmarama Rd Colombo, Sri Lanka 06",
     summary:
       "Architect and maintain production web features using React.js, TypeScript, and REST APIs, design and optimize database schemas in PostgreSQL, investigate and fix bugs, and collaborate in Agile sprint cycles.",
     responsibilities: [
@@ -653,7 +653,7 @@ export const workExperience: WorkExperience[] = [
     role: "Trainee Software Developer",
     period: "June 2022 – December 2025",
     status: "PAST",
-    location: "Meetiyagoda, Ambalangoda, Sri Lanka",
+    location: "No.4, Dharmarama Rd Colombo,Sri Lanka 06",
     summary:
       "Developed responsive user interfaces with HTML5, CSS3, and React.js while supporting Java Spring Boot RESTful API services, token authentication, Docker builds, and Postman API contract testing.",
     responsibilities: [

@@ -3,7 +3,7 @@ import { Contact } from "@/components/sections/contact";
 import { SiteLayout } from "@/components/site-layout";
 
 export const metadata: Metadata = {
-  title: "Contact Ishan Chinthaka | Full-Stack Software Engineer — Sri Lanka",
+  title: "Contact & Inquiries",
   description:
     "Get in touch with Ishan Chinthaka for full-stack software development roles, contract projects, or technical consultations. Direct email, WhatsApp (+94 76 527 4750), and message form.",
   keywords: [
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     canonical: "/contact"
   },
   openGraph: {
-    title: "Contact Ishan Chinthaka | Full-Stack Software Engineer",
+    title: "Contact & Inquiries | Ishan Chinthaka",
     description:
       "Available for software engineering opportunities and technical collaboration. Reach out directly via email, WhatsApp (+94 76 527 4750), or direct message form.",
     url: "https://ishan-chinthaka.vercel.app/contact",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Ishan Chinthaka | Full-Stack Software Engineer",
+    title: "Contact & Inquiries | Ishan Chinthaka",
     description:
       "Connect directly with Ishan Chinthaka for software development projects, employment, or technical inquiries.",
     creator: "@ish_22"

@@ -3,7 +3,7 @@ import { ProfessionalExperience } from "@/components/sections/experience";
 import { SiteLayout } from "@/components/site-layout";
 
 export const metadata: Metadata = {
-  title: "Professional Experience | Ishan Chinthaka — Software Engineer",
+  title: "Professional Experience",
   description:
     "Review Ishan Chinthaka's commercial software engineering career at Amazoft IT (Associate Software Engineer & Trainee Developer), production systems shipped, and Cardiff Met qualifications.",
   keywords: [
