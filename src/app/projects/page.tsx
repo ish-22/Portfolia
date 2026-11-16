@@ -36,9 +36,32 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ishan-chinthaka.vercel.app"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Projects",
+        "item": "https://ishan-chinthaka.vercel.app/projects"
+      }
+    ]
+  };
+
   return (
     <SiteLayout>
-      <h1 className="sr-only">Software Engineering Projects & Case Studies by Ishan Chinthaka</h1>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <h1 className="sr-only">Software Engineering Projects &amp; Case Studies by Ishan Chinthaka</h1>
       <SelectedWork />
     </SiteLayout>
   );

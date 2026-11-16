@@ -36,9 +36,32 @@ export const metadata: Metadata = {
 };
 
 export default function SkillsPage() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ishan-chinthaka.vercel.app"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Skills",
+        "item": "https://ishan-chinthaka.vercel.app/skills"
+      }
+    ]
+  };
+
   return (
     <SiteLayout>
-      <h1 className="sr-only">Technical Skills & Engineering Stack — Ishan Chinthaka</h1>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <h1 className="sr-only">Technical Skills &amp; Engineering Stack — Ishan Chinthaka</h1>
       <TechnologyUniverse />
     </SiteLayout>
   );

@@ -100,7 +100,7 @@ export function Header() {
               {navLinks.slice(0, 4).map((link) => (
                 <Link
                   key={link.label}
-                  href={pathname === "/" ? `#${link.sectionId}` : link.href}
+                  href={link.href}
                   onClick={(e) => handleNavClick(e, link)}
                   className="font-mono text-xs sm:text-[13px] font-bold tracking-widest text-[--text] opacity-85 hover:opacity-100 hover:text-[--lime] transition-all relative group py-1"
                 >
@@ -187,7 +187,7 @@ export function Header() {
                   transition={{ delay: 0.15 + i * 0.08, duration: 0.4 }}
                 >
                   <Link
-                    href={link.href === "/contact" ? "/contact" : pathname === "/" ? `#${link.sectionId}` : link.href}
+                    href={link.href}
                     onClick={(e) => handleNavClick(e, link)}
                     className="group flex items-baseline gap-4 sm:gap-8 transition-colors"
                   >

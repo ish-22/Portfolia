@@ -97,7 +97,7 @@ export function Footer() {
             {footerNav.map((item) => (
               <Link
                 key={item.label}
-                href={item.href === "/contact" ? "/contact" : pathname === "/" ? `#${item.sectionId}` : item.href}
+                href={item.href}
                 onClick={(e) => handleNavClick(e, item)}
                 className="font-mono text-[10px] font-semibold tracking-widest text-[--muted] hover:text-[--lime] transition-colors"
               >

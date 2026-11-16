@@ -187,12 +187,61 @@ export default function RootLayout({
         "@type": "WebSite",
         "@id": `${siteUrl}/#website`,
         url: siteUrl,
-        name: `${profile.name} Portfolio`,
+        name: "Ishan Chinthaka",
+        alternateName: [
+          "Ishan Chinthaka Portfolio",
+          "Ishan Chinthaka Software Engineer",
+          "Ishan Chinthaka Full-Stack Developer"
+        ],
         publisher: {
           "@id": `${siteUrl}/#person`
         },
-        description: "Portfolio of Ishan Chinthaka — Full-Stack Software Engineer in Sri Lanka.",
+        description:
+          "Official portfolio of Ishan Chinthaka — Full-Stack Software Engineer based in Sri Lanka specializing in React, Next.js, TypeScript, Node.js, Spring Boot, and PostgreSQL.",
         inLanguage: "en-US"
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${siteUrl}/#sitenavigation`,
+        name: "Site Navigation",
+        description: "Primary directory of Ishan Chinthaka's portfolio",
+        itemListElement: [
+          {
+            "@type": "SiteNavigationElement",
+            position: 1,
+            name: "Projects & Work",
+            description: "Production web applications, IoT transit tracking, and full-stack engineering case studies.",
+            url: `${siteUrl}/projects`
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 2,
+            name: "About Ishan Chinthaka",
+            description: "Biography, background, Cardiff Metropolitan University degree, and career journey.",
+            url: `${siteUrl}/about`
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 3,
+            name: "Work Experience",
+            description: "Commercial software engineering experience at Amazoft IT as Associate and Trainee Developer.",
+            url: `${siteUrl}/experience`
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 4,
+            name: "Technical Skills",
+            description: "Frontend, backend, database, and cloud competencies across React, Next.js, Node.js, Spring Boot, and PostgreSQL.",
+            url: `${siteUrl}/skills`
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 5,
+            name: "Contact & Inquiries",
+            description: "Direct email, WhatsApp (+94 76 527 4750), and message form for hiring and collaboration.",
+            url: `${siteUrl}/contact`
+          }
+        ]
       },
       {
         "@type": "ProfilePage",

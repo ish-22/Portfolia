@@ -34,8 +34,31 @@ export const metadata: Metadata = {
 };
 
 export default function ExperiencePage() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ishan-chinthaka.vercel.app"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Experience",
+        "item": "https://ishan-chinthaka.vercel.app/experience"
+      }
+    ]
+  };
+
   return (
     <SiteLayout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <h1 className="sr-only">Professional Software Engineering Experience — Ishan Chinthaka</h1>
       <ProfessionalExperience />
     </SiteLayout>
