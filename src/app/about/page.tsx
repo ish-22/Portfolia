@@ -53,11 +53,49 @@ export default function AboutPage() {
     ]
   };
 
+  const personDisambiguationSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Ishan Chinthaka",
+      "jobTitle": "Associate Software Engineer",
+      "disambiguatingDescription":
+        "Associate Software Engineer at Amazoft IT and Cardiff Metropolitan University BSc (Hons) 2:1 Software Engineering graduate, specializing in React, Next.js, TypeScript, Spring Boot, and PostgreSQL. Distinct from Ishan Chinthaka (Dynamics CRM developer / SLIIT graduate).",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Amazoft",
+        "alternateName": "Amazoft IT",
+        "url": "https://www.amazoft.com"
+      },
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Cardiff Metropolitan University",
+          "url": "https://www.cardiffmet.ac.uk"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "ICBT Campus",
+          "url": "https://www.icbt.lk"
+        }
+      ],
+      "sameAs": [
+        "https://github.com/ish-22",
+        "https://www.linkedin.com/in/ishan-chinthaka-1a6b5a2b1"
+      ]
+    }
+  };
+
   return (
     <SiteLayout>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personDisambiguationSchema) }}
       />
       <h1 className="sr-only">About Ishan Chinthaka — Full-Stack Software Engineer in Sri Lanka</h1>
       <About />

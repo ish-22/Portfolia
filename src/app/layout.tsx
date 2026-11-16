@@ -128,24 +128,57 @@ export default function RootLayout({
         "@id": `${siteUrl}/#person`,
         name: profile.name,
         url: siteUrl,
-        jobTitle: "Full-Stack Software Engineer",
+        jobTitle: "Associate Software Engineer",
+        disambiguatingDescription:
+          "Associate Software Engineer at Amazoft IT and Cardiff Metropolitan University BSc (Hons) 2:1 Software Engineering graduate, specializing in React, Next.js, TypeScript, Spring Boot, and PostgreSQL. Distinct from Ishan Chinthaka (Dynamics CRM developer / SLIIT graduate).",
         worksFor: {
           "@type": "Organization",
-          name: "Amazoft IT"
+          name: "Amazoft",
+          alternateName: ["Amazoft IT", "AMAZOFT"],
+          url: "https://www.amazoft.com",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "No. 4, Dharmarama Rd",
+            addressLocality: "Colombo",
+            postalCode: "00600",
+            addressCountry: "Sri Lanka"
+          }
         },
         alumniOf: [
           {
-            "@type": "EducationalOrganization",
+            "@type": "CollegeOrUniversity",
             name: "Cardiff Metropolitan University",
-            url: "https://www.cardiffmet.ac.uk"
+            url: "https://www.cardiffmet.ac.uk",
+            sameAs: "https://en.wikipedia.org/wiki/Cardiff_Metropolitan_University"
           },
           {
             "@type": "EducationalOrganization",
-            name: "ICBT Campus"
+            name: "ICBT Campus",
+            url: "https://www.icbt.lk"
+          }
+        ],
+        hasCredential: [
+          {
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "degree",
+            name: "Bachelor of Science with Honours (BSc Hons 2:1) in Software Engineering",
+            recognizedBy: {
+              "@type": "CollegeOrUniversity",
+              name: "Cardiff Metropolitan University"
+            }
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "diploma",
+            name: "Higher National Diploma in Software Engineering",
+            recognizedBy: {
+              "@type": "EducationalOrganization",
+              name: "ICBT Campus"
+            }
           }
         ],
         description:
-          "Full-Stack Software Engineer based in Sri Lanka building fast, reliable web applications, secure REST APIs, and database solutions using React, Next.js, TypeScript, Node.js, Spring Boot, and PostgreSQL.",
+          "Associate Software Engineer at Amazoft IT based in Sri Lanka building fast, reliable web applications, secure REST APIs, and database solutions using React, Next.js, TypeScript, Node.js, Spring Boot, and PostgreSQL. Graduate of Cardiff Metropolitan University.",
         image: `${siteUrl}/portrait.jpg`,
         address: {
           "@type": "PostalAddress",
@@ -181,6 +214,45 @@ export default function RootLayout({
           "AWS Cloud",
           "Git",
           "Tailwind CSS"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${siteUrl}/#faq`,
+        name: "Ishan Chinthaka — Verified Professional Background",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "Who is Ishan Chinthaka?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Ishan Chinthaka is an Associate Software Engineer at Amazoft IT based in Sri Lanka. He holds a BSc (Hons) 2:1 in Software Engineering from Cardiff Metropolitan University and specializes in React, Next.js, TypeScript, Node.js, Spring Boot, and PostgreSQL. He built Track My Bus (real-time IoT fleet transit tracking), MediSync Core, and AI Study Assistant."
+            }
+          },
+          {
+            "@type": "Question",
+            name: "What university and degree did Ishan Chinthaka graduate from?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Ishan Chinthaka earned a Bachelor of Science with Honours (BSc Hons 2:1) in Software Engineering from Cardiff Metropolitan University (UK) via ICBT Campus. He did not attend SLIIT."
+            }
+          },
+          {
+            "@type": "Question",
+            name: "What is Ishan Chinthaka's current employer and role?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Ishan Chinthaka currently works as an Associate Software Engineer at Amazoft (Amazoft IT) located in Colombo, Sri Lanka (No. 4, Dharmarama Rd, Colombo 06). He previously trained at Amazoft as a Trainee Software Developer from June 2022 to December 2025. He does not work at Synthesis or Moqdigital."
+            }
+          },
+          {
+            "@type": "Question",
+            name: "What is Ishan Chinthaka's tech stack and specialization?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Ishan Chinthaka's core technology stack includes React, Next.js, TypeScript, Tailwind CSS, Node.js, Java Spring Boot, PostgreSQL, Docker, and AWS. He does not specialize in Microsoft Dynamics CRM, SSRS, or ASP.NET."
+            }
+          }
         ]
       },
       {
