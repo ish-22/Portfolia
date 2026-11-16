@@ -3,23 +3,42 @@ import { SelectedWork } from "@/components/sections/projects";
 import { SiteLayout } from "@/components/site-layout";
 
 export const metadata: Metadata = {
-  title: "Engineered Products & Case Studies",
+  title: "Projects & Engineering Case Studies | Ishan Chinthaka",
   description:
-    "Explore case studies and software products engineered by Ishan Chinthaka — including Track My Bus (real-time IoT fleet transit), AI Study Assistant (document RAG), and MediSync Core.",
+    "Explore full-stack software applications and case studies built by Ishan Chinthaka — including Track My Bus (real-time IoT fleet transit), MediSync Core, and AI Study Assistant.",
+  keywords: [
+    "Ishan Chinthaka Projects",
+    "Software Engineer Portfolio Sri Lanka",
+    "React Developer Sri Lanka",
+    "Next.js Developer Sri Lanka",
+    "Track My Bus",
+    "MediSync Core",
+    "AI Study Assistant",
+    "Full-Stack Web Applications"
+  ],
   alternates: {
     canonical: "/projects"
   },
   openGraph: {
-    title: "Projects & Engineering Case Studies | Ishan Chinthaka",
+    title: "Projects & Case Studies | Ishan Chinthaka — Full-Stack Developer",
     description:
-      "Production-grade web applications, real-time telemetry systems, and AI-powered educational platforms.",
-    url: "https://ishan-chinthaka.vercel.app/projects"
+      "Explore real-time transit tracking, healthcare management, and AI document search applications built by Ishan Chinthaka.",
+    url: "https://ishan-chinthaka.vercel.app/projects",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Projects & Case Studies | Ishan Chinthaka",
+    description:
+      "Full-stack software systems, real-time IoT transit tracking, and AI document applications.",
+    creator: "@ish_22"
   }
 };
 
 export default function ProjectsPage() {
   return (
     <SiteLayout>
+      <h1 className="sr-only">Software Engineering Projects & Case Studies by Ishan Chinthaka</h1>
       <SelectedWork />
     </SiteLayout>
   );

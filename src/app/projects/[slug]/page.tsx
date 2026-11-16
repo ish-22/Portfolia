@@ -41,8 +41,17 @@ export async function generateMetadata({ params }: { params: CaseStudyParams }):
     const siteUrl = "https://ishan-chinthaka.vercel.app";
 
     return {
-        title: `${project.title} — Technical Case Study`,
+        title: `${project.title} — Software Architecture & Case Study | Ishan Chinthaka`,
         description: project.overview || project.description,
+        keywords: [
+            project.title,
+            `${project.title} case study`,
+            `${project.title} architecture`,
+            ...project.stack,
+            "Ishan Chinthaka",
+            "Software Engineer Sri Lanka",
+            "Full Stack Developer Sri Lanka"
+        ],
         alternates: {
             canonical: `/projects/${project.slug}`
         },
@@ -79,8 +88,37 @@ export default async function CaseStudyPage({ params }: { params: CaseStudyParam
         notFound();
     }
 
+    const siteUrl = "https://ishan-chinthaka.vercel.app";
+
+    const projectStructuredData = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name: project.title,
+        description: project.overview || project.description,
+        applicationCategory: "WebApplication",
+        operatingSystem: "Web Browser",
+        author: {
+            "@type": "Person",
+            name: "Ishan Chinthaka",
+            url: siteUrl
+        },
+        offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "USD"
+        },
+        url: `${siteUrl}/projects/${project.slug}`,
+        image: `${siteUrl}${project.image}`
+    };
+
     return (
         <SiteLayout>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(projectStructuredData)
+                }}
+            />
             <article className="min-h-screen pt-28 pb-24 bg-[--bg] text-[--text]">
                 <div className="container-lg max-w-5xl">
                     {/* Back Navigation Button */}

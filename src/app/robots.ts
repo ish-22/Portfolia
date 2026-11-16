@@ -1,12 +1,16 @@
 import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
+  const siteUrl = "https://ishan-chinthaka.vercel.app";
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-      disallow: ["/api/"]
-    },
-    sitemap: "https://ishan-chinthaka.vercel.app/sitemap.xml"
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/api/"]
+      }
+    ],
+    sitemap: `${siteUrl}/sitemap.xml`,
+    host: siteUrl
   };
 }

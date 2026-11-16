@@ -3,9 +3,17 @@ import { ProfessionalExperience } from "@/components/sections/experience";
 import { SiteLayout } from "@/components/site-layout";
 
 export const metadata: Metadata = {
-  title: "Professional Experience",
+  title: "Professional Experience | Ishan Chinthaka — Software Engineer",
   description:
-    "Review Ishan Chinthaka's commercial engineering experience as Associate Software Engineer at Amazoft IT, production systems built, and Cardiff Met software engineering qualifications.",
+    "Review Ishan Chinthaka's commercial software engineering career at Amazoft IT (Associate Software Engineer & Trainee Developer), production systems shipped, and Cardiff Met qualifications.",
+  keywords: [
+    "Ishan Chinthaka Experience",
+    "Associate Software Engineer Amazoft IT",
+    "Trainee Software Developer Sri Lanka",
+    "Cardiff Metropolitan University BSc Hons",
+    "Full Stack Developer Sri Lanka",
+    "Software Engineering Career Sri Lanka"
+  ],
   alternates: {
     canonical: "/experience"
   },
@@ -13,13 +21,22 @@ export const metadata: Metadata = {
     title: "Professional Experience | Ishan Chinthaka",
     description:
       "Associate Software Engineer at Amazoft IT. Production web features in React/TypeScript, PostgreSQL schema optimization, and Agile sprint delivery.",
-    url: "https://ishan-chinthaka.vercel.app/experience"
+    url: "https://ishan-chinthaka.vercel.app/experience",
+    type: "profile"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Professional Experience | Ishan Chinthaka",
+    description:
+      "Commercial software development track record at Amazoft IT and academic foundations from Cardiff Met.",
+    creator: "@ish_22"
   }
 };
 
 export default function ExperiencePage() {
   return (
     <SiteLayout>
+      <h1 className="sr-only">Professional Software Engineering Experience — Ishan Chinthaka</h1>
       <ProfessionalExperience />
     </SiteLayout>
   );

@@ -62,12 +62,12 @@ export function Hero() {
           <span className="text-[10px] font-mono tracking-widest text-[--muted] uppercase font-bold">
             SPECIALIZATION
           </span>
-          <h2 className="text-xs sm:text-base md:text-lg font-bold tracking-tight text-[--text] leading-snug">
-            Full-Stack Software Engineer
+          <h1 className="text-xs sm:text-base md:text-lg font-bold tracking-tight text-[--text] leading-snug">
+            <span className="sr-only">Ishan Chinthaka — </span>Full-Stack Software Engineer
             <span className="block text-[11px] font-mono text-[--lime] font-normal">
               @ Amazoft IT · Cardiff Met. 2:1
             </span>
-          </h2>
+          </h1>
         </motion.div>
       </div>
 
@@ -81,7 +81,7 @@ export function Hero() {
         >
           <Image
             src="/portrait.jpg"
-            alt={profile.name}
+            alt="Ishan Chinthaka — Full-Stack Software Engineer in Sri Lanka"
             fill
             priority
             sizes="(max-width: 640px) 300px, (max-width: 1024px) 500px, 560px"
@@ -100,12 +100,13 @@ export function Hero() {
             className="flex animate-marquee hover:[animation-play-state:paused] cursor-default whitespace-nowrap will-change-transform"
           >
             {[...Array(6)].map((_, i) => (
-              <h1
+              <span
                 key={i}
-                className="text-[10vw] sm:text-[8vw] md:text-[7vw] lg:text-[6vw] font-extrabold tracking-tighter text-[--text] pr-8 sm:pr-14 leading-none select-none uppercase opacity-90 transition-opacity hover:text-[--lime]"
+                aria-hidden={i > 0 ? "true" : undefined}
+                className="text-[10vw] sm:text-[8vw] md:text-[7vw] lg:text-[6vw] font-extrabold tracking-tighter text-[--text] pr-8 sm:pr-14 leading-none select-none uppercase opacity-90 transition-opacity hover:text-[--lime] block"
               >
                 {profile.name} —
-              </h1>
+              </span>
             ))}
           </div>
         </div>

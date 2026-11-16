@@ -499,7 +499,7 @@ export function ChatWidget() {
                                                         <div className="flex-shrink-0 h-5 w-5 rounded-full overflow-hidden mt-0.5 border border-black/5 dark:border-white/5">
                                                             <Image
                                                                 src="/ai-assistant-logo.png"
-                                                                alt="AI Logo"
+                                                                alt="Ishan AI Assistant Logo"
                                                                 width={20}
                                                                 height={20}
                                                                 className="h-full w-full object-cover"

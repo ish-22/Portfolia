@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -18,24 +18,36 @@ const jetbrainsMono = JetBrains_Mono({
 
 const siteUrl = "https://ishan-chinthaka.vercel.app";
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#0a0c10" },
+    { media: "(prefers-color-scheme: light)", color: "#0a0c10" }
+  ],
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  colorScheme: "dark"
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${profile.name} | Full-Stack Software Engineer`,
+    default: `${profile.name} | Full-Stack Software Engineer — Sri Lanka`,
     template: `%s | ${profile.name}`
   },
   description:
-    "Full-Stack Software Engineer with commercial experience building production web applications, scalable REST APIs, and database-driven systems using React, Next.js, TypeScript, Node.js, Spring Boot, and PostgreSQL.",
+    "Ishan Chinthaka is a Full-Stack Software Engineer based in Sri Lanka specializing in React, Next.js, TypeScript, Node.js, Spring Boot, and PostgreSQL. Explore commercial work, production web apps, and system architecture case studies.",
   keywords: [
     "Ishan Chinthaka",
-    "Ishan Chinthaka portfolio",
+    "Ishan Chinthaka Software Engineer",
+    "Full Stack Developer Sri Lanka",
+    "React Developer Sri Lanka",
+    "Next.js Developer Sri Lanka",
+    "Software Engineer Portfolio Sri Lanka",
     "Full-Stack Software Engineer",
-    "Software Developer Sri Lanka",
-    "React.js Developer",
-    "Next.js Developer",
-    "TypeScript Engineer",
+    "TypeScript Developer Sri Lanka",
     "Node.js REST API",
-    "Spring Boot Developer",
+    "Spring Boot Developer Sri Lanka",
     "PostgreSQL",
     "Amazoft IT"
   ],
@@ -44,6 +56,8 @@ export const metadata: Metadata = {
   publisher: profile.name,
   applicationName: `${profile.name} Portfolio`,
   generator: "Next.js",
+  category: "technology",
+  classification: "Software Engineering Portfolio",
   formatDetection: {
     email: false,
     address: false,
@@ -56,10 +70,10 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: `${profile.name} — Digital Engineering Lab`,
-    title: `${profile.name} | Full-Stack Software Engineer`,
+    siteName: `${profile.name} — Full-Stack Software Engineer Portfolio`,
+    title: `${profile.name} | Full-Stack Software Engineer — Sri Lanka`,
     description:
-      "Commercial experience building production web applications, scalable REST APIs, and database-driven solutions. Cardiff Metropolitan University BSc (Hons) 2:1.",
+      "Full-Stack Software Engineer in Sri Lanka with commercial experience building production web applications, scalable REST APIs, and database-driven solutions. Cardiff Metropolitan University BSc (Hons) 2:1.",
     images: [
       {
         url: "/portfolio-hero.jpeg",
@@ -71,9 +85,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} | Full-Stack Software Engineer`,
+    title: `${profile.name} | Full-Stack Software Engineer — Sri Lanka`,
     description:
-      "Full-Stack Software Engineer building responsive web applications, resilient REST APIs, and database systems.",
+      "Full-Stack Software Engineer in Sri Lanka building responsive web applications, resilient REST APIs, and database systems.",
     images: ["/portfolio-hero.jpeg"],
     creator: "@ish_22"
   },
@@ -95,6 +109,9 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1
     }
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined
   }
 };
 
@@ -111,42 +128,59 @@ export default function RootLayout({
         "@id": `${siteUrl}/#person`,
         name: profile.name,
         url: siteUrl,
-        jobTitle: "Associate Software Engineer",
+        jobTitle: "Full-Stack Software Engineer",
         worksFor: {
           "@type": "Organization",
           name: "Amazoft IT"
         },
-        alumniOf: {
-          "@type": "EducationalOrganization",
-          name: "Cardiff Metropolitan University"
-        },
-        description: profile.subhead,
+        alumniOf: [
+          {
+            "@type": "EducationalOrganization",
+            name: "Cardiff Metropolitan University",
+            url: "https://www.cardiffmet.ac.uk"
+          },
+          {
+            "@type": "EducationalOrganization",
+            name: "ICBT Campus"
+          }
+        ],
+        description:
+          "Full-Stack Software Engineer based in Sri Lanka building fast, reliable web applications, secure REST APIs, and database solutions using React, Next.js, TypeScript, Node.js, Spring Boot, and PostgreSQL.",
+        image: `${siteUrl}/portrait.jpg`,
         address: {
           "@type": "PostalAddress",
-          addressLocality: "Meetiyagoda",
-          addressRegion: "Ambalangoda",
+          addressLocality: "Ambalangoda",
+          addressRegion: "Southern Province",
           addressCountry: "Sri Lanka"
         },
         sameAs: [
           profile.github,
           profile.linkedin,
+          profile.facebook,
+          profile.tiktok,
           "mailto:ishanchinthaka2002@gmail.com"
         ],
         knowsAbout: [
-          "Frontend Engineering",
+          "Software Engineering",
+          "Full-Stack Web Development",
           "React.js",
           "Next.js",
           "TypeScript",
-          "Backend Systems",
+          "JavaScript",
           "Node.js",
           "Express.js",
-          "Java Spring Boot",
-          "PHP & Laravel",
+          "Java",
+          "Spring Boot",
+          "PHP",
+          "Laravel",
           "PostgreSQL",
           "MySQL",
           "Redis",
           "RESTful APIs",
-          "Cloud & Docker"
+          "Docker",
+          "AWS Cloud",
+          "Git",
+          "Tailwind CSS"
         ]
       },
       {
@@ -157,7 +191,7 @@ export default function RootLayout({
         publisher: {
           "@id": `${siteUrl}/#person`
         },
-        description: profile.headline,
+        description: "Portfolio of Ishan Chinthaka — Full-Stack Software Engineer in Sri Lanka.",
         inLanguage: "en-US"
       },
       {
